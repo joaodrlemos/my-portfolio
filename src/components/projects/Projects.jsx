@@ -98,7 +98,7 @@ export default function Projects() {
                                         sass
                                     </div>
                                 </div>
-                                <a href="">Visit</a>
+                                <a href="#home">Visit</a>
                             </div>
                         </div>
                     </div>
