@@ -1,0 +1,100 @@
+@import "../../global.scss";
+
+.home {
+    
+    .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;      
+        background-image: linear-gradient(rgba(30, 35, 41,.9), 
+                                          rgba(30, 35, 41,0.5)), 
+                                            url("../../assets/pictures/J1_bw.png");
+        background-size: 70% 100%;
+        background-position: bottom 1px left 45%;
+
+        //
+        width: 100%;
+
+        .greeting{
+            position: relative;
+            top: calc(-35px);
+            height: 202px;
+            overflow: hidden;
+            
+            &.en{
+            }
+            
+            &.pt{
+            }
+            
+            .wrapper{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                
+                > *{
+                    overflow: hidden;
+                    
+                }
+
+                h2{ 
+                    span{
+                        font-size: 50px;
+                    }
+                }
+
+                h1{
+                    span{
+                        font-size: 100px;
+                        font-weight: 600;
+                    }
+                }
+
+                h3{
+                    span{
+                        font-size: 40px;
+                        font-weight: 500;
+                    }
+                }
+
+                h4{
+                    color: rgb(163, 161, 161);
+                }
+
+                &.social-icons{
+                    display: none;
+                
+                    > *{
+                        margin-right: 10px;
+                        color: #fff;
+
+                        > *{
+                            font-size: 180%;
+                            animation: apear .2s linear;
+
+                        @keyframes apear {
+                            0% {
+                                transform: scale(0);
+                            }
+                            100% {
+                                transform: scale(1);
+                            } 
+                            
+                        }
+                        }
+                    }
+
+                    &.active{
+                        display: block;
+                        
+                    }
+                    
+                }
+
+            }
+
+        }
+    }
+}

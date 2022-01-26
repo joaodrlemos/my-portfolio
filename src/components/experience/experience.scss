@@ -1,0 +1,77 @@
+@import "../../global.scss";
+
+.experience {
+    display: flex;
+    align-items: center;
+
+    h2 {
+        flex: 0.48;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 40px;
+        overflow: hidden;
+
+        color: $orange;
+    }
+
+    .experience-list {
+        flex: 0.5;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 0px;
+
+        .experience-item {
+            width: 70%;
+            display: flex;
+
+            position: relative;
+
+            .circle {
+                padding: 0px;
+                position: absolute;
+                top: 2%;
+                font-size: 1.8em;
+                color: $deactive;
+            }
+
+            .item-info {
+                margin-left: 13.5px;
+                
+                > * {
+                    padding-left: 30px;
+                }
+                
+                h3 {
+                    font-size: 1.8em;
+                    font-weight: 600;
+                }
+                
+                span {
+                    color: $deactive;
+                    font-size: 1.2em;
+                    font-style: italic;
+                    
+                    border-left: 2px solid $deactive;
+                }
+                
+                p {
+                    padding-top: 10px;
+                    padding-bottom: 8%;
+
+                    border-left: 2px solid $deactive;
+                }
+            }
+        }
+
+        :last-child {
+            :last-child {
+                :last-child {
+                    padding-bottom: 4%;
+                }
+            }
+        }
+    }
+}

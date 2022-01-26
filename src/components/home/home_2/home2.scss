@@ -1,0 +1,115 @@
+@import "../../../global.scss";
+
+.home2 {
+    .container2 {
+        height: 100%;
+        display: flex;
+        position: relative;
+
+        .left2 {
+            flex: 0.5;
+            height: 100%;
+            position: relative;
+            background-image: linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.6)),
+                url("../../../assets/pictures/J1_bw.png");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .greeting2 {
+            flex: 0.5;
+            display: flex;
+            align-items: center;
+
+            .wrapper2 {
+                position: relative;
+                overflow: hidden;
+
+                &.hide {
+                    transition: all 0.5ms linear;
+                    top: -120px;
+                    opacity: 0;
+                }
+
+                &.show {
+                    transition: all 1s ease;
+                    top: -35px;
+                    opacity: 1;
+                }
+
+                h2 {
+                    font-size: 40px;
+                }
+
+                h1 {
+                    span {
+                        font-size: 60px;
+                        font-weight: 600;
+                        color: $blue;
+                    }
+                }
+
+                h3 {
+                    font-size: 40px;
+                    margin-bottom: 10px;
+
+                    span {
+                        color: $orange;
+                    }
+                }
+
+                h4 {
+                    color: rgb(163, 161, 161);
+                }
+
+                .social-icons2 {
+                    display: flex;
+
+                    > * {
+                        margin: 10px 10px 10px 0px;
+                        color: $deactive;
+
+                        &:hover {
+                            transform: scale(1.2);
+                        }
+
+                        > * {
+                            font-size: 180%;
+                            animation: apear 0.2s linear;
+
+                            @keyframes apear {
+                                0% {
+                                    transform: scale(0);
+                                }
+                                100% {
+                                    transform: scale(1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .scroll-arrow {
+            color: $deactive;
+            font-size: 3em;
+
+            position: absolute;
+            bottom: 0px;
+            right: 30%;
+            opacity: 0;
+            cursor: pointer;
+
+            transition: all 2s ease;
+            animation: arrowBlink 2s infinite;
+
+            @keyframes arrowBlink {
+                50% {
+                    opacity: 100%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,167 @@
+@import "../../global.scss";
+
+.about {
+    display: flex;
+
+    .left {
+        flex: 0.48;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            margin: 25px 30px;
+            font-size: 40px;
+            color: $orange;
+
+            // position: relative;
+            // top: -100%;
+
+            // animation: showAbout 2s linear;
+
+            // @keyframes showAbout {
+            //     100%{
+            //         top: 0%;
+            //     }
+                
+            // }
+        }
+
+        .description {
+            display: flex;
+            flex-direction: column;
+
+            p {
+                width: 80%;
+                font-size: 1.2em;
+                font-family: $textFont;
+                font-weight: 500;
+                margin: 10px 40px 20px 80px;
+                color: $deactive;
+            }
+        }
+    }
+
+    .right {
+        flex: 0.5;
+        display: flex;
+        flex-direction: column;
+
+        .title{
+            display: flex;
+            justify-content: center;
+
+            h2 {
+                margin: 25px 20px 10px;
+                font-size: 40px;
+                overflow: hidden;
+    
+                color: $orange;
+                position: relative;
+                right: 2%;
+            }
+        }
+        
+        .skills {
+            border-left: 2px solid $orange;
+            
+            height: 75%;
+            overflow: hidden;
+            
+            h3 {
+                width: 10%;
+                transform-origin: center;
+                transform: rotate(-90deg);
+
+                font-size: 25px;
+                padding: 0;
+                color: $orange;
+                
+                position: absolute;
+
+                &.hard{
+                    bottom: -30%;
+                }
+
+                &.soft{
+                    bottom: -66%;
+                }
+            }
+            
+            .hard-skills {
+                color: $orange;
+                
+                ul {
+                    position: relative;
+                    right: 5.5%;
+                    
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+
+                    margin: 10px 0px 20px 0px;
+
+                    li {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        
+                        font-size: 13px;
+                        margin-bottom: 5px;
+                        width: 40%;
+                        
+                        &.li-elem{
+                            margin-bottom: 10px;
+                            .js{
+                                > *{
+                                border: 0px solid $deactive;
+                                border-radius: 5px;
+                                }
+                            }
+                        }
+
+                        span {
+                            > * {
+                                font-size: 35px;
+                                margin: 0px 8px 0px 8px;
+                                color: $deactive;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .soft-skills{
+                color: $blue;
+                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                ul{
+                    position: relative;
+                    right: 4%;
+
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 50%;
+
+                    li{
+                        color: $deactive;
+                        font-size: 18px;
+                        font-weight: 600;
+                        margin: 10px 5px;
+
+                        border: 2px solid $orange;
+                        border-radius: 20px;
+
+                        padding: 2%;
+                    }
+                }
+            }
+        }
+    }
+}
