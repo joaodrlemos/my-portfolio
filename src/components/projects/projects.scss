@@ -45,8 +45,8 @@
                 border-radius: 80px;
                 border: 2px solid $blue;
 
-                opacity: .8;
-                
+                opacity: 0.8;
+
                 position: relative;
 
                 .project-title {
@@ -56,7 +56,7 @@
                         font-family: $textFont;
                         font-weight: 600;
                         font-size: 2em;
-                        
+
                         bottom: 50%;
                         left: 50%;
                         color: #fff;
@@ -128,27 +128,35 @@
 
                         a {
                             padding: 10px;
-
-                            border-radius: 20px;
-                            border: 2px solid $blue;
-                            color: $blue;
-                            background-color: $back;
-
                             overflow: hidden;
                             text-decoration: none;
 
+                            font-weight: 600;
+                            background-color: $blue;
+                            color: #fff;
+
+                            border-radius: 20px;
+                            border: 2px solid $blue;
+                            cursor: pointer;
+
                             &:hover {
-                                border-radius: 20px;
+                                background-color: $darkerBlue;
+                                border: 2px solid $darkerBlue;
+                            }
+
+                            &:active {
+                                border-color: $blue;
+                                background: none;
+                                color: $blue;
+
                                 border: 2px solid $blue;
-                                color: #fff;
-                                background-color: $blue;
                             }
                         }
                     }
                 }
 
                 &:hover {
-                    .wrapper{
+                    .wrapper {
                         transition: background-color 0.3s ease;
                         background-color: rgba(0, 0, 0, 0.8);
                     }
@@ -159,7 +167,7 @@
                         opacity: 1;
                     }
 
-                    .project-title{
+                    .project-title {
                         display: none;
                     }
                 }
