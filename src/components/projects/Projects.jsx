@@ -34,7 +34,7 @@ export default function Projects() {
                                         react
                                     </div>
                                 </div>
-                                <a href="https://note-keeper-project.netlify.app" target="_blank">Visit</a>
+                                <a href="https://note-keeper-project.netlify.app" target="_blank" rel="noopener noreferrer">Visit</a>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ export default function Projects() {
                                         js
                                     </div>
                                 </div>
-                                <a href="https://movie-js-db.netlify.app" target="_blank">Visit</a>
+                                <a href="https://movie-js-db.netlify.app" target="_blank" rel="noopener noreferrer">Visit</a>
                             </div>
                         </div>
                     </div>
