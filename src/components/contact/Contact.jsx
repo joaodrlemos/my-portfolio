@@ -1,4 +1,5 @@
 import "../contact/contact.scss";
+import { Instagram, GitHub, LinkedIn } from '@mui/icons-material';
 
 export default function Contact() {
     return (
@@ -9,9 +10,14 @@ export default function Contact() {
                     <p>
                         Thank you for visiting my portfolio site.
                     </p>
-                    <p> 
-                        If you're interested in getting in contact with me, please fill out this form.
+                    <p>
+                        If you're interested in getting in contact, please fill out this form or access my social medias.
                     </p>
+                    <div className="social-icons" >
+                        <a href="https://www.instagram.com/joao_lemings/" target="_blank"><Instagram /></a>
+                        <a href="https://github.com/Lemos467" target="_blank"><GitHub /></a>
+                        <a href="https://www.linkedin.com/in/jo%C3%A3o-lemos-304b74145/" target="_blank"><LinkedIn /></a>
+                    </div>
                 </div>
             </div>
             <div className="contact-form">

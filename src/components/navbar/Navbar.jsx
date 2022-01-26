@@ -1,7 +1,5 @@
 import "../navbar/navbar.scss";
 import logo from "../../assets/logos/J-cor-08.png";
-import { useState, useEffect } from "react";
-
 
 export default function Navbar({lang,setLang}) {
 

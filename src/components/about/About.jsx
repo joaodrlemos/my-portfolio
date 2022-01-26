@@ -9,7 +9,7 @@ export default function About() {
                 <h2>A little about me...</h2>
                 <div className="description">
                     <p>
-                        I'm a cheerful and curious software engineer based in Setúbal, Portugal.
+                        I'm a cheerful and curious software engineer based in Almada, Portugal.
                     </p>
                     <p>
                         After graduating I've been mostly working as a support and back-end developer, but after one

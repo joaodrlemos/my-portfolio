@@ -14,6 +14,9 @@
         overflow: hidden;
 
         color: $orange;
+
+        position: relative;
+        top:-21px;
     }
 
     .experience-list {
@@ -34,7 +37,7 @@
                 position: absolute;
                 top: 2%;
                 font-size: 1.8em;
-                color: $deactive;
+                color: $blue;
             }
 
             .item-info {
@@ -47,21 +50,22 @@
                 h3 {
                     font-size: 1.8em;
                     font-weight: 600;
+                    color: $blue;
                 }
                 
                 span {
                     color: $deactive;
                     font-size: 1.2em;
-                    font-style: italic;
+                    padding-top: 8px;
                     
-                    border-left: 2px solid $deactive;
+                    border-left: 2px solid $blue;
                 }
                 
                 p {
                     padding-top: 10px;
-                    padding-bottom: 8%;
+                    padding-bottom: 6%;
 
-                    border-left: 2px solid $deactive;
+                    border-left: 2px solid $blue;
                 }
             }
         }

@@ -34,6 +34,34 @@
                 margin: 10px 0px 20px 40px;
                 color: $deactive;
             }
+
+            .social-icons {
+                display: flex;
+
+                > * {
+                    padding: 5px;
+                    margin: 0px 10px 10px 0px;
+                    color: $deactive;
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+
+                    > * {
+                        font-size: 180%;
+                        animation: apear 0.2s linear;
+
+                        @keyframes apear {
+                            0% {
+                                transform: scale(0);
+                            }
+                            100% {
+                                transform: scale(1);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
