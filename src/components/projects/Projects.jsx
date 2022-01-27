@@ -1,10 +1,10 @@
 import "../projects/projects.scss";
 
-export default function Projects() {
+export default function Projects({lang}) {
     return (
         <div className="projects" id="projects">
             <div className="header">
-                <h1>Projects</h1>
+                <h1>{lang === 'en' ? "projects" : "projectos"}</h1>
             </div>
             <div className="project-container">
                 <div className="project-list">
@@ -19,22 +19,9 @@ export default function Projects() {
                         </div>
                         <div className="wrapper">
                             <div className="item-info">
-                                <h2>A notepad App where you can make your own notes.</h2>
-                                <div className="technologies">
-                                    <div className="tech-item">
-                                        html
-                                    </div>
-                                    <div className="tech-item">
-                                        css
-                                    </div>
-                                    <div className="tech-item">
-                                        js
-                                    </div>
-                                    <div className="tech-item">
-                                        react
-                                    </div>
-                                </div>
-                                <a href="https://note-keeper-project.netlify.app" target="_blank" rel="noopener noreferrer">Visit</a>
+                                <h2>{lang === 'en' ? "A notepad App where you can make your own notes."
+                                :"Uma aplicação bloco de notas onde podes criar as tuas próprias."}</h2>
+                                <a href="https://note-keeper-project.netlify.app" target="_blank" rel="noopener noreferrer">{lang === 'en' ? "visit" : "visitar"}</a>
                             </div>
                         </div>
                     </div>
@@ -51,19 +38,9 @@ export default function Projects() {
                         </div>
                         <div className="wrapper">
                             <div className="item-info">
-                                <h2>A simple movie database where you can search and see ratings.</h2>
-                                <div className="technologies">
-                                    <div className="tech-item">
-                                        html
-                                    </div>
-                                    <div className="tech-item">
-                                        css
-                                    </div>
-                                    <div className="tech-item">
-                                        js
-                                    </div>
-                                </div>
-                                <a href="https://movie-js-db.netlify.app" target="_blank" rel="noopener noreferrer">Visit</a>
+                                <h2>{lang === 'en' ? "A simple movie database where you can search and see ratings."
+                                :"Uma simples base de dados de filmes onde podes procurar e ver as pontuações."}</h2>
+                                <a href="https://movie-js-db.netlify.app" target="_blank" rel="noopener noreferrer">{lang === 'en' ? "visit" : "visitar"}</a>
                             </div>
                         </div>
                     </div>
@@ -80,25 +57,9 @@ export default function Projects() {
                         </div>
                         <div className="wrapper">
                             <div className="item-info">
-                                <h2>My personal portfolio page.</h2>
-                                <div className="technologies">
-                                    <div className="tech-item">
-                                        html
-                                    </div>
-                                    <div className="tech-item">
-                                        css
-                                    </div>
-                                    <div className="tech-item">
-                                        js
-                                    </div>
-                                    <div className="tech-item">
-                                        react
-                                    </div>
-                                    <div className="tech-item">
-                                        sass
-                                    </div>
-                                </div>
-                                <a href="#home">Visit</a>
+                                <h2>{lang === 'en' ? "My personal portfolio page."
+                                : "O meu portfolio pessoal."}</h2>
+                                <a href="#home">{lang === 'en' ? "visit" : "visitar"}</a>
                             </div>
                         </div>
                     </div>

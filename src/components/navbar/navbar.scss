@@ -17,7 +17,6 @@
         justify-content: space-between;
         margin: 0px 25px;
        
-
         .left{
             flex: .3;
             height: 60%;
@@ -49,7 +48,7 @@
 
                         &:hover{
                             color: $orange;
-                            font-weight: 400;
+                            font-weight: 600;
                         }
                     }
                 }

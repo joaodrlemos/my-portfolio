@@ -4,6 +4,11 @@
     display: flex;
     align-items: center;
 
+    img{
+        width: 10px;
+        height: 10px;
+    }
+
     h2 {
         flex: 0.48;
         display: flex;
@@ -70,12 +75,12 @@
             }
         }
 
-        :last-child {
-            :last-child {
-                :last-child {
-                    padding-bottom: 4%;
-                }
-            }
-        }
+        // :last-child {
+        //     :last-child {
+        //         :last-child {
+        //             padding-bottom: 4%;
+        //         }
+        //     }
+        // }
     }
 }

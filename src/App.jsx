@@ -15,11 +15,11 @@ export default function App() {
       <div className="app">
         <Navbar lang={lang} setLang={setLang} />
         <div className="sections">
-          <Home lang={lang} />
-          <About />
-          <Experience />
-          <Projects />
-          <Contact />
+          <Home lang={lang}/>
+          <About lang={lang}/>
+          <Experience lang={lang}/>
+          <Projects lang={lang}/>
+          <Contact lang={lang}/>
         </div>
       </div>
     </>
