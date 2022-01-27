@@ -127,24 +127,24 @@
                 height: 36px;
 
                 font-weight: 600;
-                background-color: $orange;
-                color: #fff;
+                background-color: $blue;
+                color: $back;
 
                 border-radius: 20px;
-                border: 2px solid $orange;
+                border: 2px solid $blue;
                 cursor: pointer;
     
                 &:hover {
-                    background-color: $darkerOrange;
-                    border: 2px solid $darkerOrange;
+                    background-color: $darkerBlue;
+                    border: 2px solid $darkerBlue;
                 }
 
                 &:active {
-                    border-color: $orange;
+                    border-color: $blue;
                     background-color: $back;
-                    color: $orange;
+                    color: $blue;
 
-                    border: 2px solid $orange;
+                    border: 2px solid $blue;
                 }
             }
         }

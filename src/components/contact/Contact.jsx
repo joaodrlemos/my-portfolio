@@ -2,20 +2,39 @@ import "../contact/contact.scss";
 import { Instagram, GitHub, LinkedIn } from '@mui/icons-material';
 import emailParams from "../../data/email-params";
 import emailjs from "@emailjs/browser";
+import { useState } from "react";
 
 export default function Contact({ lang }) {
+    const [email,setEmail] = useState("");
+    const [message,setMessage] = useState("");
+
+    const validateEmail = (email) => {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevents default refresh by the browser
 
-        emailjs.sendForm(emailParams.SERVICE_ID, emailParams.TEMPLATE_ID, e.target, emailParams.USER_ID)
-            .then((result) => {
-                alert("Message Sent, We will get back to you shortly", result.text);
-            },
-                (error) => {
-                    alert("An error occurred, Please try again", error.text);
-                });
-                
-        e.target.reset();
+        if(email.length <= 0 || !validateEmail(email) ){
+            alert("Please enter a valid email.");
+        }
+        else if(message.length <= 0){
+            alert("Message field can't be empty.");
+        }
+        else{
+            validateEmail(email);
+
+            emailjs.sendForm(emailParams.SERVICE_ID, emailParams.TEMPLATE_ID, e.target, emailParams.USER_ID)
+                .then((result) => {
+                    alert("Message Sent, We will get back to you shortly", result.text);
+                },
+                    (error) => {
+                        alert("An error occurred, Please try again", error.text);
+                    });
+                    
+            e.target.reset();
+        }
     };
 
     return (
@@ -39,9 +58,9 @@ export default function Contact({ lang }) {
             </div>
             <div className="contact-form">
                 <form onSubmit={handleSubmit}>
-                    <input type="text" placeholder="> email" name="email"/>
+                    <input type="text" placeholder="> email" name="email" onChange={(e)=>setEmail(e.target.value)}/>
                     <input type="text" placeholder={lang === 'en' ? "> subject" : "> assunto"} name="subject" />
-                    <textarea placeholder={lang === 'en' ? "> message" : "> mensagem"} name="message"></textarea>
+                    <textarea placeholder={lang === 'en' ? "> message" : "> mensagem"} name="message" onChange={(e)=>setMessage(e.target.value)}></textarea>
                     <button type="submit">{lang === 'en' ? "send" : "enviar"}</button>
                 </form>
             </div>
