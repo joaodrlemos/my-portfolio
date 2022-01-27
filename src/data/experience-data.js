@@ -13,7 +13,7 @@ export const experienceData = [
         dateEn: "May 2020 - May 2021",
         datePt: "Mai 2020 - Mai 2021",
         textEn: "Integration in the development team of SCMLs backoffice system. Working as a Full-Stack position to add and maintain new features.",
-        textPt: "Integração na equipa de desenvolvimento do sistema de backoffice SCMLs. Trabalhando como desenvolvedor full-stack para criar e manter novas funcionalidades.",
+        textPt: "Integração na equipa de desenvolvimento do sistema backoffice SCMLs. Trabalhando como desenvolvedor full-stack para criar e manter novas funcionalidades.",
     },
     {
         id: "2",
