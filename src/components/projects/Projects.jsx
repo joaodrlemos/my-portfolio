@@ -1,6 +1,7 @@
 import "../projects/projects.scss";
+import { projectsData } from "../../data/projects-data.js";
 
-export default function Projects({lang}) {
+export default function Projects({ lang }) {
     return (
         <div className="projects" id="projects">
             <div className="header">
@@ -8,61 +9,29 @@ export default function Projects({lang}) {
             </div>
             <div className="project-container">
                 <div className="project-list">
-                    <div style={{
-                        backgroundImage: `url(${require("../../assets/pictures/projects/KeeperApp.png")})`,
-                        backgroundPosition: 'top',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat'
-                    }} className="project-item">
-                        <div className="project-title">
-                            <h2>Keeper</h2>
-                        </div>
-                        <div className="wrapper">
-                            <div className="item-info">
-                                <h2>{lang === 'en' ? "A notepad App where you can make your own notes."
-                                :"Uma aplicação bloco de notas onde podes criar as tuas próprias."}</h2>
-                                <a href="https://note-keeper-project.netlify.app" target="_blank" rel="noopener noreferrer">{lang === 'en' ? "visit" : "visitar"}</a>
+                    {projectsData.map((projectItem) => {
+                        const { id, name, descEn, descPt, img, url } = projectItem;
+                        const style = {
+                                backgroundImage: `${img}`,
+                                backgroundPosition: 'top',
+                                backgroundSize: 'cover',
+                                backgroundRepeat: 'no-repeat',
+                            };
+                        
+                        return (
+                            <div key={id} style={style} className="project-item">
+                                <div className="project-title">
+                                    <h2>{name}</h2>
+                                </div>
+                                <div className="wrapper">
+                                    <div className="item-info">
+                                        <h2>{lang === 'en' ? descEn : descPt}</h2>
+                                        <a href={url} target="_blank" rel="noopener noreferrer">{lang === 'en' ? "visit" : "visitar"}</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div style={{
-                        backgroundImage: `url(${require("../../assets/pictures/projects/movieDB.png")})`,
-                        backgroundPosition: 'top',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat'
-                    }} className="project-item">
-                        <div className="project-title">
-                            <div className="test">
-                                <h2>movieDB</h2>
-                            </div>
-                        </div>
-                        <div className="wrapper">
-                            <div className="item-info">
-                                <h2>{lang === 'en' ? "A simple movie database where you can search and see their ratings."
-                                :"Uma simples base de dados de filmes onde podes procurar e ver as suas pontuações."}</h2>
-                                <a href="https://movie-js-db.netlify.app" target="_blank" rel="noopener noreferrer">{lang === 'en' ? "visit" : "visitar"}</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div style={{
-                        backgroundImage: `url(${require("../../assets/pictures/projects/portfolio.png")})`,
-                        backgroundPosition: 'top',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat'
-                    }} className="project-item">
-                        <div className="project-title">
-                            <div className="test">
-                                <h2>myPortfolio</h2>
-                            </div>
-                        </div>
-                        <div className="wrapper">
-                            <div className="item-info">
-                                <h2>{lang === 'en' ? "My personal portfolio page."
-                                : "O meu portfolio pessoal."}</h2>
-                                <a href="#home">{lang === 'en' ? "visit" : "visitar"}</a>
-                            </div>
-                        </div>
-                    </div>
+                        );
+                    })}
                 </div>
             </div>
         </div>

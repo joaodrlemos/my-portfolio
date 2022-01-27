@@ -25,10 +25,10 @@ export default function About({lang}) {
             </div>
             <div className="right">
                 <div className="title">
-                    <h2>skills</h2>
+                    <h2>{lang === 'en' ? "skills":"habilidades"}</h2>
                 </div>
                 <div className="skills">
-                    <h3 className="hard">hard</h3>
+                    <h3 className="hard">{lang === 'en' ? "hard" : "técnicas"}</h3>
                     <div className="hard-skills">
                         <ul>
                             <li className="li-title">{lang === 'en' ? 'languages':'linguagens'}</li>
@@ -52,7 +52,7 @@ export default function About({lang}) {
                             </li>
                         </ul>
                     </div>
-                    <h3 className="soft" >soft</h3>
+                    <h3 className={lang==='en' ? "soft" : "soft pt"} >{lang === 'en' ? "soft":"interpessoais"}</h3>
                     <div className="soft-skills">
                         <ul>
                             <li>{lang === 'en' ? 'communication':'comunicação'}</li>
