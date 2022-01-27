@@ -20,9 +20,9 @@ export default function Home({ lang }) {
                         <h2>{onLoad && (lang === 'en' ? 'Hi there!' : 'Olá! Eu sou o')}</h2>
                         <h1>{onLoad && (lang === 'en' && onLoad ? "I'm " : '')}
                             <span>João Lemos</span>
-                            {onLoad && (lang === 'en' ? "" : ' e sou')}
+                            {onLoad && (lang === 'en' ? "" : ' sou')}
                         </h1>
-                        <h3>{onLoad && (lang === 'en' && onLoad ? "" : "")}<span>Front-end Developer</span></h3>
+                        <h3><span>Front-end Developer</span></h3>
                         
                     </div>
                 </div>

@@ -1,7 +1,23 @@
 import "../contact/contact.scss";
 import { Instagram, GitHub, LinkedIn } from '@mui/icons-material';
+import emailParams from "../../data/email-params";
+import emailjs from "@emailjs/browser";
 
-export default function Contact({lang}) {
+export default function Contact({ lang }) {
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevents default refresh by the browser
+
+        emailjs.sendForm(emailParams.SERVICE_ID, emailParams.TEMPLATE_ID, e.target, emailParams.USER_ID)
+            .then((result) => {
+                alert("Message Sent, We will get back to you shortly", result.text);
+            },
+                (error) => {
+                    alert("An error occurred, Please try again", error.text);
+                });
+                
+        e.target.reset();
+    };
+
     return (
         <div className="contact" id="contact">
             <div className="left">
@@ -12,7 +28,7 @@ export default function Contact({lang}) {
                     </p>
                     <p>
                         {lang === 'en' ? "If you're interested in getting in contact, please fill out this form or access my social medias."
-                        : "Se estás interessado em contactar me, por favor preenche este formulário ou acede às minhas redes sociais."}
+                            : "Se estás interessado em contactar me, por favor preenche este formulário ou acede às minhas redes sociais."}
                     </p>
                     <div className="social-icons" >
                         <a href="https://www.instagram.com/joao_lemings/" target="_blank" rel="noopener noreferrer"><Instagram /></a>
@@ -22,10 +38,10 @@ export default function Contact({lang}) {
                 </div>
             </div>
             <div className="contact-form">
-                <form>
-                    <input type="text" placeholder="> email" />
-                    <input type="text" placeholder={lang === 'en' ? "> subject" : "> assunto"} />
-                    <textarea placeholder={lang === 'en' ? "> message" : "> mensagem"} ></textarea>
+                <form onSubmit={handleSubmit}>
+                    <input type="text" placeholder="> email" name="email"/>
+                    <input type="text" placeholder={lang === 'en' ? "> subject" : "> assunto"} name="subject" />
+                    <textarea placeholder={lang === 'en' ? "> message" : "> mensagem"} name="message"></textarea>
                     <button type="submit">{lang === 'en' ? "send" : "enviar"}</button>
                 </form>
             </div>

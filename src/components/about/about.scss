@@ -25,11 +25,9 @@
 
             p {
                 width: 80%;
-                // height: 80%;
                 font-size: 1.2em;
                 font-family: $textFont;
                 font-weight: 500;
-                // margin: 10px 40px 20px 80px;
                 color: $deactive;
             }
         }
@@ -39,8 +37,6 @@
         flex: 0.5;
         display: flex;
         flex-direction: column;
-        // align-items: center;
-        // justify-content: center;
 
         .title{
             display: flex;
@@ -80,11 +76,11 @@
                 position: absolute;
 
                 &.hard{
-                    bottom: -30%;
+                    bottom: -28%;
                 }
 
                 &.soft{
-                    bottom: -66%;
+                    bottom: -68%;
                 }
             }
             

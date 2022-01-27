@@ -38,8 +38,8 @@ export default function Projects({lang}) {
                         </div>
                         <div className="wrapper">
                             <div className="item-info">
-                                <h2>{lang === 'en' ? "A simple movie database where you can search and see ratings."
-                                :"Uma simples base de dados de filmes onde podes procurar e ver as pontuações."}</h2>
+                                <h2>{lang === 'en' ? "A simple movie database where you can search and see their ratings."
+                                :"Uma simples base de dados de filmes onde podes procurar e ver as suas pontuações."}</h2>
                                 <a href="https://movie-js-db.netlify.app" target="_blank" rel="noopener noreferrer">{lang === 'en' ? "visit" : "visitar"}</a>
                             </div>
                         </div>
