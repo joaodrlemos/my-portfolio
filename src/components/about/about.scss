@@ -3,6 +3,10 @@
 .about {
     display: flex;
 
+    @include mobile {
+        flex-direction: column;
+    }
+
     .left {
         flex: 0.48;
         display: flex;
@@ -13,6 +17,12 @@
             margin: 25px 30px;
             font-size: 40px;
             color: $orange;
+
+            @include mobile {
+                margin: 0;
+                font-size: 25px;
+                overflow: hidden;
+            }
         }
 
         .description {
@@ -23,12 +33,24 @@
             justify-content: space-around;
             align-items: center;
 
+            @include mobile {
+                height: 100%;
+            }
+
             p {
                 width: 80%;
                 font-size: 1.2em;
                 font-family: $textFont;
                 font-weight: 500;
                 color: $deactive;
+
+                @include mobile {
+                    font-size: 0.7em;
+
+                    @media (max-width: 350px) {
+                        font-size: 0.6em;
+                    }
+                }
             }
         }
     }
@@ -38,7 +60,7 @@
         display: flex;
         flex-direction: column;
 
-        .title{
+        .title {
             display: flex;
             justify-content: center;
 
@@ -46,24 +68,37 @@
                 margin: 25px 20px 10px;
                 font-size: 40px;
                 overflow: hidden;
-    
+
                 color: $orange;
                 position: relative;
                 right: 2%;
+
+                @include mobile {
+                    margin: 0px;
+                    font-size: 25px;
+                    right: 0%;
+                }
             }
         }
-        
+
         .skills {
             border-left: 2px solid $orange;
-            
+
             height: 75%;
             overflow: hidden;
-            
+
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            
-            
+
+            @include mobile {
+                border: none;
+                height: 100%;
+
+                justify-content: space-around;
+                position: relative;
+            }
+
             h3 {
                 width: 10%;
                 transform-origin: center;
@@ -72,55 +107,98 @@
                 font-size: 25px;
                 padding: 0;
                 color: $orange;
-                
+
                 position: absolute;
 
-                &.hard{
-                    bottom: -28%;
+                @include mobile {
+                    transform: rotate(0deg);
+                    font-size: 15px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
                 }
 
-                &.soft{
+                &.hard {
+                    bottom: -28%;
+                    
+                    @include mobile{
+                        top: 8px;
+                    }
+                }
+
+                &.soft {
                     bottom: -68%;
 
-                    &.pt{
-                        right:39%;
-                        // padding: 0px 60px;
+                    @include mobile{
+                        top: 100px;
+
+                    }
+
+                    &.pt {
+                        right: 39%;
                         width: 200px;
+
+                        @include mobile{
+                            right: 0px;
+                            width: 100%;
+                        }
                     }
                 }
             }
-            
+
             .hard-skills {
                 color: $orange;
-                
+
                 ul {
                     font-family: $textFont;
                     position: relative;
                     right: 5.5%;
-                    
+
                     display: flex;
                     align-items: center;
                     flex-direction: column;
 
                     margin: 10px 0px 20px 0px;
 
+                    @include mobile {
+                        right: 0%;
+                        flex-wrap: wrap;
+                        height: 63px;
+                        margin: 10px 0px 5px 0px;
+                        padding-left: 0px;
+                    }
+
                     li {
                         font-family: $textFont;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        
-                        font-size: 13px;
                         margin-bottom: 5px;
                         width: 40%;
-                        
-                        &.li-elem{
+
+                        @include mobile {
+                            font-size: 8px;
+                            margin-bottom: 0px;
+                            width: 30%;
+                        }
+
+                        &.li-title {
+                            @include mobile {
+                                padding-bottom: 5px;
+                            }
+                        }
+
+                        &.li-elem {
                             margin-bottom: 10px;
-                            .js{
-                                > *{
-                                border: 0px solid $deactive;
-                                border-radius: 5px;
+                            .js {
+                                > * {
+                                    border: 0px solid $deactive;
+                                    border-radius: 5px;
                                 }
+                            }
+
+                            @include mobile {
+                                margin-bottom: 5px;
                             }
                         }
 
@@ -129,20 +207,29 @@
                                 font-size: 35px;
                                 margin: 0px 8px 0px 8px;
                                 color: $deactive;
+
+                                @include mobile {
+                                    font-size: 20px;
+                                    margin: 4px 4px 4px 4px;
+                                }
                             }
                         }
                     }
                 }
             }
 
-            .soft-skills{
+            .soft-skills {
                 color: $blue;
-                
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                
-                ul{
+
+                @include mobile{
+                    margin: 0px;
+                }
+
+                ul {
                     position: relative;
                     right: 4%;
 
@@ -153,17 +240,29 @@
 
                     width: 50%;
 
-                    li{
+                    @include mobile {
+                        width: 100%;
+                        padding-left: 0px;
+                        right: 0%;
+                    }
+
+                    li {
                         font-family: $textFont;
                         color: $deactive;
                         font-size: 18px;
                         font-weight: 600;
-                        
+
                         border: 2px solid $orange;
                         border-radius: 20px;
-                        
+
                         margin: 10px 5px;
                         padding: 2%;
+
+                        @include mobile {
+                            font-size: 10px;
+                            font-weight: 600;
+                            margin: 5px 5px;
+                        }
                     }
                 }
             }

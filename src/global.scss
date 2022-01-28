@@ -1,6 +1,4 @@
-//Color Palette Family
-// $pink: #c2348b;
-
+// Color Palette Family
 $deactive: rgba(114, 114, 114,1);
 $gray: rgba(70,70,70,1);
 
@@ -11,10 +9,18 @@ $orange: rgba(239, 117, 42, 1);
 $darkerOrange: rgba(194, 94, 33,1);
 
 $back: rgba(26,26,26,1);
+// $pink: #c2348b;
 
-//Dimension vars
+// Dimension vars
 $sectionHeight: calc(100vh - 70px);
 
 // Font families
 $menuFont: 'Inconsolata', monospace;
 $textFont: 'Montserrat', sans-serif;
+
+// Method classes
+@mixin mobile{
+    @media (max-width: 800px) {
+        @content
+    }
+}
