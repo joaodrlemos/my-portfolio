@@ -6,7 +6,9 @@ export default function About({lang}) {
     return (
         <div className='about' id='about'>
             <div className="left">
-                <h2>{lang === 'en' ? "about me" : 'sobre mim'}</h2>
+                <div className="title">
+                    <h2>{lang === 'en' ? "about me" : 'sobre mim'}</h2>
+                </div>
                 <div className="description">
                     <p>
                         {lang === 'en' ? "I'm a cheerful and curious software engineer based in Almada, Portugal." 
@@ -28,36 +30,43 @@ export default function About({lang}) {
                     <h2>{lang === 'en' ? "skills":"habilidades"}</h2>
                 </div>
                 <div className="skills">
-                    <h3 className="hard">{lang === 'en' ? "hard" : "técnicas"}</h3>
+                    {/* <h3 className="hard">{lang === 'en' ? "hard" : "técnicas"}</h3> */}
                     <div className="hard-skills">
                         <ul>
-                            <li className="li-title">{lang === 'en' ? 'languages':'linguagens'}</li>
-                            <li className="li-elem">
-                                <span title="HTML"><FaHtml5/></span>
-                                <span title="CSS"><FaCss3Alt/></span>
-                                <span className="js" title="JavaScript"><SiJavascript/></span>
+                            <li className="languages">
+                                <div className="title">{lang === 'en' ? 'languages':'linguagens'}</div>
+                                <div className="elem">
+                                    <span title="HTML"><FaHtml5/></span>
+                                    <span title="CSS"><FaCss3Alt/></span>
+                                    <span className="js" title="JavaScript"><SiJavascript/></span>
+                                </div>
                             </li>
-                            <li  className="li-title">{lang === 'en' ? 'frameworks & libraries' : 'bibliotecas & frameworks'}</li>
-                            <li className="li-elem">
-                                <span title="jQuery"><SiJquery/></span>
-                                <span title="Sass"><FaSass/></span>
-                                <span title="React.js"><FaReact/></span>
-                                <span title="Redux"><SiRedux/></span>
+                            
+                            <li className="frameworksNLibraries">
+                                <div className="title">{lang === 'en' ? 'frameworks & libraries' : 'bibliotecas & frameworks'}</div>
+                                <div className="elem">
+                                    <span title="jQuery"><SiJquery/></span>
+                                    <span title="Sass"><FaSass/></span>
+                                    <span title="React.js"><FaReact/></span>
+                                    <span title="Redux"><SiRedux/></span>
+                                </div>
                             </li>
                                 
-                            <li  className="li-title">{lang === 'en' ? 'tools' : 'ferramentas'}</li>
-                            <li className="li-elem">
-                                <span title="Visual Studio Code"><SiVisualstudiocode/></span>
-                                <span title="Git"><FaGitAlt/></span>
+                            <li className="tools">
+                                <div  className="title">{lang === 'en' ? 'tools' : 'ferramentas'}</div>
+                                <div className="elem">
+                                    <span title="Visual Studio Code"><SiVisualstudiocode/></span>
+                                    <span title="Git"><FaGitAlt/></span>
+                                </div>
                             </li>
                         </ul>
                     </div>
-                    <h3 className={lang==='en' ? "soft" : "soft pt"} >{lang === 'en' ? "soft":"interpessoais"}</h3>
+                    {/* <h3 className={lang==='en' ? "soft" : "soft pt"} >{lang === 'en' ? "soft":"interpessoais"}</h3> */}
                     <div className="soft-skills">
                         <ul>
-                            <li>{lang === 'en' ? 'communication':'comunicação'}</li>
                             <li>{lang === 'en' ? 'colaboration' : 'colaboração'}</li>
                             <li>{lang === 'en' ? 'empathy' : 'empatia'}</li>
+                            <li>{lang === 'en' ? 'communication':'comunicação'}</li>
                         </ul>
                     </div>
                 </div>
