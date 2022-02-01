@@ -1,7 +1,10 @@
 import "../projects/projects.scss";
 import { projectsData } from "../../data/projects-data.js";
+import { useSelector } from "react-redux";
 
-export default function Projects({ lang }) {
+export default function Projects() {
+    const {lang} = useSelector((state) => state)
+
     return (
         <div className="projects" id="projects">
             <div className="header">

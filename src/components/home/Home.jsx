@@ -1,8 +1,10 @@
 import "../home/home.scss";
 import { TiArrowDownThick } from "react-icons/ti";
 import { useState, useEffect } from 'react';
+import { useSelector } from "react-redux";
 
-export default function Home({ lang }) {
+export default function Home() {
+    const {lang} = useSelector((state) => state);
     const [onLoad, setOnLoad] = useState(false);
 
     useEffect(() => {

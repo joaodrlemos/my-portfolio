@@ -1,8 +1,11 @@
 import "../about/about.scss";
 import { FaHtml5, FaCss3Alt, FaReact, FaGitAlt, FaSass  } from "react-icons/fa";
 import { SiJavascript, SiJquery, SiVisualstudiocode, SiRedux } from "react-icons/si";
+import { useSelector } from "react-redux";
 
-export default function About({lang}) {
+export default function About() {
+    const {lang} = useSelector((state) => state);
+
     return (
         <div className='about' id='about'>
             <div className="left">

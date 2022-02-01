@@ -17,6 +17,7 @@
 
         @include mobile{
             flex:.5;
+            overflow: hidden;
         }
         
         .contact-text{

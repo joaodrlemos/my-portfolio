@@ -3,8 +3,10 @@ import { Instagram, GitHub, LinkedIn } from '@mui/icons-material';
 import emailParams from "../../data/email-params";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
-export default function Contact({ lang }) {
+export default function Contact() {
+    const {lang} = useSelector((state) => state);
     const [email,setEmail] = useState("");
     const [message,setMessage] = useState("");
 

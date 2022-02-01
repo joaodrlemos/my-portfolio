@@ -1,8 +1,11 @@
 import "../experience/experience.scss";
 import { VscCircleOutline } from "react-icons/vsc";
 import { experienceData } from "../../data/experience-data.js";
+import { useSelector } from "react-redux";
 
-export default function Experience({ lang }) {
+export default function Experience() {
+    const {lang} = useSelector((state) => state);
+
     return (
         <div className="experience" id='experience'>
             <h2>{lang === 'en' ? 'experience' : 'experiência'}</h2>
