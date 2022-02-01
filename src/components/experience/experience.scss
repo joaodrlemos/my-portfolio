@@ -26,6 +26,11 @@
 
         position: relative;
         top:-21px;
+
+        @include mobile{
+            font-size: 30px;
+            flex:.1;
+        }
     }
 
     .experience-list {
@@ -36,7 +41,9 @@
         padding: 0px;
 
         @include mobile{
-        
+            flex: .9;
+            flex-direction: row;
+            justify-content: center;
         }
 
         .experience-item {
@@ -64,6 +71,7 @@
                     font-size: 1.8em;
                     font-weight: 600;
                     color: $blue;
+
                 }
                 
                 span {
@@ -72,6 +80,10 @@
                     padding-top: 8px;
                     
                     border-left: 2px solid $blue;
+
+                    @include mobile{
+                        font-size: 1em;
+                    }
                 }
                 
                 p {

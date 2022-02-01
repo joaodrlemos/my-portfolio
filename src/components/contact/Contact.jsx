@@ -41,7 +41,7 @@ export default function Contact({ lang }) {
         <div className="contact" id="contact">
             <div className="left">
                 <div className="contact-text">
-                    <h1>{lang === 'en' ? "contact me" : "contactar"}</h1>
+                    <h1>{lang === 'en' ? "contact" : "contactar"}</h1>
                     <p>
                         {lang === 'en' ? "Thank you for visiting my portfolio site." : "Obrigado por visitares o meu portfolio"}
                     </p>

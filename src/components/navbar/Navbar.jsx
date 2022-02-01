@@ -1,14 +1,14 @@
 import "../navbar/navbar.scss";
 import logo from "../../assets/logos/J-cor-08.png";
 
-export default function Navbar({lang,setLang}) {
+export default function Navbar({ lang, setLang, openMenu, setOpenMenu }) {
 
     return (
-        <div className="navbar">
+        <div className={"navbar " + (openMenu && "open-menu")}>
             <div className="wrapper">
                 <div className="left">
                     <a href="#home">
-                        <img src={logo} alt=""/>
+                        <img src={logo} alt="" />
                     </a>
                 </div>
                 <div className="middle">
@@ -32,13 +32,18 @@ export default function Navbar({lang,setLang}) {
                 </div>
                 <div className="right">
                     <ul>
-                        <li className={lang === 'en' ? "en active" : "en"} onClick={()=> setLang("en")}>
-                            EN 
+                        <li className={lang === 'en' ? "en active" : "en"} onClick={() => setLang("en")}>
+                            EN
                         </li>
-                        <li className={lang === 'pt' ? "pt active" : "pt"} onClick={()=> setLang("pt")}>
-                            PT 
+                        <li className={lang === 'pt' ? "pt active" : "pt"} onClick={() => setLang("pt")}>
+                            PT
                         </li>
                     </ul>
+                </div>
+                <div className="hamburguer" onClick={() => setOpenMenu(!openMenu)}>
+                    <span className="line1" />
+                    <span className="line2" />
+                    <span className="line3" />
                 </div>
             </div>
         </div>

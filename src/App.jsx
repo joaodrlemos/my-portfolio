@@ -6,14 +6,17 @@ import Navbar from "./components/navbar/Navbar";
 import Projects from "./components/projects/Projects";
 import "./app.scss";
 import { useState } from "react";
+import Menu from "./components/menu/Menu";
 
 export default function App() {
   const [lang, setLang] = useState("en");
+  const [openMenu,setOpenMenu] = useState(false);
 
   return (
     <>
       <div className="app">
-        <Navbar lang={lang} setLang={setLang} />
+        <Navbar lang={lang} setLang={setLang} openMenu={openMenu} setOpenMenu={setOpenMenu} />
+        <Menu lang={lang} openMenu={openMenu} setOpenMenu={setOpenMenu} />
         <div className="sections">
           <Home lang={lang}/>
           <About lang={lang}/>

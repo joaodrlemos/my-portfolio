@@ -9,7 +9,7 @@ export const experienceData = [
     },
     {
         id: "1",
-        company: "Santa Casa da Misericórdia",
+        company: "Santa Casa",
         dateEn: "May 2020 - May 2021",
         datePt: "Mai 2020 - Mai 2021",
         textEn: "Integration in the development team of SCMLs backoffice system. Working as a Full-Stack position to add and maintain new features.",

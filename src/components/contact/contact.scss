@@ -4,12 +4,20 @@
     display: flex;
     justify-content: center;
 
+    @include mobile{
+        flex-direction: column;
+    }
+
     .left{
         flex: .5;
 
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @include mobile{
+            flex:.5;
+        }
         
         .contact-text{
             position: relative;
@@ -20,10 +28,18 @@
             flex-direction: column;
             align-items: center;
 
+            @include mobile{
+                position: static;
+            }
+
             h1{
                 color: $blue;
                 font-size: 3em;
                 margin-bottom: 20px;
+
+                @include mobile{
+                    font-size: 30px;
+                }
             }
 
             p{
@@ -33,6 +49,13 @@
                 font-weight: 500;
                 margin: 10px 0px 20px 40px;
                 color: $deactive;
+
+                @include mobile{
+                    font-size: 1em;
+                    margin: 10px 0px 20px 0px;
+                    width: 100%;
+                    text-align: center;
+                }
             }
 
             .social-icons {
@@ -42,6 +65,10 @@
                     padding: 5px;
                     margin: 0px 10px 10px 0px;
                     color: $deactive;
+
+                    @include mobile{
+                        margin: 0px 5px 5px 0px;
+                    }
 
                     &:hover {
                         transform: scale(1.2);
@@ -71,6 +98,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @include mobile{
+            flex:.6;
+        }
 
         h2 {
             font-size: 30px;
