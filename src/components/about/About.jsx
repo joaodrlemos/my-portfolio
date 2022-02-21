@@ -1,6 +1,6 @@
 import "../about/about.scss";
 import { FaHtml5, FaCss3Alt, FaReact, FaGitAlt, FaSass  } from "react-icons/fa";
-import { SiJavascript, SiJquery, SiVisualstudiocode, SiRedux } from "react-icons/si";
+import { SiJavascript, SiVisualstudiocode, SiRedux } from "react-icons/si";
 import { useSelector } from "react-redux";
 
 export default function About() {
@@ -33,7 +33,6 @@ export default function About() {
                     <h2>{lang === 'en' ? "skills":"habilidades"}</h2>
                 </div>
                 <div className="skills">
-                    {/* <h3 className="hard">{lang === 'en' ? "hard" : "técnicas"}</h3> */}
                     <div className="hard-skills">
                         <ul>
                             <li className="languages">
@@ -48,7 +47,6 @@ export default function About() {
                             <li className="frameworksNLibraries">
                                 <div className="title">{lang === 'en' ? 'frameworks & libraries' : 'bibliotecas & frameworks'}</div>
                                 <div className="elem">
-                                    {/* <span title="jQuery"><SiJquery/></span> */}
                                     <span title="React.js"><FaReact/></span>
                                     <span title="Sass"><FaSass/></span>
                                     <span title="Redux"><SiRedux/></span>
@@ -64,7 +62,6 @@ export default function About() {
                             </li>
                         </ul>
                     </div>
-                    {/* <h3 className={lang==='en' ? "soft" : "soft pt"} >{lang === 'en' ? "soft":"interpessoais"}</h3> */}
                     <div className="soft-skills">
                         <ul>
                             <li>{lang === 'en' ? 'colaboration' : 'colaboração'}</li>
