@@ -48,9 +48,9 @@ export default function About() {
                             <li className="frameworksNLibraries">
                                 <div className="title">{lang === 'en' ? 'frameworks & libraries' : 'bibliotecas & frameworks'}</div>
                                 <div className="elem">
-                                    <span title="jQuery"><SiJquery/></span>
-                                    <span title="Sass"><FaSass/></span>
+                                    {/* <span title="jQuery"><SiJquery/></span> */}
                                     <span title="React.js"><FaReact/></span>
+                                    <span title="Sass"><FaSass/></span>
                                     <span title="Redux"><SiRedux/></span>
                                 </div>
                             </li>

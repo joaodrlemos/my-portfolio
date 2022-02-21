@@ -15,12 +15,12 @@ export const projectsData = [
         img: `url(${require("../assets/pictures/projects/movieDB.png")})`,
         url: "https://movie-js-db.netlify.app",
     },
-    {
-        id: "2",
-        name: "myPortfolio",
-        descEn: "My personal portfolio page.",
-        descPt: "O meu portfolio pessoal.",
-        img: `url(${require("../assets/pictures/projects/portfolio.png")})`,
-        url: "#home",
-    },
+    // {
+    //     id: "2",
+    //     name: "myPortfolio",
+    //     descEn: "My personal portfolio page.",
+    //     descPt: "O meu portfolio pessoal.",
+    //     img: `url(${require("../assets/pictures/projects/portfolio.png")})`,
+    //     url: "#home",
+    // },
 ];
