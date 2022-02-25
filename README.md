@@ -4,4 +4,4 @@ First version published 26/01/2022
 
 Developed using React and Sass.
 
-[Live Demo](https://joao-lemos.netlify.app)
+Live Demo: [Demo](https://joao-lemos.netlify.app)
