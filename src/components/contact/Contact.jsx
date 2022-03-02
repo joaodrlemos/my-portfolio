@@ -54,7 +54,7 @@ export default function Contact() {
                     <div className="social-icons" >
                         <a href="https://www.instagram.com/joao_lemings/" target="_blank" rel="noopener noreferrer"><Instagram /></a>
                         <a href="https://github.com/joaodrlemos" target="_blank" rel="noopener noreferrer"><GitHub /></a>
-                        <a href="https://www.linkedin.com/in/jo%C3%A3o-lemos-304b74145/" target="_blank" rel="noopener noreferrer"><LinkedIn /></a>
+                        <a href="https://www.linkedin.com/in/joaodrlemos/" target="_blank" rel="noopener noreferrer"><LinkedIn /></a>
                     </div>
                 </div>
             </div>

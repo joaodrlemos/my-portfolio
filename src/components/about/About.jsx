@@ -24,7 +24,7 @@ export default function About() {
                     </p>
                     <p>
                         {lang === 'en' ? "I developed this website to showcase my journey and the projects I've made. Sit back and scroll through, hope you enjoy." 
-                        : 'Desenvolvi este site para mostrar minha jornada e os projetos que realizei. Fica confortavél e percorre o site, espero que gostes.'}
+                        : 'Desenvolvi este site para mostrar minha jornada e os projetos que realizei. Fica confortável e percorre o site, espero que gostes.'}
                     </p>
                 </div>
             </div>
@@ -64,7 +64,7 @@ export default function About() {
                     </div>
                     <div className="soft-skills">
                         <ul>
-                            <li>{lang === 'en' ? 'colaboration' : 'colaboração'}</li>
+                            <li>{lang === 'en' ? 'collaboration' : 'colaboração'}</li>
                             <li>{lang === 'en' ? 'empathy' : 'empatia'}</li>
                             <li>{lang === 'en' ? 'communication':'comunicação'}</li>
                         </ul>
