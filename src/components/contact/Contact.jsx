@@ -1,49 +1,49 @@
 import "../contact/contact.scss";
-import { Instagram, GitHub, LinkedIn, Email } from "@mui/icons-material";
-import emailParams from "../../data/email-params";
-import emailjs from "@emailjs/browser";
-import { useState } from "react";
+import { Instagram, GitHub, LinkedIn } from "@mui/icons-material";
 import { useSelector } from "react-redux";
+// import emailParams from "../../data/email-params";
+// import emailjs from "@emailjs/browser";
+// import { useState } from "react";
 
 export default function Contact() {
   const { lang } = useSelector((state) => state);
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [message, setMessage] = useState("");
 
-  const validateEmail = (email) => {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-  };
+  // const validateEmail = (email) => {
+  //   var re = /\S+@\S+\.\S+/;
+  //   return re.test(email);
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevents default refresh by the browser
+  // const handleSubmit = (e) => {
+  //   e.preventDefault(); // Prevents default refresh by the browser
 
-    if (email.length <= 0 || !validateEmail(email)) {
-      alert("Please enter a valid email.");
-    } else if (message.length <= 0) {
-      alert("Message field can't be empty.");
-    } else {
-      validateEmail(email);
+  //   if (email.length <= 0 || !validateEmail(email)) {
+  //     alert("Please enter a valid email.");
+  //   } else if (message.length <= 0) {
+  //     alert("Message field can't be empty.");
+  //   } else {
+  //     validateEmail(email);
 
-      emailjs
-        .sendForm(
-          emailParams.SERVICE_ID,
-          emailParams.TEMPLATE_ID,
-          e.target,
-          emailParams.USER_ID
-        )
-        .then(
-          (result) => {
-            alert("Message Sent, We will get back to you shortly", result.text);
-          },
-          (error) => {
-            alert("An error occurred, Please try again", error.text);
-          }
-        );
+  //     emailjs
+  //       .sendForm(
+  //         emailParams.SERVICE_ID,
+  //         emailParams.TEMPLATE_ID,
+  //         e.target,
+  //         emailParams.USER_ID
+  //       )
+  //       .then(
+  //         (result) => {
+  //           alert("Message Sent, We will get back to you shortly", result.text);
+  //         },
+  //         (error) => {
+  //           alert("An error occurred, Please try again", error.text);
+  //         }
+  //       );
 
-      e.target.reset();
-    }
-  };
+  //     e.target.reset();
+  //   }
+  // };
 
   return (
     <div className="contact" id="contact">
