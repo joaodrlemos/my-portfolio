@@ -10,7 +10,6 @@ export default function Home() {
     useEffect(() => {
         setOnLoad(false);
         setTimeout(() => setOnLoad(true), 500);
-
     }, [lang]);
 
     return (

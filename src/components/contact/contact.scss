@@ -8,7 +8,7 @@
         flex-direction: column;
     }
 
-    .left{
+    .container{
         flex: .5;
 
         display: flex;
@@ -28,6 +28,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
 
             @include mobile{
                 position: static;
@@ -39,7 +40,7 @@
                 margin-bottom: 20px;
 
                 @include mobile{
-                    font-size: 30px;
+                    // font-size: 30px;
                 }
             }
 
@@ -48,7 +49,7 @@
                 font-size: 1.2em;
                 font-family: $textFont;
                 font-weight: 500;
-                margin: 10px 0px 20px 40px;
+                margin: 10px 0px 20px 0px;
                 color: $deactive;
 
                 @include mobile{
@@ -59,17 +60,25 @@
                 }
             }
 
+            .email{
+                font-size: 1em;
+                text-align: center;
+                text-decoration: underline;
+                color: $darkerBlue;
+
+                @include mobile {
+                    font-size: 70%;
+                    width: 100%;
+                }
+            }
+
             .social-icons {
                 display: flex;
 
                 > * {
                     padding: 5px;
-                    margin: 0px 10px 10px 0px;
+                    margin: 5px;
                     color: $deactive;
-
-                    @include mobile{
-                        margin: 0px 5px 5px 0px;
-                    }
 
                     &:hover {
                         transform: scale(1.2);
@@ -93,92 +102,92 @@
         }
     }
 
-    .contact-form {
-        flex: .5;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    // .contact-form {
+    //     flex: .5;
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     justify-content: center;
 
-        @include mobile{
-            flex:.6;
-        }
+    //     @include mobile{
+    //         flex:.6;
+    //     }
 
-        h2 {
-            font-size: 30px;
-            font-weight: 500;
-            margin: 30px 0px;
-            overflow: hidden;
-        }
+    //     h2 {
+    //         font-size: 30px;
+    //         font-weight: 500;
+    //         margin: 30px 0px;
+    //         overflow: hidden;
+    //     }
 
-        form {
-            height: 90%;
-            width: 60%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+    //     form {
+    //         height: 90%;
+    //         width: 60%;
+    //         display: flex;
+    //         flex-direction: column;
+    //         align-items: center;
+    //         justify-content: center;
             
-            > *{
-                color: $deactive;
-                background-color: $deactive;
-                padding: 2px 10px;
-                background: none;
-                margin: 10px 0px;
-                font-size: 1.1em;
+    //         > *{
+    //             color: $deactive;
+    //             background-color: $deactive;
+    //             padding: 2px 10px;
+    //             background: none;
+    //             margin: 10px 0px;
+    //             font-size: 1.1em;
 
-                &::placeholder{
-                    color: $blue;
-                }
+    //             &::placeholder{
+    //                 color: $blue;
+    //             }
 
-                &:focus{
-                    outline: none;
-                }
-            }
+    //             &:focus{
+    //                 outline: none;
+    //             }
+    //         }
     
-            input {
-                width: 80%;
-                height: 30px;
-                margin-bottom: 10px;
-                border: 2px solid $blue;
-                border-radius: 20px;
-            }
+    //         input {
+    //             width: 80%;
+    //             height: 30px;
+    //             margin-bottom: 10px;
+    //             border: 2px solid $blue;
+    //             border-radius: 20px;
+    //         }
     
-            textarea {
-                width: 80%;
-                height: 40%;
-                resize: none;
-                padding: auto;
-                overflow: hidden;
-                border: 2px solid $blue;
-                border-radius: 20px;
-            }
+    //         textarea {
+    //             width: 80%;
+    //             height: 40%;
+    //             resize: none;
+    //             padding: auto;
+    //             overflow: hidden;
+    //             border: 2px solid $blue;
+    //             border-radius: 20px;
+    //         }
     
-            button {
-                width: 100px;
-                height: 36px;
+    //         button {
+    //             width: 100px;
+    //             height: 36px;
 
-                font-weight: 600;
-                background-color: $blue;
-                color: $back;
+    //             font-weight: 600;
+    //             background-color: $blue;
+    //             color: $back;
 
-                border-radius: 20px;
-                border: 2px solid $blue;
-                cursor: pointer;
+    //             border-radius: 20px;
+    //             border: 2px solid $blue;
+    //             cursor: pointer;
     
-                &:hover {
-                    background-color: $darkerBlue;
-                    border: 2px solid $darkerBlue;
-                }
+    //             &:hover {
+    //                 background-color: $darkerBlue;
+    //                 border: 2px solid $darkerBlue;
+    //             }
 
-                &:active {
-                    border-color: $blue;
-                    background-color: $back;
-                    color: $blue;
+    //             &:active {
+    //                 border-color: $blue;
+    //                 background-color: $back;
+    //                 color: $blue;
 
-                    border: 2px solid $blue;
-                }
-            }
-        }
-    }
+    //                 border: 2px solid $blue;
+    //             }
+    //         }
+    //     }
+    // }
 }
