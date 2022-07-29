@@ -16,7 +16,7 @@ export default function App() {
         <div className="sections">
           <Home/>
           <About/>
-          <Experience/>
+          {/* <Experience/> */}
           <Projects/>
           <Contact/>
         </div>
