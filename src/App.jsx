@@ -1,6 +1,6 @@
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
-import Experience from "./components/experience/Experience";
+// import Experience from "./components/experience/Experience";
 import Home from "./components/home/Home.jsx";
 import Navbar from "./components/navbar/Navbar";
 import Projects from "./components/projects/Projects";
@@ -11,14 +11,14 @@ export default function App() {
   return (
     <>
       <div className="app">
-        <Navbar/>
-        <Menu/>
+        <Navbar />
+        <Menu />
         <div className="sections">
-          <Home/>
-          <About/>
+          <Home />
+          <About />
           {/* <Experience/> */}
-          <Projects/>
-          <Contact/>
+          <Projects />
+          <Contact />
         </div>
       </div>
     </>
