@@ -1,7 +1,12 @@
-# My Personal portfolio site
+# Portfolio website
 
-First version published 26/01/2022
+<img src='https://i.postimg.cc/GmJKv27w/portfolio-Preview.png' alt='Portfolio-preview' width="550"/>
 
-Developed using React and Sass.
+## Technologies and Libs used
 
-Live Demo: [Demo](https://joao-lemos.netlify.app)
+- HTML, CSS, JS
+- React, Sass
+
+## Live demonstration
+
+[Demo](https://joao-lemos.netlify.app)
