@@ -1,6 +1,6 @@
-# Portfolio website
+# My Portfolio
 
-<img src='https://i.postimg.cc/GmJKv27w/portfolio-Preview.png' alt='Portfolio-preview' width="550"/>
+<img src="https://i.postimg.cc/T3MGpkSN/portf.png" alt="Portfolio" width="550px"/>
 
 ## Technologies and Libs used
 
