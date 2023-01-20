@@ -14,12 +14,12 @@ export default function About() {
                 </div>
                 <div className="description">
                     <p>
-                        {lang === 'en' ? "I'm a cheerful and curious software engineer based in Almada, Portugal." 
-                        : 'Sou um alegre e curioso desenvolvedor de Software localizado em Almada, Portugal'}
+                        {lang === 'en' ? "I'm a cheerful and versatile software engineer based in Almada, Portugal." 
+                        : 'Sou um alegre e versatil desenvolvedor de Software localizado em Almada, Portugal'}
                     </p>
                     <p>
-                        {lang === 'en' ? "After graduating I've been mostly working as a support engineer and back-end developer, but after one of my last work experiences I've discovered I like the visual aspect of the web development process a lot, so I dedicated myself to learn and get proficient with the front-end side."
-                        : "Depois de terminar o curso, trabalhei maioritariamente como desenvolvedor de back-end e engenheiro de suporte, mas depois de uma das minhas últimas experiências de trabalho descobri que gosto muito do aspecto visual do processo de desenvolvimento web, então dediquei me a aprender e ficar proficiente com o front-end."}
+                        {lang === 'en' ? "After graduating I've been mostly working as a back-end developer, but recently I've discovered I like the visual aspect of the web development process a lot, so I dedicated myself to learn and get proficient with the front-end side."
+                        : "Depois de terminar o curso, trabalhei maioritariamente como desenvolvedor de back-end, mas recentemente descobri que gosto muito do aspecto visual do processo de desenvolvimento web, então dediquei me a aprender e ficar proficiente com o front-end."}
                         
                     </p>
                     <p>
