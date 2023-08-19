@@ -14,9 +14,9 @@
         .left {
             flex: 0.5;
             background-image: linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.6)),
-                url("../../assets/pictures/J1_bw.png");
+                url("../../assets/pictures/foto_bw.png");
 
-            background-size: cover;
+            background-size: contain;
             background-repeat:no-repeat;
             background-position: bottom;
             

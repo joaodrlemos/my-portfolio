@@ -52,7 +52,7 @@ export default function Contact() {
           <h1>{lang === "en" ? "contact" : "contactar"}</h1>
           <p>
             {lang === "en"
-              ? "Thank you for visiting my portfolio site."
+              ? "Thank you for visiting my portfolio."
               : "Obrigado por visitares o meu portfolio"}
           </p>
           <p>
