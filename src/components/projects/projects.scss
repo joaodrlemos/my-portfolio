@@ -59,21 +59,16 @@
       }
 
       .project-item {
-        margin:10px;
-        width: 300px;
-        height: 220px;
+        margin: 10px;
+        width: 350px;
+        height: 230px;
 
         display: flex;
         align-items: center;
         justify-content: center;
-
         color: #fff;
-
         border-radius: 20px;
-        border: 2px solid transparent;
-
         opacity: 0.8;
-
         position: relative;
 
         -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -89,14 +84,14 @@
           position: absolute;
 
           h2 {
-            font-family: $textFont;
+            font-family: $netflixFont;
             font-weight: 600;
-            font-size: 2em;
+            font-size: 3em;
 
             bottom: 50%;
             left: 50%;
             color: #fff;
-            background-color: $blue;
+            // background-color: $blue;
             border-radius: 80px;
             padding: 10px;
           }
@@ -108,6 +103,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          background-color: rgba(var(--base-color-rgb), 0.6);
 
           .item-info {
             display: flex;
@@ -121,11 +117,9 @@
               justify-content: center;
               text-align: center;
               width: 250px;
-
-              font-size: 18px;
+              font-size: 20px;
               font-family: $textFont;
               font-weight: 500;
-
               overflow: hidden;
             }
 
@@ -135,42 +129,43 @@
               text-align: center;
               overflow: hidden;
               text-decoration: none;
-
               font-weight: 600;
-              background-color: $blue;
+              font-size: 1.2em;
               color: #fff;
 
               border-radius: 20px;
-              border: 2px solid $blue;
+              border: 3px solid $orange;
               cursor: pointer;
+
+              &:hover {
+                background-color: $orange;
+              }
 
               &:active {
                 border-color: $blue;
                 background: none;
                 color: $blue;
 
-                border: 2px solid $blue;
+                border: 3px solid $blue;
               }
             }
           }
         }
 
         &:hover {
-          border: 2px solid rgba(0, 0, 0, 0.8);
-
           .wrapper {
-            transition: background-color 0.3s ease;
-            background-color: rgba(0, 0, 0, 0.8);
+            transition: background-color 0.5s ease;
+            background-color: rgba(var(--base-color-rgb), 1) !important;
           }
 
           .item-info {
-            transition: display 0.8s ease;
-            display: flex;
+            transition: opacity 0.5s ease;
             opacity: 1;
           }
 
           .project-title {
-            display: none;
+            transition: opacity 0.5s ease;
+            opacity: 0;
           }
         }
       }

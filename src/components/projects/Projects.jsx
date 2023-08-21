@@ -12,37 +12,37 @@ export default function Projects() {
     const nrOfLines = numberOfLines(desc);
     console.log(nrOfLines);
     if (nrOfLines < 4) {
-      return "80px";
-    } else if (nrOfLines < 5) {
       return "100px";
-    } else {
+    } else if (nrOfLines < 5) {
       return "120px";
+    } else {
+      return "140px";
     }
   };
 
   function numberOfLines(text) {
-    const container = document.createElement('div');
-    container.style.textAlign = 'center';
-    container.style.width = '250px';
-    container.style.fontSize = '18px';
-    container.style.fontFamily = 'montserrat';
-    container.style.fontWeight = '600';
-    container.style.position = 'absolute'; 
-    container.style.visibility = 'hidden';
+    const container = document.createElement("div");
+    container.style.textAlign = "center";
+    container.style.width = "250px";
+    container.style.fontSize = "18px";
+    container.style.fontFamily = "montserrat";
+    container.style.fontWeight = "600";
+    container.style.position = "absolute";
+    container.style.visibility = "hidden";
     container.textContent = text;
 
     document.body.appendChild(container);
 
     const lineHeight = 1.2 * parseInt(container.style.fontSize, 10);
     const lineCount = Math.round(container.scrollHeight / lineHeight);
-    
+
     document.body.removeChild(container);
 
     return lineCount;
-}
+  }
 
   const renderProjectItem = (projectItem) => {
-    const { id, name, descEn, descPt, platform, img, url } = projectItem;
+    const { id, name, descEn, descPt, img, backgroundColor, font, url } = projectItem;
     const style = {
       backgroundImage: `${img}`,
       backgroundPosition: "top",
@@ -52,26 +52,22 @@ export default function Projects() {
     return (
       <div key={id} style={style} className="project-item">
         <div className="project-title">
-          <h2>{name}</h2>
+          <h2 style={{fontFamily: font}}>{name}</h2>
         </div>
-        <div className="wrapper">
+        <div className="wrapper" style={{ '--base-color-rgb': backgroundColor }}>
           <div className="item-info">
             {lang === "en" ? (
               <>
-                <h2 style={{ height: descriptionHeight(descEn) }}>
-                  {descEn}
-                </h2>
+                <h2 style={{ height: descriptionHeight(descEn) }}>{descEn}</h2>
                 <a href={url} target="_blank" rel="noopener noreferrer">
-                  demo
+                  {"demo >"}
                 </a>
               </>
             ) : (
               <>
-                <h2 style={{ height: descriptionHeight(descPt) }}>
-                  {descPt}
-                </h2>
+                <h2 style={{ height: descriptionHeight(descPt) }}>{descPt}</h2>
                 <a href={url} target="_blank" rel="noopener noreferrer">
-                  demonstração
+                  {"demonstração > "}
                 </a>
               </>
             )}
