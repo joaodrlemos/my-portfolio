@@ -2,8 +2,8 @@ export const PersonalProjectsData = [
   {
     id: "0",
     name: "Keeper",
-    descEn: "A notepad App where you can make your own notes.",
-    descPt: "Uma aplicação bloco de notas onde podes criar as tuas próprias.",
+    descEn: "A notepad WebApp where you can create your own notes.",
+    descPt: "Uma aplicação Web bloco de notas onde podes criar as tuas próprias.",
     img: `url(${require("../assets/pictures/projects/KeeperApp.png")})`,
     url: "https://note-keeper-project.netlify.app",
   },
@@ -11,17 +11,17 @@ export const PersonalProjectsData = [
     id: "1",
     name: "Hydra",
     descEn:
-      "A proof of Concept app for displaying, searching and filtering users.",
+      "A proof of concept WebApp for displaying, searching and filtering users.",
     descPt:
-      "Uma aplicação prova de conceito para listar, procurar e filtrar utilizadores",
+      "Uma aplicação Web prova de conceito para listar, procurar e filtrar utilizadores",
     img: `url(${require("../assets/pictures/projects/Hydra-preview.png")})`,
     url: "https://hydrausers.netlify.app",
   },
   {
     id: "2",
     name: "Leminflix",
-    descEn: "A Netflix clone app with movie and TV show info.",
-    descPt: "Uma aplicação clone da Netflix, com dados de filmes e series.",
+    descEn: "A Netflix clone WebApp with movie and TV show info.",
+    descPt: "Uma aplicação Web clone da Netflix, com informação de filmes e series.",
     img: `url(${require("../assets/pictures/projects/leminflix.png")})`,
     url: "https://leminflix.netlify.app",
   },
@@ -34,22 +34,22 @@ export const ProfessionalProjectsData = [
     descEn:
       "Official MEO MobileApp to buy tickets for Concerts, Festivals, Exhibitions, Museums, etc...",
     descPt:
-      "A Aplicação mobile oficial da Meo, Blueticket, onde se compram bilhetes para Concertos, Festivais, Espetáculos, Museus, etc...",
+      "A Aplicação Mobile oficial da Meo, Blueticket, onde se compram bilhetes para Concertos, Festivais, Espetáculos, Museus, etc...",
   },
   {
     id: "1",
     name: "I Can See You",
     descEn:
-      "A corporate application for authenticating users by their photograph and register their entries and exits.",
+      "A corporate WebApp for authenticating users by their photograph and register their work entries and exits.",
     descPt:
-      "Uma aplicação corporativa para autenticar utilizadores pela sua fotografia e registar as suas entradas e saídas",
+      "Uma aplicação Web corporativa para autenticar utilizadores pela sua fotografia e registar as suas entradas e saídas.",
   },
   {
     id: "2",
     name: "CorporateTV",
     descEn:
-      "Multimedia WebApp where the user can add media content(Images, Audio, Video or Documents) and create playlists with that content.",
+      "Multimedia WebApp where the user can add Images, Audio or Video and create playlists with that content.",
     descPt:
-      "Uma aplicação Web multimédia onde o utilizador pode guardar Imagens, Audio, Video ou Documentos e criar listas de reprodução desses conteúdos",
+      "Uma aplicação Web onde o utilizador pode guardar Imagens, Audio ou Video e criar listas de reprodução desses conteúdos",
   },
 ];
