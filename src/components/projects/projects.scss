@@ -12,7 +12,7 @@
     justify-content: center;
 
     h1 {
-      font-size: 40px;
+      font-size: 50px;
       color: $orange;
 
       @include mobile {
@@ -24,7 +24,7 @@
   .project-container {
     // border: 1px solid white;
     flex: 0.9;
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,21 +32,25 @@
 
     .personal-half,
     .professional-half {
-      // border: 1px solid white;
       display: flex;
       align-items: center;
 
       .personal-project-title {
         position: absolute;
+        font-size: 1.4em;
         left: 0;
+        color: $deactive;
       }
 
       .professional-project-title {
         position: absolute;
+        font-size: 1.4em;
         left: 0;
+        color: $deactive;
       }
     }
     .project-list {
+      // border: 1px solid white;
       width: 80vw;
       display: flex;
       align-items: center;
@@ -87,6 +91,7 @@
             font-family: $netflixFont;
             font-weight: 600;
             font-size: 3em;
+            text-align: center;
 
             bottom: 50%;
             left: 50%;
@@ -103,7 +108,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          background-color: rgba(var(--base-color-rgb), 0.6);
+          background-color: rgba(var(--base-color-rgb), 0.7);
 
           .item-info {
             display: flex;
@@ -118,14 +123,14 @@
               text-align: center;
               width: 250px;
               font-size: 20px;
-              font-family: $textFont;
               font-weight: 500;
+              font-family: $textFont;
               overflow: hidden;
             }
 
             a {
               padding: 10px;
-              width: 100px;
+              min-width: 100px;
               text-align: center;
               overflow: hidden;
               text-decoration: none;
@@ -133,7 +138,7 @@
               font-size: 1.2em;
               color: #fff;
 
-              border-radius: 20px;
+              border-radius: 40px;
               border: 3px solid $orange;
               cursor: pointer;
 

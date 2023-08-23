@@ -40,11 +40,13 @@ export const ProfessionalProjectsData = [
     id: "0",
     name: "MEO BlueTicket",
     descEn:
-      "Official MEO MobileApp to buy tickets for Concerts, Festivals, Exhibitions, etc...",
+      "The new version of the Official MEO MobileApp to buy tickets for Concerts, Festivals, Exhibitions, etc...",
     descPt:
-      "A Aplicação Mobile oficial da Meo, Blueticket, onde se compram bilhetes para Concertos, Festivais, Espetáculos, etc...",
-    backgroundColor: "233,180,180",
-    },
+      "A nova versão da Aplicação Movél oficial da Meo, onde se compram bilhetes para Concertos, Festivais, Espetáculos, etc...",
+    font: "Montserrat",
+    backgroundColor: "0,153,171",
+    url: null,
+  },
   {
     id: "1",
     name: "I Can See You",
@@ -52,7 +54,9 @@ export const ProfessionalProjectsData = [
       "A corporate WebApp for authenticating users by their photograph and register their work entries and exits.",
     descPt:
       "Uma aplicação Web corporativa para autenticar utilizadores pela sua fotografia e registar as suas entradas e saídas.",
-    backgroundColor: "233,180,180",
+    font: "Arial",
+    backgroundColor: "176,25,26",
+    url: null,
   },
   {
     id: "2",
@@ -61,6 +65,8 @@ export const ProfessionalProjectsData = [
       "Multimedia WebApp where the user can add Images, Audio or Video and create playlists with that content.",
     descPt:
       "Uma aplicação Web onde o utilizador pode guardar Imagens, Audio ou Video e criar listas de reprodução desses conteúdos",
-    backgroundColor: "233,180,180",
+    font: "Montserrat",
+    backgroundColor: "225,112,118",
+    url: null,
   },
 ];
