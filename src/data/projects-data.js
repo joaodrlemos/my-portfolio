@@ -40,33 +40,38 @@ export const ProfessionalProjectsData = [
     id: "0",
     name: "MEO BlueTicket",
     descEn:
-      "The new version of the Official MEO MobileApp to buy tickets for Concerts, Festivals, Exhibitions, etc...",
+      "The official MEO MobileApp to buy tickets for Concerts, Festivals, Exhibitions, Sports and family events, etc...",
     descPt:
-      "A nova versão da Aplicação Movél oficial da Meo, onde se compram bilhetes para Concertos, Festivais, Espetáculos, etc...",
-    font: "Montserrat",
+      "A aplicação Movél oficial da MEO, onde se compram bilhetes para Concertos, Festivais, Espetáculos, eventos desportivos, etc...",
+    logo: require("../assets/logos/MEO_Blueticket_Logo.png"),
+    img: `url(${require("../assets/pictures/projects/meobg.png")})`,
     backgroundColor: "0,153,171",
-    url: null,
-  },
-  {
-    id: "1",
-    name: "I Can See You",
-    descEn:
-      "A corporate WebApp for authenticating users by their photograph and register their work entries and exits.",
-    descPt:
-      "Uma aplicação Web corporativa para autenticar utilizadores pela sua fotografia e registar as suas entradas e saídas.",
-    font: "Arial",
-    backgroundColor: "176,25,26",
-    url: null,
-  },
-  {
-    id: "2",
-    name: "CorporateTV",
-    descEn:
-      "Multimedia WebApp where the user can add Images, Audio or Video and create playlists with that content.",
-    descPt:
-      "Uma aplicação Web onde o utilizador pode guardar Imagens, Audio ou Video e criar listas de reprodução desses conteúdos",
+    startBackgroundColor: false,
     font: "Montserrat",
-    backgroundColor: "225,112,118",
     url: null,
   },
+  {},
+  {},
+  // {
+  //   id: "1",
+  //   name: "I Can See You",
+  //   descEn:
+  //     "A corporate WebApp for authenticating users by their photograph and register their work entries and exits.",
+  //   descPt:
+  //     "Uma aplicação Web corporativa para autenticar utilizadores pela sua fotografia e registar as suas entradas e saídas.",
+  //   font: "Arial",
+  //   backgroundColor: "176,25,26",
+  //   url: null,
+  // },
+  // {
+  //   id: "2",
+  //   name: "CorporateTV",
+  //   descEn:
+  //     "Multimedia WebApp where the user can add Images, Audio or Video and create playlists with that content.",
+  //   descPt:
+  //     "Uma aplicação Web onde o utilizador pode guardar Imagens, Audio ou Video e criar listas de reprodução desses conteúdos",
+  //   font: "Montserrat",
+  //   backgroundColor: "225,112,118",
+  //   url: null,
+  // },
 ];

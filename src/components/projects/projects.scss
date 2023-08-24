@@ -121,7 +121,7 @@
               display: flex;
               justify-content: center;
               text-align: center;
-              width: 250px;
+              width: 260px;
               font-size: 20px;
               font-weight: 500;
               font-family: $textFont;
@@ -175,5 +175,15 @@
         }
       }
     }
+  }
+}
+
+.project-item:not([data-name]) {
+  background: none !important;
+  box-shadow: none !important;
+  cursor: default;
+
+  .project-demo {
+      display: none !important;
   }
 }

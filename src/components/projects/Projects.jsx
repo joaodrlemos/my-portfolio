@@ -19,7 +19,7 @@ export default function Projects() {
     console.log(nrOfLines);
     if (nrOfLines <= 3) {
       return "100px";
-    } else if (nrOfLines == 4) {
+    } else if (nrOfLines === 4) {
       return "120px";
     } else {
       return "140px";
@@ -48,7 +48,7 @@ export default function Projects() {
   }
 
   const renderProjectItem = (projectItem, index, isPersonal) => {
-    const { id, name, descEn, descPt, img, backgroundColor, font, url } =
+    const { id, name, descEn, descPt, img, logo, startBackgroundColor,backgroundColor, font, url } =
       projectItem;
     const style = {
       backgroundImage: `${img}`,
@@ -68,38 +68,39 @@ export default function Projects() {
               : firstProfessionalProjectItemRef
             : null
         }
+        data-name={name}
       >
         <div className="project-title">
-          <h2 style={{ fontFamily: font }}>{name}</h2>
+          {logo !== null && logo !== undefined ? (
+            <img
+              src={logo}
+              alt="logo"
+              style={{ width: "100%", height: "100%" }}
+            />
+          ) : (
+            <h2 style={{ fontFamily: font }}>{name}</h2>
+          )}
         </div>
         <div
           className="wrapper"
-          style={{ "--base-color-rgb": backgroundColor }}
+          style={startBackgroundColor === false ? {backgroundColor: "transparent"}: { "--base-color-rgb": backgroundColor }}
         >
           <div className="item-info">
             {lang === "en" ? (
               <>
                 <h2 style={{ height: descriptionHeight(descEn) }}>{descEn}</h2>
-                {url !== null ? (
+                {url !== null && url !== undefined && (
                   <a href={url} target="_blank" rel="noopener noreferrer">
                     {"demo >"}
-                  </a>
-                ) : (
-                  <a href={url} target="_blank" rel="noopener noreferrer">
-                    {"preview >"}
                   </a>
                 )}
               </>
             ) : (
               <>
                 <h2 style={{ height: descriptionHeight(descPt) }}>{descPt}</h2>
-                {url !== null ? (
+                {url !== null && url !== undefined && (
                   <a href={url} target="_blank" rel="noopener noreferrer">
                     {"demonstração >"}
-                  </a>
-                ) : (
-                  <a href={url} target="_blank" rel="noopener noreferrer">
-                    {"pre-visualização >"}
                   </a>
                 )}
               </>
@@ -112,7 +113,6 @@ export default function Projects() {
 
   useEffect(() => {
     const adjustTitlePosition = (titleRef, firstItemRef) => {
-      const containerWidth = projectContainerRef.current.offsetWidth;
       const itemLeftBoundary = firstItemRef.current.offsetLeft;
       const titleWidth = titleRef.current.offsetWidth;
 
@@ -146,7 +146,7 @@ export default function Projects() {
       <div ref={projectContainerRef} className="project-container">
         <div className="personal-half">
           <h2 ref={personalTitleRef} className="personal-project-title">
-            personal
+            {lang === "en" ? "personal" : "pessoais"}
           </h2>
           <div className="project-list">
             {PersonalProjectsData.map((item, index) =>
@@ -156,7 +156,7 @@ export default function Projects() {
         </div>
         <div className="professional-half">
           <h2 ref={professionalTitleRef} className="professional-project-title">
-            professional
+            {lang === "en" ? "professional" : "profissionais"}
           </h2>
           <div className="project-list">
             {ProfessionalProjectsData.map((item, index) =>
