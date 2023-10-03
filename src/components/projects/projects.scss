@@ -40,6 +40,10 @@
         font-size: 1.4em;
         left: 0;
         color: $deactive;
+
+        @include mobile {
+          display: none;
+        }
       }
 
       .professional-project-title {
@@ -47,6 +51,10 @@
         font-size: 1.4em;
         left: 0;
         color: $deactive;
+
+        @include mobile {
+          display: none;
+        }
       }
     }
     .project-list {
@@ -59,7 +67,7 @@
       @include mobile {
         flex-direction: column;
         height: 90%;
-        width: 400px;
+        width: 200px;
       }
 
       .project-item {
@@ -80,8 +88,10 @@
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 
         @include mobile {
-          width: 90%;
-          margin-bottom: 20px;
+          width: 100%;
+          overflow: hidden;
+          // width: 90%;
+          // margin-bottom: 20px;
         }
 
         .project-title {
@@ -117,6 +127,11 @@
             align-items: center;
             opacity: 0;
 
+            @include mobile {
+                height: 100%;
+                justify-content: center;
+              }
+
             h2 {
               display: flex;
               justify-content: center;
@@ -126,6 +141,12 @@
               font-weight: 500;
               font-family: $textFont;
               overflow: hidden;
+
+              @include mobile {
+                width: 100%;
+                overflow: hidden;
+              font-size: 1em;
+              }
             }
 
             a {
@@ -184,6 +205,6 @@
   cursor: default;
 
   .project-demo {
-      display: none !important;
+    display: none !important;
   }
 }

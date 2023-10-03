@@ -63,7 +63,7 @@ export default function Contact() {
           <p className="email">joaodrlemos@gmail.com</p>
           <div className="social-icons">
             <a
-              href="https://www.instagram.com/johnyVC_lemings/"
+              href="https://www.instagram.com/johny_lemings/"
               target="_blank"
               rel="noopener noreferrer"
             >
