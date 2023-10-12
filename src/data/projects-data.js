@@ -50,7 +50,19 @@ export const ProfessionalProjectsData = [
     font: "Montserrat",
     url: null,
   },
-  {},
+  {
+    id: "1",
+    name: "Chem",
+    descEn:
+      "A WebTool designed to simulate, visualize and create graphs on chemical processes, primarily focusing on titration and distillation.",
+    descPt:
+      "Uma ferramenta Web desenvolvida para simular, visualizar e criar grafos de processos químicos, foco principal em titulação e destilação.",
+    logo: require("../assets/logos/chem-logo2.png"),
+    img: `url(${require("../assets/pictures/projects/chem_home.png")})`,
+    font: "Arial",
+    backgroundColor: "57,78,44",
+    url: null,
+  },
   {},
   // {
   //   id: "1",
