@@ -11,7 +11,7 @@ export default function Menu() {
             <ul className="menu-list">
                 <li onClick={()=>dispatch(toggleMenu())}><a href="#home">{lang === 'en' ? 'home' : 'introdução'}</a></li>
                 <li onClick={()=>dispatch(toggleMenu())}><a href="#about">{lang === 'en' ? 'about' : 'sobre'}</a></li>
-                <li onClick={()=>dispatch(toggleMenu())}><a href="#experience">{lang === 'en' ? 'experience' : 'experiência'}</a></li>
+                {/* <li onClick={()=>dispatch(toggleMenu())}><a href="#experience">{lang === 'en' ? 'experience' : 'experiência'}</a></li> */}
                 <li onClick={()=>dispatch(toggleMenu())}><a href="#projects">{lang === 'en' ? 'projects' : 'projectos'}</a></li>
                 <li onClick={()=>dispatch(toggleMenu())}><a href="#contact">{lang === 'en' ? 'contact' : 'contacto'}</a></li>
             </ul>

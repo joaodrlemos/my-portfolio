@@ -38,13 +38,13 @@ export default function Navbar() {
           <ul>
             <li
               className={lang === "en" ? "en active" : "en"}
-              onClick={() => dispatch(changeLang("pt"))}
+              onClick={() => dispatch(changeLang("en"))}
             >
               EN
             </li>
             <li
               className={lang === "pt" ? "pt active" : "pt"}
-              onClick={() => dispatch(changeLang("en"))}
+              onClick={() => dispatch(changeLang("pt"))}
             >
               PT
             </li>

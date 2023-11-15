@@ -2,13 +2,13 @@ export const changeLang = (lan) => {
     
     if(lan==='en'){
         return {
-            type:'TO_PT',
+            type:'TO_EN',
         };
     }
 
     else if(lan==='pt'){
         return {
-            type:'TO_EN',
+            type:'TO_PT',
         };
     }
 }
