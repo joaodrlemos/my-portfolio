@@ -1,4 +1,3 @@
-// Import all images using ESModules (required for Vite)
 import KeeperAppImg from "../assets/pictures/projects/KeeperApp.png";
 import HydraPreviewImg from "../assets/pictures/projects/Hydra-preview.png";
 import LeminflixImg from "../assets/pictures/projects/leminflix.png";
