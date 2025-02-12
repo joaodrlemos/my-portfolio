@@ -1,11 +1,11 @@
-@use "global.scss";
+@use "./global.scss" as *;
 
 .app{
     height: 100vh;
     color: #fff;
     
     .sections {
-        background-color: $back;
+        background-color: $black;
         width: 100%;
         height: $sectionHeight;
         position: relative;

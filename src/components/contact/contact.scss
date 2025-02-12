@@ -1,4 +1,4 @@
-@use "../../global.scss";
+@use "../../global.scss" as *;
 
 .contact {
     display: flex;
@@ -169,7 +169,7 @@
 
     //             font-weight: 600;
     //             background-color: $blue;
-    //             color: $back;
+    //             color: $black;
 
     //             border-radius: 20px;
     //             border: 2px solid $blue;
@@ -182,7 +182,7 @@
 
     //             &:active {
     //                 border-color: $blue;
-    //                 background-color: $back;
+    //                 background-color: $black;
     //                 color: $blue;
 
     //                 border: 2px solid $blue;

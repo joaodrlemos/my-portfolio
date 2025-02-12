@@ -1,36 +1,36 @@
 // Color Palette Family
-$deactive: rgba(114, 114, 114,1);
-$gray: rgba(70,70,70,1);
+$deactive: rgba(114, 114, 114, 1);
+$gray: rgba(70, 70, 70, 1);
 
-$blue: rgba(1,168,231,1);
-$darkerBlue: rgba(1, 122, 167,1);
+$blue: rgba(1, 168, 231, 1);
+$darkerBlue: rgba(1, 122, 167, 1);
 
 $orange: rgba(239, 117, 42, 1);
-$darkerOrange: rgba(194, 94, 33,1);
+$darkerOrange: rgba(194, 94, 33, 1);
 
-$back: rgba(26,26,26,1);
+$black: rgba(26, 26, 26, 1);
 // $pink: #c2348b;
 
 // Dimension vars
 $sectionHeight: calc(100vh - 70px);
 
 // Font families
-$menuFont: 'Inconsolata', monospace;
+$menuFont: "Inconsolata", monospace;
 
-$textFont: 'Montserrat', sans-serif;
+$textFont: "Montserrat", sans-serif;
 // Project Fonts
-$netflixFont: 'BebasNeue', 'Montserrat';
+$netflixFont: "BebasNeue", "Montserrat";
 
 // Method classes
-@mixin mobile{
-    @media screen and (max-width: 800px) {
-        @content
-    }
-};
+@mixin mobile {
+  @media screen and (max-width: 800px) {
+    @content;
+  }
+}
 
 @font-face {
-    font-family: 'BebasNeue';
-    src: url('assets/fonts/BebasNeue.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
+  font-family: "BebasNeue";
+  src: url("assets/fonts/BebasNeue.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}

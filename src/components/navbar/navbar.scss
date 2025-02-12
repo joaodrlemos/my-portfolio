@@ -1,9 +1,9 @@
-@use "../../global.scss";
+@use "../../global.scss" as *;
 
 .navbar{
     height: 70px;
     width: 100%;
-    background-color: $back;
+    background-color: $black;
     color:#fff;
     position: fixed;
     top: 0;
@@ -128,7 +128,7 @@
     }
 
     &.open-menu{
-        background-color: $back;
+        background-color: $black;
 
         .hamburguer{
             overflow: hidden;

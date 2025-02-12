@@ -1,7 +1,7 @@
-@use "../../global.scss";
+@use "../../global.scss" as *;
 
 .menu {
-    background-color: $back;
+    background-color: $black;
     width: 250px;
     height: 100vh;
     position: fixed;
