@@ -1,4 +1,4 @@
-@use "@/styles/global.scss" as *;
+@use "@/styles/Global.module.scss" as *;
 
 .projects {
   display: flex;
@@ -21,7 +21,7 @@
     }
   }
 
-  .project-container {
+  .projectContainer {
     // border: 1px solid white;
     flex: 0.9;
     width: 100vw;
@@ -30,12 +30,12 @@
     justify-content: center;
     align-items: center;
 
-    .personal-half,
-    .professional-half {
+    .personalHalf,
+    .professionalHalf {
       display: flex;
       align-items: center;
 
-      .personal-project-title {
+      .personalProject-title {
         position: absolute;
         font-size: 1.4em;
         left: 0;
@@ -46,7 +46,7 @@
         }
       }
 
-      .professional-project-title {
+      .professionalProject-title {
         position: absolute;
         font-size: 1.4em;
         left: 0;
@@ -57,7 +57,7 @@
         }
       }
     }
-    .project-list {
+    .projectList {
       // border: 1px solid white;
       width: 80vw;
       display: flex;
@@ -70,7 +70,7 @@
         width: 200px;
       }
 
-      .project-item {
+      .projectItem {
         margin: 10px;
         width: 350px;
         height: 230px;
@@ -96,7 +96,7 @@
           // margin-bottom: 20px;
         }
 
-        .project-title {
+        .projectTitle {
           position: absolute;
 
           h2 {
@@ -122,7 +122,7 @@
           justify-content: center;
           background-color: rgba(var(--base-color-rgb), 0.7);
 
-          .item-info {
+          .itemInfo {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -186,12 +186,12 @@
             background-color: rgba(var(--base-color-rgb), 1) !important;
           }
 
-          .item-info {
+          .itemInfo {
             transition: opacity 0.5s ease;
             opacity: 1;
           }
 
-          .project-title {
+          .projectTitle {
             transition: opacity 0.5s ease;
             opacity: 0;
           }
@@ -201,12 +201,12 @@
   }
 }
 
-.project-item:not([data-name]) {
+.projectItem:not([data-name]) {
   background: none !important;
   box-shadow: none !important;
   cursor: default;
 
-  .project-demo {
+  .projectDemo {
     display: none !important;
   }
 }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { TiArrowDownThick } from "react-icons/ti";
 import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-import "../home/home.scss";
+import { RootState } from "@redux/store";
+import styles from "./Home.module.scss";
 
 const Home: React.FC = () => {
   const lang = useSelector((state: RootState) => state.language.value);
@@ -14,11 +14,17 @@ const Home: React.FC = () => {
   }, [lang]);
 
   return (
-    <div className="home" id="home">
-      <div className="container">
-        <div className="left" />
-        <div className="greeting">
-          <div className={onLoad ? "wrapper show" : "wrapper hide"}>
+    <div className={styles.home} id="home">
+      <div className={styles.container}>
+        <div className={styles.left} />
+        <div className={styles.greeting}>
+          <div
+            className={
+              onLoad
+                ? `${styles.wrapper} ${styles.show}`
+                : `${styles.wrapper} ${styles.hide}`
+            }
+          >
             <h2>{onLoad && (lang === "en" ? "Hi there!" : "Olá! Eu sou o")}</h2>
             <h1>
               {onLoad && (lang === "en" ? "I'm " : "")}
@@ -35,7 +41,7 @@ const Home: React.FC = () => {
             </h3>
           </div>
         </div>
-        <a className="scroll-arrow" href="#about">
+        <a className={styles.scrollArrow} href="#about">
           <TiArrowDownThick />
         </a>
       </div>

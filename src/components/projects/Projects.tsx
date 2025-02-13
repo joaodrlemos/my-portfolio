@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, CSSProperties } from "react";
-import "../projects/projects.scss";
 import {
   PersonalProjectsData,
   ProfessionalProjectsData,
-} from "@/data/projects-data";
+} from "@data/projects-data";
 import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+import { RootState } from "@redux/store";
+import styles from "./Projects.module.scss";
 
 interface ProjectItem {
   id: string | number;
@@ -85,7 +85,7 @@ const Projects: React.FC = () => {
       <div
         key={id}
         style={style}
-        className="project-item"
+        className={styles.projectItem}
         ref={
           index === 0
             ? isPersonal
@@ -95,7 +95,7 @@ const Projects: React.FC = () => {
         }
         data-name={name}
       >
-        <div className="project-title">
+        <div className={styles.projectTitle}>
           {logo ? (
             <img
               src={logo}
@@ -108,7 +108,7 @@ const Projects: React.FC = () => {
           )}
         </div>
         <div
-          className="wrapper"
+          className={styles.wrapper}
           style={
             startBackgroundColor === false
               ? { backgroundColor: "transparent" }
@@ -117,7 +117,7 @@ const Projects: React.FC = () => {
                 } as CSSProperties)
           }
         >
-          <div className="item-info">
+          <div className={styles.itemInfo}>
             {lang === "en" ? (
               <>
                 <h2 style={{ height: descriptionHeight(descEn) }}>{descEn}</h2>
@@ -173,26 +173,29 @@ const Projects: React.FC = () => {
   }, []);
 
   return (
-    <div className="projects" id="projects">
-      <div className="header">
+    <div className={styles.projects} id="projects">
+      <div className={styles.header}>
         <h1>{lang === "en" ? "projects" : "projectos"}</h1>
       </div>
-      <div ref={projectContainerRef} className="project-container">
-        <div className="personal-half">
-          <h2 ref={personalTitleRef} className="personal-project-title">
+      <div ref={projectContainerRef} className={styles.projectContainer}>
+        <div className={styles.personalHalf}>
+          <h2 ref={personalTitleRef} className={styles.personalProjectTitle}>
             {lang === "en" ? "personal" : "pessoais"}
           </h2>
-          <div className="project-list">
+          <div className={styles.projectList}>
             {PersonalProjectsData.map((item, index) =>
               renderProjectItem(item, index, true)
             )}
           </div>
         </div>
-        <div className="professional-half">
-          <h2 ref={professionalTitleRef} className="professional-project-title">
+        <div className={styles.professionalHalf}>
+          <h2
+            ref={professionalTitleRef}
+            className={styles.professionalProjectTitle}
+          >
             {lang === "en" ? "professional" : "profissionais"}
           </h2>
-          <div className="project-list">
+          <div className={styles.projectList}>
             {ProfessionalProjectsData.map((item, index) =>
               renderProjectItem(item, index, false)
             )}

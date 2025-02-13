@@ -16,12 +16,20 @@
       "@assets/*": ["assets/*"],
       "@styles/*": ["styles/*"],
       "@redux/*": ["redux/*"],
-      "@typings/*": ["typings/*"],
+      "@redux/features/*": ["redux/features/*"],
+      "@data/*": ["data/*"],
+      "@typings/*": ["typings/*"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["src", "src/**/*.ts", "src/**/*.tsx", "src/typings/**/*"],
+  "include": [
+    "src",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.scss",
+    "src/**/*.module.scss"
+  ],
   "exclude": ["node_modules", "dist"]
 }

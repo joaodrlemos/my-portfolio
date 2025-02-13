@@ -1,5 +1,4 @@
 import React from "react";
-import "../about/about.scss";
 import {
   FaHtml5,
   FaConfluence,
@@ -12,18 +11,19 @@ import {
 } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
 import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+import { RootState } from "@redux/store";
+import styles from "./About.module.scss";
 
 const About: React.FC = () => {
   const lang = useSelector((state: RootState) => state.language.value);
 
   return (
-    <div className="about" id="about">
-      <div className="left">
-        <div className="title">
+    <div className={styles.about} id="about">
+      <div className={styles.left}>
+        <div className={styles.title}>
           <h2>{lang === "en" ? "about me" : "sobre mim"}</h2>
         </div>
-        <div className="description">
+        <div className={styles.description}>
           <p>
             {lang === "en"
               ? "Based in Lisbon, Portugal, I am a cheerful and versatile software engineer with a unique blend of creativity and technical acumen."
@@ -41,37 +41,37 @@ const About: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className="right">
-        <div className="title">
+      <div className={styles.right}>
+        <div className={styles.title}>
           <h2>{lang === "en" ? "skills" : "habilidades"}</h2>
         </div>
-        <div className="skills">
-          <div className="hard-skills">
+        <div className={styles.skills}>
+          <div className={styles.hardSkills}>
             <ul>
-              <li className="languages">
-                <div className="title">
+              <li className={styles.languages}>
+                <div className={styles.title}>
                   {lang === "en" ? "languages" : "linguagens"}
                 </div>
-                <div className="elem">
+                <div className={styles.elem}>
                   <span title="HTML">
                     <FaHtml5 />
                   </span>
                   <span title="CSS">
                     <FaCss3Alt />
                   </span>
-                  <span title="Typescript" className="ts">
-                    <SiTypescript className="si-icons" />
+                  <span title="Typescript" className={styles.ts}>
+                    <SiTypescript className={styles.siIcons} />
                   </span>
                 </div>
               </li>
 
-              <li className="frameworksNLibraries">
-                <div className="title">
+              <li className={styles.frameworksNLibraries}>
+                <div className={styles.title}>
                   {lang === "en"
                     ? "frameworks/libraries"
                     : "frameworks/bibliotecas"}
                 </div>
-                <div className="elem">
+                <div className={styles.elem}>
                   <span title="React.js/React Native">
                     <FaReact />
                   </span>
@@ -81,11 +81,11 @@ const About: React.FC = () => {
                 </div>
               </li>
 
-              <li className="tools">
-                <div className="title">
+              <li className={styles.tools}>
+                <div className={styles.title}>
                   {lang === "en" ? "tools" : "ferramentas"}
                 </div>
-                <div className="elem">
+                <div className={styles.elem}>
                   <span title="Git">
                     <FaGitAlt />
                   </span>
@@ -102,7 +102,7 @@ const About: React.FC = () => {
               </li>
             </ul>
           </div>
-          <div className="soft-skills">
+          <div className={styles.softSkills}>
             <ul>
               <li>{lang === "en" ? "Creativity" : "Creatividade"}</li>
               <li>{lang === "en" ? "empathy" : "empatia"}</li>

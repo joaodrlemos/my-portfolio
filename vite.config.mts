@@ -37,8 +37,16 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(process.cwd(), "src"),
+      "@components": path.resolve(process.cwd(), "src/components"),
+      "@assets": path.resolve(process.cwd(), "src/assets"),
+      "@styles": path.resolve(process.cwd(), "src/styles"),
+      "@redux": path.resolve(process.cwd(), "src/redux"),
+      "@redux/features": path.resolve(process.cwd(), "src/redux/features"),
+      "@data": path.resolve(process.cwd(), "src/data"),
+      "@typings": path.resolve(process.cwd(), "src/typings"),
     },
     conditions: ["module"],
+    preserveSymlinks: true,
   },
   assetsInclude: ["**/*.otf", "**/*.woff", "**/*.woff2"],
   define: {

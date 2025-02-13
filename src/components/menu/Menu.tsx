@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "@/redux/store";
-import { toggleMenu } from "@/redux/features/menuSlice";
-import "../menu/menu.scss";
+import { RootState, AppDispatch } from "@redux/store";
+import { toggleMenu } from "@redux/features/menuSlice";
+import styles from "./Menu.module.scss";
 
 const Menu: React.FC = () => {
   const lang = useSelector((state: RootState) => state.language.value);
@@ -10,8 +10,8 @@ const Menu: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   return (
-    <div className={"menu " + (openMenu && "open-menu")}>
-      <ul className="menu-list">
+    <div className={`${styles.menu} ${openMenu ? styles.openMenu : ""}`}>
+      <ul className={styles.menuList}>
         <li onClick={() => dispatch(toggleMenu())}>
           <a href="#home">{lang === "en" ? "home" : "introdução"}</a>
         </li>

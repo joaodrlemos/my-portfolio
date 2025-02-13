@@ -1,4 +1,4 @@
-@use "@/styles/global.scss" as *;
+@use "@/styles/Global.module.scss" as *;
 
 .about {
   display: flex;
@@ -151,7 +151,7 @@
         }
       }
 
-      .hard-skills {
+      .hardskills {
         color: $orange;
 
         @include mobile {
@@ -248,7 +248,7 @@
         }
       }
 
-      .soft-skills {
+      .softskills {
         color: $blue;
 
         display: flex;

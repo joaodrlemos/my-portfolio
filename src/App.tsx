@@ -5,7 +5,7 @@ import Home from "./components/home/Home";
 import Navbar from "./components/navbar/Navbar";
 import Projects from "./components/projects/Projects";
 import Menu from "./components/menu/Menu";
-import "@/styles/global.scss";
+import "@/styles/Global.module.scss";
 
 const App: React.FC = () => {
   return (
