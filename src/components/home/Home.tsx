@@ -3,6 +3,7 @@ import { TiArrowDownThick } from "react-icons/ti";
 import { useSelector } from "react-redux";
 import { RootState } from "@redux/store";
 import styles from "./Home.module.scss";
+import homeImage from "@/assets/pictures/foto_bw.png";
 
 const Home: React.FC = () => {
   const lang = useSelector((state: RootState) => state.language.value);
@@ -16,7 +17,9 @@ const Home: React.FC = () => {
   return (
     <div className={styles.home} id="home">
       <div className={styles.container}>
-        <div className={styles.left} />
+        <div className={styles.left}>
+          <img src={homeImage} alt="João Lemos" />
+        </div>
         <div className={styles.greeting}>
           <div
             className={
@@ -41,10 +44,10 @@ const Home: React.FC = () => {
             </h3>
           </div>
         </div>
-        <a className={styles.scrollArrow} href="#about">
-          <TiArrowDownThick />
-        </a>
       </div>
+      <a className={styles.scrollArrow} href="#about">
+        <TiArrowDownThick />
+      </a>
     </div>
   );
 };

@@ -1,135 +1,79 @@
-@use "@/styles/Global.module.scss" as *;
+@use "../../styles/Global.scss" as *;
 
 .home {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
   .container {
-    height: 100%;
+    width: 90%;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-    position: relative;
+  .left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    @include mobile {
-      flex-direction: column-reverse;
+    img {
+      width: 60%;
+      max-width: 450px;
+      border-radius: 10px;
+      object-fit: cover;
     }
+  }
 
-    .left {
-      flex: 0.5;
-      background-image: linear-gradient(
-          rgba(26, 26, 26, 0.6),
-          rgba(26, 26, 26, 0.6)
-        ),
-        url("@/assets/pictures/foto_bw.png");
+  .greeting {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
 
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: bottom;
-
-      @include mobile {
-        flex: 0.7;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom;
-
-        @media (max-width: 520px) {
-          background-size: cover;
-        }
-      }
-    }
-
-    .greeting {
-      flex: 0.5;
-      display: flex;
-      align-items: center;
-
-      @include mobile {
-        flex: 0.3;
-        justify-content: center;
-      }
-
-      .wrapper {
-        overflow: hidden;
-        position: relative;
-
-        @include mobile {
-          display: flex;
-          flex-direction: column;
-        }
-
-        &.hide {
-          transition: all 0.5ms linear;
-          top: -120px;
-          opacity: 0;
-        }
-
-        &.show {
-          transition: all 1s ease;
-          top: -35px;
-          opacity: 1;
-
-          @include mobile {
-            top: 0px;
-          }
-        }
-
-        h2 {
-          font-size: 40px;
-
-          @include mobile {
-            font-size: 20px;
-            text-align: center;
-          }
-        }
-
-        h1 {
-          span {
-            font-size: 60px;
-            font-weight: 600;
-            color: $blue;
-
-            @include mobile {
-              font-size: 40px;
-            }
-          }
-        }
-
-        h3 {
-          font-size: 40px;
-          margin-bottom: 10px;
-
-          span {
-            color: $orange;
-          }
-
-          @include mobile {
-            font-size: 20px;
-            margin: 0px;
-            text-align: center;
-          }
-        }
-      }
-    }
-
-    .scrollarrow {
-      color: $deactive;
-      font-size: 3em;
-
-      position: absolute;
-      bottom: 0px;
-      right: 30%;
+    .wrapper {
       opacity: 0;
-      cursor: pointer;
+      transform: translateY(-10px);
+      transition: opacity 1s ease, transform 1s ease;
 
-      transition: all 2s ease;
-      animation: arrowBlink 2s infinite;
-
-      @keyframes arrowBlink {
-        50% {
-          opacity: 100%;
-        }
+      &.show {
+        opacity: 1;
+        transform: translateY(0);
       }
 
-      @include mobile {
+      h2 {
+        font-size: 2em;
+      }
+
+      h1 {
+        font-size: 3em;
+        color: $blue;
+      }
+
+      h3 {
+        font-size: 1.8em;
         color: $orange;
-        right: calc(50% - 24px);
+      }
+    }
+  }
+
+  .scrollArrow {
+    color: $deactive;
+    font-size: 3em;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    animation: arrowBlink 2s infinite;
+
+    @keyframes arrowBlink {
+      50% {
+        opacity: 100%;
       }
     }
   }

@@ -13,7 +13,8 @@ $darkerOrange: rgba(194, 94, 33, 1);
 $black: rgba(26, 26, 26, 1);
 
 // 📏 Dimension Vars
-$sectionHeight: calc(100vh - 70px);
+$navbarHeight: 70px;
+$sectionHeight: calc(100vh - $navbarHeight);
 
 // 🖋️ Font Families
 $menuFont: "Inconsolata", monospace;
@@ -28,10 +29,14 @@ $netflixFont: "BebasNeue", "Montserrat";
 }
 
 // ✅ Default Body Styles
+html,
 body {
   font-family: $textFont;
   background-color: $black;
   color: white;
+  width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 // ✅ Utility Classes
@@ -70,16 +75,16 @@ body {
 // ✅ App Wrapper
 .app {
   height: 100vh;
+  width: 100vw;
   color: #fff;
+  overflow-x: hidden;
 }
 
 .sections {
   background-color: $black;
-  width: 100%;
+  width: 100vw;
   height: $sectionHeight;
   position: relative;
-  top: 70px;
-  scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   scrollbar-width: none;
 

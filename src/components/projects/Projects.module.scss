@@ -1,212 +1,39 @@
-@use "@/styles/Global.module.scss" as *;
+@use "../../styles/Global.scss" as *;
 
 .projects {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  .header {
-    flex: 0.15;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    h1 {
-      font-size: 50px;
-      color: $orange;
-
-      @include mobile {
-        font-size: 30px;
-      }
-    }
-  }
-
   .projectContainer {
-    // border: 1px solid white;
-    flex: 0.9;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    .personalHalf,
-    .professionalHalf {
-      display: flex;
-      align-items: center;
-
-      .personalProject-title {
-        position: absolute;
-        font-size: 1.4em;
-        left: 0;
-        color: $deactive;
-
-        @include mobile {
-          display: none;
-        }
-      }
-
-      .professionalProject-title {
-        position: absolute;
-        font-size: 1.4em;
-        left: 0;
-        color: $deactive;
-
-        @include mobile {
-          display: none;
-        }
-      }
-    }
     .projectList {
-      // border: 1px solid white;
-      width: 80vw;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .projectItem {
+      width: 350px;
+      height: 230px;
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 20px;
+      overflow: hidden;
 
-      @include mobile {
-        flex-direction: column;
-        height: 90%;
-        width: 200px;
-      }
-
-      .projectItem {
-        margin: 10px;
-        width: 350px;
-        height: 230px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        border-radius: 20px;
-        opacity: 0.8;
-        position: relative;
-
-        -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-        -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-
-        overflow: hidden;
-
-        @include mobile {
-          width: 100%;
-          overflow: hidden;
-          // width: 90%;
-          // margin-bottom: 20px;
-        }
-
-        .projectTitle {
-          position: absolute;
-
-          h2 {
-            font-family: $netflixFont;
-            font-weight: 600;
-            font-size: 3em;
-            text-align: center;
-
-            bottom: 50%;
-            left: 50%;
-            color: #fff;
-            // background-color: $blue;
-            border-radius: 80px;
-            padding: 10px;
-          }
-        }
-
+      &:hover {
         .wrapper {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: rgba(var(--base-color-rgb), 0.7);
-
-          .itemInfo {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            opacity: 0;
-
-            @include mobile {
-                height: 100%;
-                justify-content: center;
-              }
-
-            h2 {
-              display: flex;
-              justify-content: center;
-              text-align: center;
-              width: 260px;
-              font-size: 20px;
-              font-weight: 500;
-              font-family: $textFont;
-              overflow: hidden;
-
-              @include mobile {
-                width: 100%;
-                overflow: hidden;
-              font-size: 1em;
-              }
-            }
-
-            a {
-              padding: 10px;
-              min-width: 100px;
-              text-align: center;
-              overflow: hidden;
-              text-decoration: none;
-              font-weight: 600;
-              font-size: 1.2em;
-              color: #fff;
-
-              border-radius: 40px;
-              border: 3px solid $orange;
-              cursor: pointer;
-
-              &:hover {
-                background-color: $orange;
-              }
-
-              &:active {
-                border-color: $blue;
-                background: none;
-                color: $blue;
-
-                border: 3px solid $blue;
-              }
-            }
-          }
-        }
-
-        &:hover {
-          .wrapper {
-            transition: background-color 0.5s ease;
-            background-color: rgba(var(--base-color-rgb), 1) !important;
-          }
-
-          .itemInfo {
-            transition: opacity 0.5s ease;
-            opacity: 1;
-          }
-
-          .projectTitle {
-            transition: opacity 0.5s ease;
-            opacity: 0;
-          }
+          background-color: rgba(var(--base-color-rgb), 1);
         }
       }
     }
-  }
-}
-
-.projectItem:not([data-name]) {
-  background: none !important;
-  box-shadow: none !important;
-  cursor: default;
-
-  .projectDemo {
-    display: none !important;
   }
 }
