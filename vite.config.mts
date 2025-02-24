@@ -23,6 +23,11 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(process.cwd(), "src"),
+      "@components": path.resolve(__dirname, "src/components"),
+      "@assets": path.resolve(__dirname, "src/assets"),
+      "@styles": path.resolve(__dirname, "src/styles"),
+      "@redux": path.resolve(__dirname, "src/redux"),
+      "@typings": path.resolve(__dirname, "src/typings"),
     },
     conditions: ["module"],
   },
