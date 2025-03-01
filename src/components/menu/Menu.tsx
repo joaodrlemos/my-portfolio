@@ -1,32 +1,31 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "@/redux/store";
-import { toggleMenu } from "@/redux/features/menuSlice";
-import "../menu/menu.scss";
+import React, { memo } from 'react';
+import { useAppContext } from '@/context/AppContext';
+import { Language } from '@/typings/generalTypes';
+import styles from './Menu.module.scss';
 
-const Menu: React.FC = () => {
-  const lang = useSelector((state: RootState) => state.language.value);
-  const openMenu = useSelector((state: RootState) => state.menu.isOpen);
-  const dispatch = useDispatch<AppDispatch>();
+export const Menu: React.FC = memo(() => {
+  const { language, isMenuOpen, toggleMenu } = useAppContext();
 
   return (
-    <div className={"menu " + (openMenu && "open-menu")}>
-      <ul className="menu-list">
-        <li onClick={() => dispatch(toggleMenu())}>
-          <a href="#home">{lang === "en" ? "home" : "introdução"}</a>
+    <div className={`${styles.menu} ${isMenuOpen ? styles.openMenu : ''}`}>
+      <ul className={styles.menuList}>
+        <li onClick={toggleMenu}>
+          <a href="#home">{language === Language.EN ? 'home' : 'introdução'}</a>
         </li>
-        <li onClick={() => dispatch(toggleMenu())}>
-          <a href="#about">{lang === "en" ? "about" : "sobre"}</a>
+        <li onClick={toggleMenu}>
+          <a href="#about">{language === Language.EN ? 'about' : 'sobre'}</a>
         </li>
-        <li onClick={() => dispatch(toggleMenu())}>
-          <a href="#projects">{lang === "en" ? "projects" : "projectos"}</a>
+        <li onClick={toggleMenu}>
+          <a href="#projects">
+            {language === Language.EN ? 'projects' : 'projectos'}
+          </a>
         </li>
-        <li onClick={() => dispatch(toggleMenu())}>
-          <a href="#contact">{lang === "en" ? "contact" : "contacto"}</a>
+        <li onClick={toggleMenu}>
+          <a href="#contact">
+            {language === Language.EN ? 'contact' : 'contacto'}
+          </a>
         </li>
       </ul>
     </div>
   );
-};
-
-export default Menu;
+});

@@ -1,17 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
-import App from "./App";
-import store from "./redux/store";
-import "@/styles/global.scss";
+import React, { Suspense, lazy } from 'react';
+import ReactDOM from 'react-dom/client';
+import { AppProvider } from '@/context/AppContext';
+import '@/styles/global.scss';
 
-const rootElement = document.getElementById("root") as HTMLElement;
-const root = ReactDOM.createRoot(rootElement);
+const App = lazy(() => import('@/components/app/App'));
 
-root.render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+    <AppProvider>
+      <Suspense fallback={<div>Loading...</div>}>
+        <App />
+      </Suspense>
+    </AppProvider>
+  </React.StrictMode>,
 );

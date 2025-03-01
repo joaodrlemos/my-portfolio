@@ -1,29 +1,29 @@
-import React, { useState } from "react";
-import "../contact/contact.scss";
-import { Instagram, GitHub, LinkedIn } from "@mui/icons-material";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+import React, { memo } from 'react';
+import { Instagram, GitHub, LinkedIn } from '@mui/icons-material';
+import styles from '../contact/Contact.module.scss';
+import { useAppContext } from '@/context/AppContext';
+import { Language } from '@/typings/generalTypes';
 
-const Contact: React.FC = () => {
-  const lang = useSelector((state: RootState) => state.language.value);
+const Contact: React.FC = memo(() => {
+  const { language } = useAppContext();
 
   return (
-    <div className="contact" id="contact">
-      <div className="container">
-        <div className="contact-text">
-          <h1>{lang === "en" ? "contact" : "contactar"}</h1>
+    <div className={styles.contact} id="contact">
+      <div className={styles.container}>
+        <div className={styles.contactText}>
+          <h1>{language === Language.EN ? 'contact' : 'contactar'}</h1>
           <p>
-            {lang === "en"
-              ? "Thank you for visiting my portfolio."
-              : "Obrigado por visitares o meu portfolio"}
+            {language === Language.EN
+              ? 'Thank you for visiting my portfolio.'
+              : 'Obrigado por visitares o meu portfolio'}
           </p>
           <p>
-            {lang === "en"
+            {language === Language.EN
               ? "If you're interested in getting in contact, please send me an email or access my social medias."
-              : "Se estás interessado em contactar me, por favor envia um email ou acede às minhas redes sociais."}
+              : 'Se estás interessado em contactar me, por favor envia um email ou acede às minhas redes sociais.'}
           </p>
-          <p className="email">joaodrlemos@gmail.com</p>
-          <div className="social-icons">
+          <p className={styles.email}>joaodrlemos@gmail.com</p>
+          <div className={styles.socialIcons}>
             <a
               href="https://www.instagram.com/johny_lemings/"
               target="_blank"
@@ -50,6 +50,6 @@ const Contact: React.FC = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Contact;

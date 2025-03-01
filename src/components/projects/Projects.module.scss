@@ -1,4 +1,4 @@
-@use "@/styles/global.scss" as *;
+@use '@/styles/global.scss' as *;
 
 .projects {
   display: flex;
@@ -21,8 +21,7 @@
     }
   }
 
-  .project-container {
-    // border: 1px solid white;
+  .projectContainer {
     flex: 0.9;
     width: 100vw;
     display: flex;
@@ -30,12 +29,12 @@
     justify-content: center;
     align-items: center;
 
-    .personal-half,
-    .professional-half {
+    .personalHalf,
+    .professionalHalf {
       display: flex;
       align-items: center;
 
-      .personal-project-title {
+      .personalProjectTitle {
         position: absolute;
         font-size: 1.4em;
         left: 0;
@@ -46,7 +45,7 @@
         }
       }
 
-      .professional-project-title {
+      .professionalProjectTitle {
         position: absolute;
         font-size: 1.4em;
         left: 0;
@@ -57,8 +56,7 @@
         }
       }
     }
-    .project-list {
-      // border: 1px solid white;
+    .projectList {
       width: 80vw;
       display: flex;
       align-items: center;
@@ -70,7 +68,7 @@
         width: 200px;
       }
 
-      .project-item {
+      .projectItem {
         margin: 10px;
         width: 350px;
         height: 230px;
@@ -92,12 +90,23 @@
         @include mobile {
           width: 100%;
           overflow: hidden;
-          // width: 90%;
-          // margin-bottom: 20px;
         }
 
-        .project-title {
+        .projectTitle {
           position: absolute;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+
+          img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+          }
 
           h2 {
             font-family: $netflixFont;
@@ -108,7 +117,6 @@
             bottom: 50%;
             left: 50%;
             color: #fff;
-            // background-color: $blue;
             border-radius: 80px;
             padding: 10px;
           }
@@ -120,9 +128,9 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          background-color: rgba(var(--base-color-rgb), 0.7);
+          transition: background-color 0.5s ease;
 
-          .item-info {
+          .itemInfo {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -130,9 +138,9 @@
             opacity: 0;
 
             @include mobile {
-                height: 100%;
-                justify-content: center;
-              }
+              height: 100%;
+              justify-content: center;
+            }
 
             h2 {
               display: flex;
@@ -147,7 +155,7 @@
               @include mobile {
                 width: 100%;
                 overflow: hidden;
-              font-size: 1em;
+                font-size: 1em;
               }
             }
 
@@ -182,16 +190,15 @@
 
         &:hover {
           .wrapper {
-            transition: background-color 0.5s ease;
             background-color: rgba(var(--base-color-rgb), 1) !important;
           }
 
-          .item-info {
+          .itemInfo {
             transition: opacity 0.5s ease;
             opacity: 1;
           }
 
-          .project-title {
+          .projectTitle {
             transition: opacity 0.5s ease;
             opacity: 0;
           }
@@ -201,12 +208,12 @@
   }
 }
 
-.project-item:not([data-name]) {
+.projectItem:not([data-name]) {
   background: none !important;
   box-shadow: none !important;
   cursor: default;
 
-  .project-demo {
+  .projectDemo {
     display: none !important;
   }
 }

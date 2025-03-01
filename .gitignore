@@ -1,2 +1,5 @@
 /node_modules
 /ARQUIVE
+/.vscode
+/.vite_cache
+/dist

@@ -1,64 +1,66 @@
-import React from "react";
-import "../navbar/navbar.scss";
-import logo from "@/assets/logos/J-cor-08.png";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "@/redux/store";
-import { setLanguage } from "@/redux/features/languageSlice";
-import { toggleMenu } from "@/redux/features/menuSlice";
+import React, { memo } from 'react';
+import { useAppContext } from '@/context/AppContext';
+import { Language } from '@/typings/generalTypes';
+import styles from './Navbar.module.scss';
+import logo from '/logos/J-cor-08.png';
 
-const Navbar: React.FC = () => {
-  const lang = useSelector((state: RootState) => state.language.value);
-  const openMenu = useSelector((state: RootState) => state.menu.isOpen);
-  const dispatch = useDispatch<AppDispatch>();
+export const Navbar: React.FC = memo(() => {
+  const { language, setLanguage, isMenuOpen, toggleMenu } = useAppContext();
 
   return (
-    <div className={"navbar " + (openMenu && "open-menu")}>
-      <div className="wrapper">
-        <div className="left">
+    <div className={`${styles.navbar} ${isMenuOpen ? styles.openMenu : ''}`}>
+      <div className={styles.wrapper}>
+        <div className={styles.left}>
           <a href="#home">
             <img src={logo} alt="Logo" />
           </a>
         </div>
-        <div className="middle">
+        <div className={styles.middle}>
           <ul>
             <li>
-              <a href="#home">{lang === "en" ? "home" : "introdução"}</a>
+              <a href="#home">
+                {language === Language.EN ? 'home' : 'introdução'}
+              </a>
             </li>
             <li>
-              <a href="#about">{lang === "en" ? "about" : "sobre"}</a>
+              <a href="#about">
+                {language === Language.EN ? 'about' : 'sobre'}
+              </a>
             </li>
             <li>
-              <a href="#projects">{lang === "en" ? "projects" : "projectos"}</a>
+              <a href="#projects">
+                {language === Language.EN ? 'projects' : 'projectos'}
+              </a>
             </li>
             <li>
-              <a href="#contact">{lang === "en" ? "contact" : "contacto"}</a>
+              <a href="#contact">
+                {language === Language.EN ? 'contact' : 'contacto'}
+              </a>
             </li>
           </ul>
         </div>
-        <div className="right">
+        <div className={styles.right}>
           <ul>
             <li
-              className={lang === "en" ? "en active" : "en"}
-              onClick={() => dispatch(setLanguage("en"))}
+              className={`${styles.en} ${language === Language.EN ? styles.active : ''}`}
+              onClick={() => setLanguage(Language.EN)}
             >
               EN
             </li>
             <li
-              className={lang === "pt" ? "pt active" : "pt"}
-              onClick={() => dispatch(setLanguage("pt"))}
+              className={`${styles.pt} ${language === Language.PT ? styles.active : ''}`}
+              onClick={() => setLanguage(Language.PT)}
             >
               PT
             </li>
           </ul>
         </div>
-        <div className="hamburguer" onClick={() => dispatch(toggleMenu())}>
-          <span className="line1" />
-          <span className="line2" />
-          <span className="line3" />
+        <div className={styles.hamburguer} onClick={toggleMenu}>
+          <span className={styles.line1} />
+          <span className={styles.line2} />
+          <span className={styles.line3} />
         </div>
       </div>
     </div>
   );
-};
-
-export default Navbar;
+});

@@ -1,0 +1,119 @@
+@use '@/styles/global.scss' as *;
+
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  .left {
+    flex: 0.5;
+    padding: 20px;
+
+    .title {
+      h2 {
+        font-size: 50px;
+        font-weight: 600;
+        color: $blue;
+        text-align: left;
+      }
+    }
+
+    .description {
+      p {
+        font-size: 1.2em;
+        color: $deactive;
+        margin-bottom: 12px;
+      }
+
+      .skillList {
+        list-style: none;
+        padding: 0;
+
+        li {
+          background: rgba(255, 255, 255, 0.1);
+          padding: 10px;
+          margin-bottom: 10px;
+          border-radius: 5px;
+          color: white;
+          font-size: 1.1em;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .right {
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      h2 {
+        font-size: 50px;
+        font-weight: 600;
+        color: $orange;
+      }
+    }
+
+    .skills {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .hardSkills {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 20px;
+
+        .circle {
+          width: 130px;
+          height: 130px;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.05);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 0.9em;
+
+          .iconCircle {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            width: 90px;
+          }
+        }
+      }
+
+      .softSkills {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .skillBadges {
+          display: flex;
+          gap: 15px;
+          padding: 10px;
+
+          span {
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

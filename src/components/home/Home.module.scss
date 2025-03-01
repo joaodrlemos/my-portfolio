@@ -1,0 +1,134 @@
+@use '@/styles/global.scss' as *;
+
+.home {
+  .container {
+    height: 100%;
+    display: flex;
+
+    position: relative;
+
+    @include mobile {
+      flex-direction: column-reverse;
+    }
+
+    .left {
+      flex: 0.5;
+      background-image:
+        linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.6)),
+        url('@assets/pictures/me/foto_bw.png');
+
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: bottom;
+
+      @include mobile {
+        flex: 0.7;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom;
+
+        @media (max-width: 520px) {
+          background-size: cover;
+        }
+      }
+    }
+
+    .greeting {
+      flex: 0.5;
+      display: flex;
+      align-items: center;
+
+      @include mobile {
+        flex: 0.3;
+        justify-content: center;
+      }
+
+      .wrapper {
+        overflow: hidden;
+        position: relative;
+
+        @include mobile {
+          display: flex;
+          flex-direction: column;
+        }
+
+        &.hide {
+          transition: all 0.5ms linear;
+          top: -120px;
+          opacity: 0;
+        }
+
+        &.show {
+          transition: all 1s ease;
+          top: -35px;
+          opacity: 1;
+
+          @include mobile {
+            top: 0px;
+          }
+        }
+
+        h2 {
+          font-size: 40px;
+
+          @include mobile {
+            font-size: 20px;
+            text-align: center;
+          }
+        }
+
+        h1 {
+          span {
+            font-size: 60px;
+            font-weight: 600;
+            color: $blue;
+
+            @include mobile {
+              font-size: 40px;
+            }
+          }
+        }
+
+        h3 {
+          font-size: 40px;
+          margin-bottom: 10px;
+
+          span {
+            color: $orange;
+          }
+
+          @include mobile {
+            font-size: 20px;
+            margin: 0px;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .scrollArrow {
+      color: $deactive;
+      font-size: 3em;
+
+      position: absolute;
+      bottom: 0px;
+      right: 30%;
+      opacity: 0;
+      cursor: pointer;
+
+      transition: all 2s ease;
+      animation: arrowBlink 2s infinite;
+
+      @keyframes arrowBlink {
+        50% {
+          opacity: 100%;
+        }
+      }
+
+      @include mobile {
+        color: $orange;
+        right: calc(50% - 24px);
+      }
+    }
+  }
+}

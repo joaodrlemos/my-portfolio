@@ -1,46 +1,51 @@
-import React, { useState, useEffect } from "react";
-import { TiArrowDownThick } from "react-icons/ti";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-import "../home/home.scss";
+import React, { useState, useEffect, memo } from 'react';
+import { TiArrowDownThick } from 'react-icons/ti';
+import { useAppContext } from '@/context/AppContext';
+import styles from './Home.module.scss';
+import { Language } from '@/typings/generalTypes';
 
-const Home: React.FC = () => {
-  const lang = useSelector((state: RootState) => state.language.value);
-  const [onLoad, setOnLoad] = useState<boolean>(false);
+const Home: React.FC = memo(() => {
+  const { language } = useAppContext();
+  const [onLoad, setOnLoad] = useState(false);
 
   useEffect(() => {
     setOnLoad(false);
     setTimeout(() => setOnLoad(true), 500);
-  }, [lang]);
+  }, [language]);
 
   return (
-    <div className="home" id="home">
-      <div className="container">
-        <div className="left" />
-        <div className="greeting">
-          <div className={onLoad ? "wrapper show" : "wrapper hide"}>
-            <h2>{onLoad && (lang === "en" ? "Hi there!" : "Olá! Eu sou o")}</h2>
+    <div className={styles.home} id="home">
+      <div className={styles.container}>
+        <div className={styles.left} />
+        <div className={styles.greeting}>
+          <div
+            className={`${styles.wrapper} ${onLoad ? styles.show : styles.hide}`}
+          >
+            <h2>
+              {onLoad &&
+                (language === Language.EN ? 'Hi there!' : 'Olá! Eu sou o')}
+            </h2>
             <h1>
-              {onLoad && (lang === "en" ? "I'm " : "")}
+              {onLoad && (language === Language.EN ? "I'm " : '')}
               <span>João Lemos</span>
-              {onLoad && (lang === "pt" ? " sou" : "")}
+              {onLoad && (language === Language.PT ? ' sou' : '')}
             </h1>
             <h3>
               <span>
                 {onLoad &&
-                  (lang === "pt"
-                    ? "Desenvolvedor Front-end"
-                    : "Front-end Developer")}
+                  (language === Language.PT
+                    ? 'Desenvolvedor Front-end'
+                    : 'Front-end Developer')}
               </span>
             </h3>
           </div>
         </div>
-        <a className="scroll-arrow" href="#about">
+        <a className={styles.scrollArrow} href="#about">
           <TiArrowDownThick />
         </a>
       </div>
     </div>
   );
-};
+});
 
 export default Home;

@@ -1,152 +1,113 @@
-import React, { useRef, useEffect, CSSProperties } from "react";
-import "../projects/projects.scss";
+import React, { useRef, useEffect, useCallback, useMemo, memo } from 'react';
 import {
   PersonalProjectsData,
   ProfessionalProjectsData,
-} from "@/data/projects-data";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+} from '@data/projects-data';
+import styles from '../projects/Projects.module.scss';
+import { Language, ProjectItem } from '@/typings/generalTypes';
+import { useAppContext } from '@/context/AppContext';
 
-interface ProjectItem {
-  id: string | number;
-  name: string;
-  descEn: string;
-  descPt: string;
-  img: string;
-  logo?: string;
-  startBackgroundColor?: boolean;
-  backgroundColor: string;
-  font?: string;
-  url?: string | null;
-}
+const Projects: React.FC = memo(() => {
+  const { language } = useAppContext();
+  const personalTitleRef = useRef<HTMLHeadingElement>(null!);
+  const professionalTitleRef = useRef<HTMLHeadingElement>(null!);
+  const projectContainerRef = useRef<HTMLDivElement>(null!);
+  const firstPersonalProjectItemRef = useRef<HTMLDivElement>(null!);
+  const firstProfessionalProjectItemRef = useRef<HTMLDivElement>(null!);
 
-const Projects: React.FC = () => {
-  const lang = useSelector((state: RootState) => state.language.value);
-  const personalTitleRef = useRef<HTMLHeadingElement | null>(null);
-  const professionalTitleRef = useRef<HTMLHeadingElement | null>(null);
-  const projectContainerRef = useRef<HTMLDivElement | null>(null);
-  const firstPersonalProjectItemRef = useRef<HTMLDivElement | null>(null);
-  const firstProfessionalProjectItemRef = useRef<HTMLDivElement | null>(null);
-
-  const descriptionHeight = (desc: string): string => {
-    const nrOfLines = numberOfLines(desc);
-    if (nrOfLines <= 3) {
-      return "100px";
-    } else if (nrOfLines === 4) {
-      return "120px";
-    } else {
-      return "140px";
-    }
+  const getDescriptionHeight = (desc: string): string => {
+    const lines = desc.length / 40;
+    return lines <= 3 ? '100px' : lines <= 4 ? '120px' : '140px';
   };
 
-  function numberOfLines(text: string): number {
-    const container = document.createElement("div");
-    container.style.textAlign = "center";
-    container.style.width = "250px";
-    container.style.fontSize = "20px";
-    container.style.fontFamily = "montserrat";
-    container.style.fontWeight = "500";
-    container.style.position = "absolute";
-    container.style.visibility = "hidden";
-    container.textContent = text;
-
-    document.body.appendChild(container);
-    const lineHeight = 1.2 * parseInt(container.style.fontSize, 10);
-    const lineCount = Math.round(container.scrollHeight / lineHeight);
-    document.body.removeChild(container);
-
-    return lineCount;
-  }
-
-  const renderProjectItem = (
-    item: ProjectItem,
-    index: number,
-    isPersonal: boolean
-  ) => {
-    const {
-      id,
-      name,
-      descEn,
-      descPt,
-      img,
-      logo,
-      startBackgroundColor,
-      backgroundColor,
-      font,
-      url,
-    } = item;
-    const style: React.CSSProperties = {
-      backgroundImage: `url(${img})`,
-      backgroundPosition: "top",
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-    };
-    return (
-      <div
-        key={id}
-        style={style}
-        className="project-item"
-        ref={
-          index === 0
-            ? isPersonal
-              ? firstPersonalProjectItemRef
-              : firstProfessionalProjectItemRef
-            : null
-        }
-        data-name={name}
-      >
-        <div className="project-title">
-          {logo ? (
-            <img
-              src={logo}
-              alt="logo"
-              style={{ width: "100%", height: "100%" }}
-              loading="lazy"
-            />
-          ) : (
-            <h2 style={{ fontFamily: font }}>{name}</h2>
-          )}
-        </div>
+  const renderProjectItem = useCallback(
+    (item: ProjectItem, index: number, isPersonal: boolean) => {
+      const {
+        id,
+        name,
+        descEn,
+        descPt,
+        img,
+        logo,
+        startBackgroundColor,
+        backgroundColor,
+        font,
+        url,
+      } = item;
+      return (
         <div
-          className="wrapper"
-          style={
-            startBackgroundColor === false
-              ? { backgroundColor: "transparent" }
-              : ({
-                  ["--base-color-rgb" as any]: backgroundColor,
-                } as CSSProperties)
+          key={id}
+          style={{
+            backgroundImage: `url(${img})`,
+            backgroundPosition: 'top',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+          }}
+          className={styles.projectItem}
+          ref={
+            index === 0
+              ? isPersonal
+                ? firstPersonalProjectItemRef
+                : firstProfessionalProjectItemRef
+              : null
           }
+          data-name={name}
         >
-          <div className="item-info">
-            {lang === "en" ? (
-              <>
-                <h2 style={{ height: descriptionHeight(descEn) }}>{descEn}</h2>
-                {url && (
-                  <a href={url} target="_blank" rel="noopener noreferrer">
-                    {"demo >"}
-                  </a>
-                )}
-              </>
+          <div className={styles.projectTitle}>
+            {logo ? (
+              <img src={logo} alt="logo" loading="lazy" />
             ) : (
-              <>
-                <h2 style={{ height: descriptionHeight(descPt) }}>{descPt}</h2>
-                {url && (
-                  <a href={url} target="_blank" rel="noopener noreferrer">
-                    {"demonstração >"}
-                  </a>
-                )}
-              </>
+              <h2 style={{ fontFamily: font }}>{name}</h2>
             )}
           </div>
+          <div
+            className={styles.wrapper}
+            style={{
+              ['--base-color-rgb' as any]: backgroundColor,
+              backgroundColor:
+                startBackgroundColor === false
+                  ? 'rgba(var(--base-color-rgb), 0)'
+                  : `rgba(var(--base-color-rgb), 0.7)`,
+              transition: 'background-color 0.5s ease',
+            }}
+          >
+            <div className={styles.itemInfo}>
+              <h2 style={{ height: getDescriptionHeight(descEn) }}>
+                {language === Language.EN ? descEn : descPt}
+              </h2>
+              {url && (
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                  {language === Language.EN ? 'demo >' : 'demonstração >'}
+                </a>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
-    );
-  };
+      );
+    },
+    [language],
+  );
+
+  const personalProjects = useMemo(
+    () =>
+      PersonalProjectsData.map((item, index) =>
+        renderProjectItem(item, index, true),
+      ),
+    [PersonalProjectsData, renderProjectItem],
+  );
+
+  const professionalProjects = useMemo(
+    () =>
+      ProfessionalProjectsData.map((item, index) =>
+        renderProjectItem(item, index, false),
+      ),
+    [ProfessionalProjectsData, renderProjectItem],
+  );
 
   useEffect(() => {
     const adjustTitlePosition = (
       titleRef: React.RefObject<HTMLHeadingElement>,
-      firstItemRef: React.RefObject<HTMLDivElement>
+      firstItemRef: React.RefObject<HTMLDivElement>,
     ) => {
       if (titleRef.current && firstItemRef.current) {
         const itemLeftBoundary = firstItemRef.current.offsetLeft;
@@ -164,43 +125,38 @@ const Projects: React.FC = () => {
       adjustTitlePosition(personalTitleRef, firstPersonalProjectItemRef);
       adjustTitlePosition(
         professionalTitleRef,
-        firstProfessionalProjectItemRef
+        firstProfessionalProjectItemRef,
       );
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
-    <div className="projects" id="projects">
-      <div className="header">
-        <h1>{lang === "en" ? "projects" : "projectos"}</h1>
+    <div className={styles.projects} id="projects">
+      <div className={styles.header}>
+        <h1>{language === Language.EN ? 'projects' : 'projectos'}</h1>
       </div>
-      <div ref={projectContainerRef} className="project-container">
-        <div className="personal-half">
-          <h2 ref={personalTitleRef} className="personal-project-title">
-            {lang === "en" ? "personal" : "pessoais"}
+      <div ref={projectContainerRef} className={styles.projectContainer}>
+        <div className={styles.personalHalf}>
+          <h2 ref={personalTitleRef} className={styles.personalProjectTitle}>
+            {language === Language.EN ? 'personal' : 'pessoais'}
           </h2>
-          <div className="project-list">
-            {PersonalProjectsData.map((item, index) =>
-              renderProjectItem(item, index, true)
-            )}
-          </div>
+          <div className={styles.projectList}>{personalProjects}</div>
         </div>
-        <div className="professional-half">
-          <h2 ref={professionalTitleRef} className="professional-project-title">
-            {lang === "en" ? "professional" : "profissionais"}
+        <div className={styles.professionalHalf}>
+          <h2
+            ref={professionalTitleRef}
+            className={styles.professionalProjectTitle}
+          >
+            {language === Language.EN ? 'professional' : 'profissionais'}
           </h2>
-          <div className="project-list">
-            {ProfessionalProjectsData.map((item, index) =>
-              renderProjectItem(item, index, false)
-            )}
-          </div>
+          <div className={styles.projectList}>{professionalProjects}</div>
         </div>
       </div>
     </div>
   );
-};
+});
 
 export default Projects;

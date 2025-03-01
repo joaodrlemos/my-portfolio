@@ -1,8 +1,10 @@
 [build]
   command = "npm run build"
   publish = "dist"
-  environment = { NODE_VERSION = "18.12.0" }
 
 [functions]
   node_bundler = "esbuild"
   node_version = "18"
+
+[build.environment]
+  NODE_VERSION = "18.12.0"

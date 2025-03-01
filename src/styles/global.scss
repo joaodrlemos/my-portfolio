@@ -16,9 +16,9 @@ $black: rgba(26, 26, 26, 1);
 $sectionHeight: calc(100vh - 70px);
 
 // 🖋️ Font Families
-$menuFont: "Inconsolata", monospace;
-$textFont: "Montserrat", sans-serif;
-$netflixFont: "BebasNeue", "Montserrat";
+$menuFont: 'Inconsolata', monospace;
+$textFont: 'Montserrat', sans-serif;
+$netflixFont: 'BebasNeue', 'Montserrat';
 
 // ✅ Global Reset
 * {
@@ -54,35 +54,8 @@ body {
 
 // ✅ Font Face (Ensuring Proper Import)
 @font-face {
-  font-family: "BebasNeue";
-  src: url("@/assets/fonts/BebasNeue.otf") format("opentype");
+  font-family: 'BebasNeue';
+  src: url('@/assets/fonts/BebasNeue.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
-}
-
-// ✅ App Wrapper
-.app {
-  height: 100vh;
-  color: #fff;
-}
-
-.sections {
-  background-color: $black;
-  width: 100%;
-  height: $sectionHeight;
-  position: relative;
-  top: 70px;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  > * {
-    width: 100vw;
-    height: $sectionHeight;
-    scroll-snap-align: start;
-  }
 }

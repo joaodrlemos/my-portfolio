@@ -1,118 +1,128 @@
-import React from "react";
-import "../about/about.scss";
+import React, { memo } from 'react';
 import {
   FaHtml5,
+  FaCss3Alt,
+  FaReact,
+  FaSass,
+  FaGitAlt,
   FaConfluence,
   FaJira,
   FaFigma,
-  FaCss3Alt,
-  FaReact,
-  FaGitAlt,
-  FaSass,
-} from "react-icons/fa";
-import { SiTypescript } from "react-icons/si";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+} from 'react-icons/fa';
+import {
+  SiTypescript,
+  SiRedux,
+  SiExpo,
+  SiVite,
+  SiNextdotjs,
+  SiAdobephotoshop,
+} from 'react-icons/si';
+import styles from '../about/About.module.scss';
+import { useAppContext } from '@/context/AppContext';
+import { Language } from '@/typings/generalTypes';
 
-const About: React.FC = () => {
-  const lang = useSelector((state: RootState) => state.language.value);
+const About: React.FC = memo(() => {
+  const { language } = useAppContext();
 
   return (
-    <div className="about" id="about">
-      <div className="left">
-        <div className="title">
-          <h2>{lang === "en" ? "about me" : "sobre mim"}</h2>
+    <div className={styles.about} id="about">
+      {/* Left Section: About Me */}
+      <div className={styles.left}>
+        <div className={styles.title}>
+          <h2>{language === Language.EN ? 'About Me' : 'Sobre Mim'}</h2>
         </div>
-        <div className="description">
+        <div className={styles.description}>
           <p>
-            {lang === "en"
-              ? "Based in Lisbon, Portugal, I am a cheerful and versatile software engineer with a unique blend of creativity and technical acumen."
-              : "Sou um engenheiro de software alegre e versátil de Lisboa, Portugal, com uma combinação única de criatividade e habilidades técnicas."}
+            {language === Language.EN
+              ? `Passionate about crafting seamless user experiences, I specialize in front-end development for web and mobile applications using mainly React, React Native, and TypeScript.`
+              : `Apaixonado por criar experiências de usuário intuitivas, especializo-me no desenvolvimento front-end para aplicações web e móveis usando principalmente React, React Native e TypeScript.`}
           </p>
           <p>
-            {lang === "en"
-              ? "Starting my career in back-end development, I gained lots of experience in the field but recently discovered a passion for the visual aspects of the development process. This newfound interest led me to dedicate myself to mastering front-end development, where I've been able to create engaging and user-friendly interfaces. My work showcases the passion and ability I have to transform complex problems into intuitive solutions, reflecting my creativity, attention to detail, and commitment to quality."
-              : "Tendo começado a minha carreira com desenvolvimento em back-end, ganhei muita experiência na área, mas recentemente descobri uma paixão pelos aspectos visuais de todo o processo de desenvolvimento. Este novo interesse levou-me a dedicar-me e a dominar o desenvolvimento em front-end, onde tenho sido capaz de criar interfaces envolventes e amigáveis ao utilizador. O meu trabalho demonstra a paixão e habilidade que tenho para transformar problemas complexos em soluções intuitivas, refletindo a minha criatividade, atenção ao detalhe e compromisso com a qualidade."}
+            {language === Language.EN
+              ? `Over the years, I’ve worked on projects that demand scalability, performance, and maintainability, focusing on:`
+              : `Ao longo dos anos, trabalhei em projetos que exigem escalabilidade, desempenho e manutenção, focando em:`}
           </p>
+          <ul className={styles.skillList}>
+            <li>
+              <span>High-performance UI development</span>
+            </li>
+            <li>
+              <span>User-centered design</span>
+            </li>
+            <li>
+              <span>Strong problem-solving skills</span>
+            </li>
+            <li>
+              <span>Cross-platform mobile experiences</span>
+            </li>
+          </ul>
           <p>
-            {lang === "en"
-              ? "I developed this website to showcase my journey and the projects I've made. Sit back and scroll through, hope you enjoy (:"
-              : "Desenvolvi este website para mostrar minha jornada e os projetos que realizei. Fica confortável e explora livremente, espero que gostes (:"}
+            {language === Language.EN
+              ? `I enjoy tackling challenging projects, writing clean and modular code, and collaborating with teams to build products that people love to use.`
+              : `Gosto de enfrentar desafios, escrever código limpo e modular, e colaborar com equipes para desenvolver produtos que as pessoas amam usar.`}
           </p>
         </div>
       </div>
-      <div className="right">
-        <div className="title">
-          <h2>{lang === "en" ? "skills" : "habilidades"}</h2>
+
+      {/* Right Section: Skills */}
+      <div className={styles.right}>
+        <div className={styles.title}>
+          <h2>{language === Language.EN ? 'Skills' : 'Habilidades'}</h2>
         </div>
-        <div className="skills">
-          <div className="hard-skills">
-            <ul>
-              <li className="languages">
-                <div className="title">
-                  {lang === "en" ? "languages" : "linguagens"}
-                </div>
-                <div className="elem">
-                  <span title="HTML">
-                    <FaHtml5 />
-                  </span>
-                  <span title="CSS">
-                    <FaCss3Alt />
-                  </span>
-                  <span title="Typescript" className="ts">
-                    <SiTypescript className="si-icons" />
-                  </span>
-                </div>
-              </li>
+        <div className={styles.skills}>
+          {/* Hard Skills - Tech Stack Circles */}
+          <div className={styles.hardSkills}>
+            <div className={styles.circle}>
+              <h3>Languages</h3>
+              <div className={styles.iconCircle}>
+                <FaHtml5 />
+                <FaCss3Alt />
+                <SiTypescript />
+              </div>
+            </div>
 
-              <li className="frameworksNLibraries">
-                <div className="title">
-                  {lang === "en"
-                    ? "frameworks/libraries"
-                    : "frameworks/bibliotecas"}
-                </div>
-                <div className="elem">
-                  <span title="React.js/React Native">
-                    <FaReact />
-                  </span>
-                  <span title="Sass">
-                    <FaSass />
-                  </span>
-                </div>
-              </li>
+            <div className={styles.circle}>
+              <h3>Frameworks & Libraries</h3>
+              <div className={styles.iconCircle}>
+                <FaReact />
+                <SiExpo />
+                <SiRedux />
+                <SiNextdotjs />
+                <SiVite />
+                <FaSass />
+              </div>
+            </div>
 
-              <li className="tools">
-                <div className="title">
-                  {lang === "en" ? "tools" : "ferramentas"}
-                </div>
-                <div className="elem">
-                  <span title="Git">
-                    <FaGitAlt />
-                  </span>
-                  <span title="Confluence">
-                    <FaConfluence />
-                  </span>
-                  <span title="Jira">
-                    <FaJira />
-                  </span>
-                  <span title="Figma">
-                    <FaFigma />
-                  </span>
-                </div>
-              </li>
-            </ul>
+            <div className={styles.circle}>
+              <h3>Tools</h3>
+              <div className={styles.iconCircle}>
+                <FaGitAlt />
+                <FaConfluence />
+                <FaJira />
+                <FaFigma />
+                <SiAdobephotoshop />
+              </div>
+            </div>
           </div>
-          <div className="soft-skills">
-            <ul>
-              <li>{lang === "en" ? "Creativity" : "Creatividade"}</li>
-              <li>{lang === "en" ? "empathy" : "empatia"}</li>
-              <li>{lang === "en" ? "communication" : "comunicação"}</li>
-            </ul>
+
+          {/* Soft Skills */}
+          <div className={styles.softSkills}>
+            <h3>
+              {language === Language.EN
+                ? 'Soft Skills'
+                : 'Habilidades Interpessoais'}
+            </h3>
+            <div className={styles.skillBadges}>
+              <span>Creativity</span>
+              <span>Collaboration</span>
+              <span>Problem-Solving</span>
+              <span>Critical Thinking</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
-};
+});
 
 export default About;
