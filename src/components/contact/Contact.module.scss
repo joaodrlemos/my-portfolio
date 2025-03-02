@@ -3,6 +3,7 @@
 .contact {
   display: flex;
   justify-content: center;
+  min-height: $sectionHeight;
 
   @include mobile {
     flex-direction: column;

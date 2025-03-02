@@ -5,7 +5,6 @@ import compression from 'vite-plugin-compression';
 
 export default defineConfig({
   cacheDir: '.vite_cache',
-
   plugins: [react(), compression()],
   server: {
     port: 3000,
@@ -29,6 +28,12 @@ export default defineConfig({
           }
         },
       },
+      onwarn(warning, warn) {
+        if (warning.message.includes('"use client"')) {
+          return;
+        }
+        warn(warning);
+      },
     },
   },
   optimizeDeps: {
@@ -47,4 +52,5 @@ export default defineConfig({
       '@utils': path.resolve(__dirname, 'src/utils'),
     },
   },
+  logLevel: 'info',
 });

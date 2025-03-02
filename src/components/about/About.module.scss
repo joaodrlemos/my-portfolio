@@ -2,118 +2,101 @@
 
 .about {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 10%;
+  color: $deactive;
+  margin-bottom: 20px;
+  margin-top: -20px;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  gap: 50px;
+  align-items: center;
 
   @include mobile {
     flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Left - Description */
+.descriptionContainer {
+  flex: 1;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  // background: rgba($darkerBlue, 0.8);
+
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: $orange;
   }
 
-  .left {
-    flex: 0.5;
-    padding: 20px;
+  p {
+    font-size: 18px;
+    line-height: 1.3;
+  }
 
-    .title {
-      h2 {
-        font-size: 50px;
-        font-weight: 600;
-        color: $blue;
-        text-align: left;
-      }
+  ul {
+    margin: 10px 0;
+    padding-left: 20px;
+
+    li {
+      font-size: 20px;
+      margin: 5px 0;
+      color: $deactive;
     }
+  }
+}
 
-    .description {
-      p {
-        font-size: 1.2em;
-        color: $deactive;
-        margin-bottom: 12px;
-      }
+/* Right - Skills */
+.skillsContainer {
+  flex: 1;
+  padding: 20px;
+  border-radius: 10px;
+  // background: rgba($darkerOrange, 0.9);
+  text-align: center;
 
-      .skillList {
-        list-style: none;
-        padding: 0;
+  .skillsTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $orange;
+    margin-bottom: 20px;
+  }
 
-        li {
-          background: rgba(255, 255, 255, 0.1);
-          padding: 10px;
-          margin-bottom: 10px;
-          border-radius: 5px;
-          color: white;
-          font-size: 1.1em;
-          font-weight: bold;
-        }
-      }
+  .skillsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  .right {
-    flex: 0.5;
+  .skill {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .title {
-      h2 {
-        font-size: 50px;
-        font-weight: 600;
-        color: $orange;
-      }
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
     }
 
-    .skills {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      .hardSkills {
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        margin-top: 20px;
-
-        .circle {
-          width: 130px;
-          height: 130px;
-          border-radius: 50%;
-          background-color: rgba(255, 255, 255, 0.05);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          font-size: 0.9em;
-
-          .iconCircle {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            width: 90px;
-          }
-        }
-      }
-
-      .softSkills {
-        margin-top: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .skillBadges {
-          display: flex;
-          gap: 15px;
-          padding: 10px;
-
-          span {
-            font-size: 1em;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 12px;
-            border-radius: 20px;
-            color: white;
-            font-weight: bold;
-          }
-        }
-      }
+    span {
+      margin-top: 5px;
+      font-size: 14px;
+      color: $deactive;
     }
   }
 }

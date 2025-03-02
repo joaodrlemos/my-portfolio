@@ -1,12 +1,14 @@
 @use '@/styles/global.scss' as *;
+@use 'sass:color';
 
 .projects {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 30px 20px;
+  min-height: auto;
 
   .header {
-    flex: 0.15;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,7 +16,6 @@
     h1 {
       font-size: 50px;
       color: $orange;
-
       @include mobile {
         font-size: 30px;
       }
@@ -22,198 +23,141 @@
   }
 
   .projectContainer {
-    flex: 0.9;
     width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    .personalHalf,
-    .professionalHalf {
+    .projectGrid {
       display: flex;
-      align-items: center;
-
-      .personalProjectTitle {
-        position: absolute;
-        font-size: 1.4em;
-        left: 0;
-        color: $deactive;
-
-        @include mobile {
-          display: none;
-        }
-      }
-
-      .professionalProjectTitle {
-        position: absolute;
-        font-size: 1.4em;
-        left: 0;
-        color: $deactive;
-
-        @include mobile {
-          display: none;
-        }
-      }
-    }
-    .projectList {
-      width: 80vw;
-      display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: center;
-
+      gap: 20px;
+      width: 80%;
       @include mobile {
-        flex-direction: column;
-        height: 90%;
-        width: 200px;
+        gap: 10px;
       }
 
       .projectItem {
-        margin: 10px;
-        width: 350px;
-        height: 230px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        border-radius: 20px;
-        opacity: 0.8;
+        cursor: pointer;
         position: relative;
-
-        -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-        -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-
+        width: calc(33.33% - 20px);
+        height: 200px;
         overflow: hidden;
+        border-radius: 10px;
+        opacity: 0;
+        transform: translateY(50px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition:
+          transform 1s ease-in-out,
+          opacity 1s ease-in-out;
 
-        @include mobile {
-          width: 100%;
-          overflow: hidden;
+        &.visible {
+          opacity: 1;
+          transform: translateY(0);
+          animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        &:hover {
+          transform: scale(1.05);
         }
 
         .projectTitle {
           position: absolute;
-
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 100%;
-          height: 100%;
-
+          background: rgba($black, 0.7);
           img {
             max-width: 90%;
             max-height: 90%;
             object-fit: contain;
             filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
           }
-
           h2 {
+            font-size: 2em;
+            color: white;
             font-family: $netflixFont;
-            font-weight: 600;
-            font-size: 3em;
-            text-align: center;
-
-            bottom: 50%;
-            left: 50%;
-            color: #fff;
-            border-radius: 80px;
-            padding: 10px;
           }
         }
 
-        .wrapper {
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
           width: 100%;
           height: 100%;
           display: flex;
-          align-items: center;
+          flex-direction: column;
           justify-content: center;
-          transition: background-color 0.5s ease;
+          align-items: center;
+          background: rgba($blue, 0.7);
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+          color: white;
 
-          .itemInfo {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            opacity: 0;
-
-            @include mobile {
-              height: 100%;
-              justify-content: center;
-            }
-
-            h2 {
-              display: flex;
-              justify-content: center;
-              text-align: center;
-              width: 260px;
-              font-size: 20px;
-              font-weight: 500;
-              font-family: $textFont;
-              overflow: hidden;
-
-              @include mobile {
-                width: 100%;
-                overflow: hidden;
-                font-size: 1em;
-              }
-            }
-
-            a {
-              padding: 10px;
-              min-width: 100px;
-              text-align: center;
-              overflow: hidden;
-              text-decoration: none;
-              font-weight: 600;
-              font-size: 1.2em;
-              color: #fff;
-
-              border-radius: 40px;
-              border: 3px solid $orange;
-              cursor: pointer;
-
-              &:hover {
-                background-color: $orange;
-              }
-
-              &:active {
-                border-color: $blue;
-                background: none;
-                color: $blue;
-
-                border: 3px solid $blue;
-              }
-            }
+          .itemTitle {
+            font-size: 2em;
+            font-weight: 600;
           }
         }
 
-        &:hover {
-          .wrapper {
-            background-color: rgba(var(--base-color-rgb), 1) !important;
-          }
+        &:hover .overlay {
+          opacity: 1;
+        }
 
-          .itemInfo {
-            transition: opacity 0.5s ease;
-            opacity: 1;
-          }
-
-          .projectTitle {
-            transition: opacity 0.5s ease;
-            opacity: 0;
-          }
+        @include mobile {
+          width: calc(50% - 10px);
+          height: 150px;
         }
       }
     }
-  }
-}
 
-.projectItem:not([data-name]) {
-  background: none !important;
-  box-shadow: none !important;
-  cursor: default;
+    .loadMoreContainer {
+      margin-top: 40px;
+      @include mobile {
+        margin-top: 20px;
+      }
+    }
 
-  .projectDemo {
-    display: none !important;
+    .loadMoreButton {
+      background-color: $orange;
+      padding: 15px 20px;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      border-radius: 20px;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+
+      &:hover {
+        background-color: color.adjust($orange, $lightness: -10%);
+        transform: scale(1.05);
+      }
+
+      @include mobile {
+        font-size: 1em;
+        padding: 10px 15px;
+      }
+    }
   }
 }

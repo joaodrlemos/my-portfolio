@@ -2,9 +2,8 @@
 
 .home {
   .container {
-    height: 100%;
+    height: $sectionHeight;
     display: flex;
-
     position: relative;
 
     @include mobile {

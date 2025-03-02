@@ -10,7 +10,10 @@ export default [
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     languageOptions: {
       globals: Object.fromEntries(
-        Object.entries(globals.browser).map(([key, value]) => [key.trim(), value])
+        Object.entries(globals.browser).map(([key, value]) => [
+          key.trim(),
+          value,
+        ]),
       ),
       parser: tsParser,
     },

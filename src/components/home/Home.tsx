@@ -1,8 +1,8 @@
 import React, { useState, useEffect, memo } from 'react';
 import { TiArrowDownThick } from 'react-icons/ti';
 import { useAppContext } from '@/context/AppContext';
-import styles from './Home.module.scss';
 import { Language } from '@/typings/generalTypes';
+import styles from './Home.module.scss';
 
 const Home: React.FC = memo(() => {
   const { language } = useAppContext();

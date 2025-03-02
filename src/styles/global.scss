@@ -11,6 +11,7 @@ $orange: rgba(239, 117, 42, 1);
 $darkerOrange: rgba(194, 94, 33, 1);
 
 $black: rgba(26, 26, 26, 1);
+$white: rgb(254, 254, 254);
 
 // 📏 Dimension Vars
 $sectionHeight: calc(100vh - 70px);
@@ -25,6 +26,12 @@ $netflixFont: 'BebasNeue', 'Montserrat';
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE */
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 
 // ✅ Default Body Styles

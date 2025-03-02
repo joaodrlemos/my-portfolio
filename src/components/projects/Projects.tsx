@@ -1,159 +1,125 @@
-import React, { useRef, useEffect, useCallback, useMemo, memo } from 'react';
-import {
-  PersonalProjectsData,
-  ProfessionalProjectsData,
-} from '@data/projects-data';
-import styles from '../projects/Projects.module.scss';
+import React, { useState, useEffect, useRef, memo } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ProjectsData } from '@data/projects-data';
+import styles from './Projects.module.scss';
 import { Language, ProjectItem } from '@/typings/generalTypes';
 import { useAppContext } from '@/context/AppContext';
 
 const Projects: React.FC = memo(() => {
   const { language } = useAppContext();
-  const personalTitleRef = useRef<HTMLHeadingElement>(null!);
-  const professionalTitleRef = useRef<HTMLHeadingElement>(null!);
-  const projectContainerRef = useRef<HTMLDivElement>(null!);
-  const firstPersonalProjectItemRef = useRef<HTMLDivElement>(null!);
-  const firstProfessionalProjectItemRef = useRef<HTMLDivElement>(null!);
+  const [visibleProjects, setVisibleProjects] = useState(6);
+  const [visibleRows, setVisibleRows] = useState<number[]>([]);
+  const navigate = useNavigate();
+  const projectGridRef = useRef<HTMLDivElement>(null);
 
-  const getDescriptionHeight = (desc: string): string => {
-    const lines = desc.length / 40;
-    return lines <= 3 ? '100px' : lines <= 4 ? '120px' : '140px';
+  const handleLoadMore = () => {
+    setVisibleProjects((prev) => prev + 6);
   };
 
-  const renderProjectItem = useCallback(
-    (item: ProjectItem, index: number, isPersonal: boolean) => {
-      const {
-        id,
-        name,
-        descEn,
-        descPt,
-        img,
-        logo,
-        startBackgroundColor,
-        backgroundColor,
-        font,
-        url,
-      } = item;
-      return (
-        <div
-          key={id}
-          style={{
-            backgroundImage: `url(${img})`,
-            backgroundPosition: 'top',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-          }}
-          className={styles.projectItem}
-          ref={
-            index === 0
-              ? isPersonal
-                ? firstPersonalProjectItemRef
-                : firstProfessionalProjectItemRef
-              : null
-          }
-          data-name={name}
-        >
-          <div className={styles.projectTitle}>
-            {logo ? (
-              <img src={logo} alt="logo" loading="lazy" />
-            ) : (
-              <h2 style={{ fontFamily: font }}>{name}</h2>
-            )}
-          </div>
-          <div
-            className={styles.wrapper}
-            style={{
-              ['--base-color-rgb' as any]: backgroundColor,
-              backgroundColor:
-                startBackgroundColor === false
-                  ? 'rgba(var(--base-color-rgb), 0)'
-                  : `rgba(var(--base-color-rgb), 0.7)`,
-              transition: 'background-color 0.5s ease',
-            }}
-          >
-            <div className={styles.itemInfo}>
-              <h2 style={{ height: getDescriptionHeight(descEn) }}>
-                {language === Language.EN ? descEn : descPt}
-              </h2>
-              {url && (
-                <a href={url} target="_blank" rel="noopener noreferrer">
-                  {language === Language.EN ? 'demo >' : 'demonstração >'}
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      );
-    },
-    [language],
-  );
-
-  const personalProjects = useMemo(
-    () =>
-      PersonalProjectsData.map((item, index) =>
-        renderProjectItem(item, index, true),
-      ),
-    [PersonalProjectsData, renderProjectItem],
-  );
-
-  const professionalProjects = useMemo(
-    () =>
-      ProfessionalProjectsData.map((item, index) =>
-        renderProjectItem(item, index, false),
-      ),
-    [ProfessionalProjectsData, renderProjectItem],
-  );
-
   useEffect(() => {
-    const adjustTitlePosition = (
-      titleRef: React.RefObject<HTMLHeadingElement>,
-      firstItemRef: React.RefObject<HTMLDivElement>,
-    ) => {
-      if (titleRef.current && firstItemRef.current) {
-        const itemLeftBoundary = firstItemRef.current.offsetLeft;
-        const titleWidth = titleRef.current.offsetWidth;
-        const availableSpace = itemLeftBoundary;
-        const leftPosition = (availableSpace - titleWidth) / 2;
-        titleRef.current.style.left = `${leftPosition}px`;
-      }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry && entry.isIntersecting) {
+          const grid = projectGridRef.current;
+          if (!grid) return;
+
+          const itemsPerRow = window.innerWidth <= 800 ? 2 : 3;
+          const totalRows = Math.ceil(visibleProjects / itemsPerRow);
+          const rowHeight = window.innerWidth <= 800 ? 160 : 220;
+
+          const gridTop = grid.getBoundingClientRect().top;
+          const viewportHeight = window.innerHeight;
+
+          const visibleRowCount = Math.max(
+            0,
+            Math.floor((viewportHeight - gridTop) / rowHeight) + 1,
+          );
+          const newVisibleRows = Array.from(
+            { length: Math.min(visibleRowCount, totalRows) },
+            (_, i) => i,
+          );
+
+          setVisibleRows((prev) => [...new Set([...prev, ...newVisibleRows])]);
+        }
+      },
+      { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] },
+    );
+
+    if (projectGridRef.current) observer.observe(projectGridRef.current);
+    return () => {
+      if (projectGridRef.current) observer.unobserve(projectGridRef.current);
     };
+  }, [visibleProjects]);
 
-    adjustTitlePosition(personalTitleRef, firstPersonalProjectItemRef);
-    adjustTitlePosition(professionalTitleRef, firstProfessionalProjectItemRef);
+  const handleProjectClick = (projectId: string | number) => {
+    navigate(`/project/${projectId}`);
+  };
 
-    const handleResize = () => {
-      adjustTitlePosition(personalTitleRef, firstPersonalProjectItemRef);
-      adjustTitlePosition(
-        professionalTitleRef,
-        firstProfessionalProjectItemRef,
-      );
-    };
+  const renderProjectItem = (item: ProjectItem, index: number) => {
+    const { id, name, img, logo } = item;
+    const itemsPerRow = window.innerWidth <= 800 ? 2 : 3;
+    const rowIndex = Math.floor(index / itemsPerRow);
+    const isVisible = visibleRows.includes(rowIndex);
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    return (
+      <div
+        key={id}
+        className={`${styles.projectItem} ${isVisible ? styles.visible : ''}`}
+        style={{
+          backgroundImage: `url(${img})`,
+          backgroundPosition: 'top',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          animationDelay: `${rowIndex * 0.3}s`,
+        }}
+        onClick={() => handleProjectClick(id)}
+      >
+        <div className={styles.projectTitle}>
+          {logo ? (
+            <img src={logo} alt="logo" loading="lazy" />
+          ) : (
+            <h2>{name}</h2>
+          )}
+        </div>
+        <div className={styles.overlay}>
+          <h2 className={styles.itemTitle}>{name}</h2>
+        </div>
+      </div>
+    );
+  };
+
+  const gridHeight = () => {
+    const itemsPerRow = window.innerWidth <= 800 ? 2 : 3;
+    const rowHeight = window.innerWidth <= 800 ? 160 : 220;
+    const totalRows = Math.ceil(visibleProjects / itemsPerRow);
+    return `${totalRows * rowHeight}px`;
+  };
 
   return (
     <div className={styles.projects} id="projects">
       <div className={styles.header}>
-        <h1>{language === Language.EN ? 'projects' : 'projectos'}</h1>
+        <h1>{language === Language.EN ? 'Projects' : 'Projectos'}</h1>
       </div>
-      <div ref={projectContainerRef} className={styles.projectContainer}>
-        <div className={styles.personalHalf}>
-          <h2 ref={personalTitleRef} className={styles.personalProjectTitle}>
-            {language === Language.EN ? 'personal' : 'pessoais'}
-          </h2>
-          <div className={styles.projectList}>{personalProjects}</div>
+      <div className={styles.projectContainer}>
+        <div
+          className={styles.projectGrid}
+          ref={projectGridRef}
+          style={{ height: gridHeight() }}
+        >
+          {ProjectsData.slice(0, visibleProjects).map((item, index) =>
+            renderProjectItem(item, index),
+          )}
         </div>
-        <div className={styles.professionalHalf}>
-          <h2
-            ref={professionalTitleRef}
-            className={styles.professionalProjectTitle}
-          >
-            {language === Language.EN ? 'professional' : 'profissionais'}
-          </h2>
-          <div className={styles.projectList}>{professionalProjects}</div>
-        </div>
+        {visibleProjects < ProjectsData.length && (
+          <div className={styles.loadMoreContainer}>
+            <button className={styles.loadMoreButton} onClick={handleLoadMore}>
+              {language === Language.EN
+                ? '+ More Projects'
+                : '+ Mais Projectos'}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
