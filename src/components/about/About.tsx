@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppContext } from '@/context/AppContext';
 import { Language } from '@/typings/generalTypes';
-import { TechnologiesData } from '@/data/technologies-data';
+import { TechnologiesData } from '@/data/technologies-tools-data';
 import styles from './About.module.scss';
 
 const About: React.FC = () => {
@@ -12,40 +12,36 @@ const About: React.FC = () => {
       <div className={styles.container}>
         {/* Left Side - Description */}
         <div className={styles.descriptionContainer}>
-          <h1>{language === Language.EN ? 'About' : 'Sobre'}</h1>
-          <p>
-            Passionate about crafting seamless user experiences, I specialize in
-            front-end development for web and mobile applications using{' '}
-            <strong>React, React Native, and TypeScript</strong>.
-          </p>
+          <div className={styles.descriptionText}>
+            <p>
+              I’m a <strong>front-end developer</strong> with a passion for
+              crafting <strong>seamless</strong> and <strong>engaging</strong>{' '}
+              user experiences. Whether it’s{' '}
+              <strong>designing intuitive interfaces</strong>,{' '}
+              <strong>optimizing performance</strong>, or{' '}
+              <strong>building smooth cross-platform applications</strong>, I
+              enjoy bringing ideas to life through <strong>clean</strong> and{' '}
+              <strong>creative code</strong>.
+            </p>
 
-          <p>Over the years, I’ve worked on projects that demand:</p>
-          <ul>
-            <li>
-              ⚡ <strong>High-performance UI development</strong> – Optimizing
-              front-end apps.
-            </li>
-            <li>
-              🎨 <strong>User-centered design</strong> – Clean, intuitive, and
-              accessible interfaces.
-            </li>
-            <li>
-              🔧 <strong>Strong problem-solving skills</strong> – Debugging &
-              performance optimization.
-            </li>
-            <li>
-              📱 <strong>Cross-platform experiences</strong> – Using React
-              Native for mobile apps.
-            </li>
-          </ul>
+            {/* Highlighted Section */}
+            <p className={styles.highlightedText}>
+              With <strong>React</strong>, <strong>React Native</strong>, and{' '}
+              <strong>TypeScript</strong>, I focus on{' '}
+              <strong>user-centric development</strong>, solving UI challenges,
+              and refining interactions to make technology feel{' '}
+              <strong>effortless</strong>.
+            </p>
 
-          <p>
-            I love taking on challenging projects, writing{' '}
-            <strong>clean, modular</strong> code, and collaborating with teams
-            to build products people <strong>love</strong>. Check out my{' '}
-            <strong>portfolio</strong> and <strong>GitHub</strong> to see my
-            work!
-          </p>
+            <p>
+              To me, <strong>development</strong> is more than just writing
+              code. It’s about shaping <strong>innovative ideas</strong> into
+              reality and creating experiences that leave a{' '}
+              <strong>lasting impact</strong> on users. Check out my{' '}
+              <strong>projects</strong> or connect with me through my{' '}
+              <strong>socials</strong>!
+            </p>
+          </div>
         </div>
 
         {/* Right Side - Skills */}
@@ -54,9 +50,9 @@ const About: React.FC = () => {
             {language === Language.EN ? 'Skills' : 'Habilidades'}
           </h2>
           <div className={styles.skillsGrid}>
-            {TechnologiesData.map((tech) => (
+            {Object.values(TechnologiesData).map((tech) => (
               <div key={tech.name} className={styles.skill}>
-                <img src={tech.image} alt={tech.name} />
+                <img src={tech.logo} alt={tech.name} />
                 <span>{tech.name}</span>
               </div>
             ))}

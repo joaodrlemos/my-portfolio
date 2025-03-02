@@ -1,10 +1,13 @@
 import {
+  ProjectFunction,
   ProjectItem,
+  ProjectTechnology,
   ProjectType,
-  ProjectFunctions,
-  ProjectTechnologies,
-} from '@typings/generalTypes';
-import { getImage, getLogo } from '@utils/imageUtils';
+  ProjectTool,
+} from '@/typings/generalTypes';
+import { getImage, getLogo } from '@/utils/imageUtils';
+import { FunctionsData } from './functions-data';
+import { TechnologiesData, ToolsData } from './technologies-tools-data';
 
 export const ProjectsData: ProjectItem[] = [
   {
@@ -18,18 +21,27 @@ export const ProjectsData: ProjectItem[] = [
     font: 'Montserrat',
     url: 'https://note-keeper-project.netlify.app',
     type: ProjectType.PERSONAL,
-    functions: [ProjectFunctions.DEVELOPED, ProjectFunctions.DESIGNED],
+    year: 2023,
     technologies: [
-      ProjectTechnologies.REACT,
-      ProjectTechnologies.TYPESCRIPT,
-      ProjectTechnologies.SCSS,
+      TechnologiesData[ProjectTechnology.HTML],
+      TechnologiesData[ProjectTechnology.CSS],
+      TechnologiesData[ProjectTechnology.REACT],
+    ],
+    tools: [
+      ToolsData[ProjectTool.GIT],
+      ToolsData[ProjectTool.JIRA],
+      ToolsData[ProjectTool.CONFLUENCE],
+    ],
+    functions: [
+      FunctionsData[ProjectFunction.DESIGNED],
+      FunctionsData[ProjectFunction.DEVELOPED],
     ],
   },
   {
     id: 1,
     name: 'Hydra',
     descEn:
-      'A proof of concept WebApp for displaying, searching and filtering users.',
+      'A proof of concept WebApp for displaying, searching, and filtering users.',
     descPt:
       'Uma aplicação Web prova de conceito para listar, procurar e filtrar utilizadores',
     img: getImage('Hydra-preview.webp'),
@@ -37,11 +49,20 @@ export const ProjectsData: ProjectItem[] = [
     font: 'Montserrat',
     url: 'https://hydrausers.netlify.app',
     type: ProjectType.PERSONAL,
-    functions: [ProjectFunctions.DEVELOPED, ProjectFunctions.PLANNED],
+    year: 2023,
     technologies: [
-      ProjectTechnologies.REACT,
-      ProjectTechnologies.TYPESCRIPT,
-      ProjectTechnologies.SCSS,
+      TechnologiesData[ProjectTechnology.HTML],
+      TechnologiesData[ProjectTechnology.CSS],
+      TechnologiesData[ProjectTechnology.REACT],
+    ],
+    tools: [
+      ToolsData[ProjectTool.GIT],
+      ToolsData[ProjectTool.JIRA],
+      ToolsData[ProjectTool.CONFLUENCE],
+    ],
+    functions: [
+      FunctionsData[ProjectFunction.DESIGNED],
+      FunctionsData[ProjectFunction.DEVELOPED],
     ],
   },
   {
@@ -55,12 +76,20 @@ export const ProjectsData: ProjectItem[] = [
     font: 'BebasNeue',
     url: 'https://leminflix.netlify.app',
     type: ProjectType.PERSONAL,
-    functions: [ProjectFunctions.DEVELOPED, ProjectFunctions.DESIGNED],
+    year: 2023,
     technologies: [
-      ProjectTechnologies.REACT,
-      ProjectTechnologies.TYPESCRIPT,
-      ProjectTechnologies.SCSS,
-      ProjectTechnologies.VITE,
+      TechnologiesData[ProjectTechnology.HTML],
+      TechnologiesData[ProjectTechnology.CSS],
+      TechnologiesData[ProjectTechnology.REACT],
+    ],
+    tools: [
+      ToolsData[ProjectTool.GIT],
+      ToolsData[ProjectTool.JIRA],
+      ToolsData[ProjectTool.CONFLUENCE],
+    ],
+    functions: [
+      FunctionsData[ProjectFunction.DESIGNED],
+      FunctionsData[ProjectFunction.DEVELOPED],
     ],
   },
   {
@@ -77,11 +106,20 @@ export const ProjectsData: ProjectItem[] = [
     url: null,
     startBackgroundColor: false,
     type: ProjectType.PROFESSIONAL,
-    functions: [ProjectFunctions.DEVELOPED],
+    year: 2023,
     technologies: [
-      ProjectTechnologies.REACT_NATIVE,
-      ProjectTechnologies.TYPESCRIPT,
-      ProjectTechnologies.EXPO,
+      TechnologiesData[ProjectTechnology.HTML],
+      TechnologiesData[ProjectTechnology.CSS],
+      TechnologiesData[ProjectTechnology.REACT],
+    ],
+    tools: [
+      ToolsData[ProjectTool.GIT],
+      ToolsData[ProjectTool.JIRA],
+      ToolsData[ProjectTool.CONFLUENCE],
+    ],
+    functions: [
+      FunctionsData[ProjectFunction.DESIGNED],
+      FunctionsData[ProjectFunction.DEVELOPED],
     ],
   },
   {
@@ -97,117 +135,104 @@ export const ProjectsData: ProjectItem[] = [
     font: 'Arial',
     url: null,
     type: ProjectType.PROFESSIONAL,
-    functions: [ProjectFunctions.DEVELOPED, ProjectFunctions.PLANNED],
+    year: 2023,
     technologies: [
-      ProjectTechnologies.REACT,
-      ProjectTechnologies.TYPESCRIPT,
-      ProjectTechnologies.SCSS,
-      ProjectTechnologies.VITE,
+      TechnologiesData[ProjectTechnology.HTML],
+      TechnologiesData[ProjectTechnology.CSS],
+      TechnologiesData[ProjectTechnology.REACT],
+    ],
+    tools: [
+      ToolsData[ProjectTool.GIT],
+      ToolsData[ProjectTool.JIRA],
+      ToolsData[ProjectTool.CONFLUENCE],
+    ],
+    functions: [
+      FunctionsData[ProjectFunction.DESIGNED],
+      FunctionsData[ProjectFunction.DEVELOPED],
     ],
   },
   {
     id: 5,
-    name: 'Chem',
+    name: 'MovieDB',
     descEn:
-      'A WebTool designed to simulate, visualize, and create graphs on chemical processes, primarily focusing on titration and distillation.',
+      'A movie database app that allows users to search and save their favorite movies.',
     descPt:
-      'Uma ferramenta Web desenvolvida para simular, visualizar e criar grafos de processos químicos, com foco principal em titulação e destilação.',
-    img: getImage('chem_home.webp'),
-    logo: getLogo('chem-logo2.png'),
-    backgroundColor: '57,78,44',
-    font: 'Arial',
-    url: null,
-    type: ProjectType.PROFESSIONAL,
-    functions: [ProjectFunctions.DEVELOPED, ProjectFunctions.PLANNED],
+      'Uma aplicação de base de dados de filmes onde os utilizadores podem pesquisar e guardar os seus filmes favoritos.',
+    img: getImage('movieDB.webp'),
+    backgroundColor: '100,100,255',
+    font: 'Montserrat',
+    url: 'https://moviedb-example.netlify.app',
+    type: ProjectType.PERSONAL,
+    year: 2023,
     technologies: [
-      ProjectTechnologies.REACT,
-      ProjectTechnologies.TYPESCRIPT,
-      ProjectTechnologies.SCSS,
-      ProjectTechnologies.VITE,
+      TechnologiesData[ProjectTechnology.HTML],
+      TechnologiesData[ProjectTechnology.CSS],
+      TechnologiesData[ProjectTechnology.REACT],
+    ],
+    tools: [
+      ToolsData[ProjectTool.GIT],
+      ToolsData[ProjectTool.JIRA],
+      ToolsData[ProjectTool.CONFLUENCE],
+    ],
+    functions: [
+      FunctionsData[ProjectFunction.DESIGNED],
+      FunctionsData[ProjectFunction.DEVELOPED],
     ],
   },
   {
     id: 6,
-    name: 'Chem',
+    name: 'TaskFlow',
     descEn:
-      'A WebTool designed to simulate, visualize, and create graphs on chemical processes, primarily focusing on titration and distillation.',
+      'A productivity app for managing daily tasks and schedules efficiently.',
     descPt:
-      'Uma ferramenta Web desenvolvida para simular, visualizar e criar grafos de processos químicos, com foco principal em titulação e destilação.',
-    img: getImage('chem_home.webp'),
-    logo: getLogo('chem-logo2.png'),
-    backgroundColor: '57,78,44',
-    font: 'Arial',
-    url: null,
-    type: ProjectType.PROFESSIONAL,
-    functions: [ProjectFunctions.DEVELOPED, ProjectFunctions.PLANNED],
+      'Uma aplicação de produtividade para gerir tarefas diárias e horários de forma eficiente.',
+    img: getImage('taskflow.webp'),
+    backgroundColor: '45,156,219',
+    font: 'Montserrat',
+    url: 'https://taskflow-app.netlify.app',
+    type: ProjectType.PERSONAL,
+    year: 2023,
     technologies: [
-      ProjectTechnologies.REACT,
-      ProjectTechnologies.TYPESCRIPT,
-      ProjectTechnologies.SCSS,
-      ProjectTechnologies.VITE,
+      TechnologiesData[ProjectTechnology.HTML],
+      TechnologiesData[ProjectTechnology.CSS],
+      TechnologiesData[ProjectTechnology.REACT],
+    ],
+    tools: [
+      ToolsData[ProjectTool.GIT],
+      ToolsData[ProjectTool.JIRA],
+      ToolsData[ProjectTool.CONFLUENCE],
+    ],
+    functions: [
+      FunctionsData[ProjectFunction.DESIGNED],
+      FunctionsData[ProjectFunction.DEVELOPED],
     ],
   },
   {
     id: 7,
-    name: 'Chem',
+    name: 'E-Commerce Dashboard',
     descEn:
-      'A WebTool designed to simulate, visualize, and create graphs on chemical processes, primarily focusing on titration and distillation.',
+      'A dashboard for tracking e-commerce sales, customer data, and product analytics.',
     descPt:
-      'Uma ferramenta Web desenvolvida para simular, visualizar e criar grafos de processos químicos, com foco principal em titulação e destilação.',
-    img: getImage('chem_home.webp'),
-    logo: getLogo('chem-logo2.png'),
-    backgroundColor: '57,78,44',
-    font: 'Arial',
-    url: null,
-    type: ProjectType.PROFESSIONAL,
-    functions: [ProjectFunctions.DEVELOPED, ProjectFunctions.PLANNED],
+      'Um painel de controlo para monitorizar vendas, dados de clientes e análise de produtos em e-commerce.',
+    img: getImage('ecommerce_dashboard.webp'),
+    backgroundColor: '78,132,201',
+    font: 'Montserrat',
+    url: 'https://ecommerce-dashboard.netlify.app',
+    type: ProjectType.ACADEMICAL,
+    year: 2023,
     technologies: [
-      ProjectTechnologies.REACT,
-      ProjectTechnologies.TYPESCRIPT,
-      ProjectTechnologies.SCSS,
-      ProjectTechnologies.VITE,
+      TechnologiesData[ProjectTechnology.HTML],
+      TechnologiesData[ProjectTechnology.CSS],
+      TechnologiesData[ProjectTechnology.REACT],
     ],
-  },
-  {
-    id: 8,
-    name: 'Chem',
-    descEn:
-      'A WebTool designed to simulate, visualize, and create graphs on chemical processes, primarily focusing on titration and distillation.',
-    descPt:
-      'Uma ferramenta Web desenvolvida para simular, visualizar e criar grafos de processos químicos, com foco principal em titulação e destilação.',
-    img: getImage('chem_home.webp'),
-    logo: getLogo('chem-logo2.png'),
-    backgroundColor: '57,78,44',
-    font: 'Arial',
-    url: null,
-    type: ProjectType.PROFESSIONAL,
-    functions: [ProjectFunctions.DEVELOPED, ProjectFunctions.PLANNED],
-    technologies: [
-      ProjectTechnologies.REACT,
-      ProjectTechnologies.TYPESCRIPT,
-      ProjectTechnologies.SCSS,
-      ProjectTechnologies.VITE,
+    tools: [
+      ToolsData[ProjectTool.GIT],
+      ToolsData[ProjectTool.JIRA],
+      ToolsData[ProjectTool.CONFLUENCE],
     ],
-  },
-  {
-    id: 9,
-    name: 'Chem',
-    descEn:
-      'A WebTool designed to simulate, visualize, and create graphs on chemical processes, primarily focusing on titration and distillation.',
-    descPt:
-      'Uma ferramenta Web desenvolvida para simular, visualizar e criar grafos de processos químicos, com foco principal em titulação e destilação.',
-    img: getImage('chem_home.webp'),
-    logo: getLogo('chem-logo2.png'),
-    backgroundColor: '57,78,44',
-    font: 'Arial',
-    url: null,
-    type: ProjectType.PROFESSIONAL,
-    functions: [ProjectFunctions.DEVELOPED, ProjectFunctions.PLANNED],
-    technologies: [
-      ProjectTechnologies.REACT,
-      ProjectTechnologies.TYPESCRIPT,
-      ProjectTechnologies.SCSS,
-      ProjectTechnologies.VITE,
+    functions: [
+      FunctionsData[ProjectFunction.DESIGNED],
+      FunctionsData[ProjectFunction.DEVELOPED],
     ],
   },
 ];

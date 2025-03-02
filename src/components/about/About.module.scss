@@ -3,18 +3,17 @@
 .about {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 80px 10%;
+  height: 100%;
   color: $deactive;
-  margin-bottom: 20px;
-  margin-top: -20px;
 }
 
 .container {
   display: flex;
   width: 100%;
-  max-width: 1200px;
-  gap: 50px;
+  height: 100%;
+  padding-left: 160px;
+  padding-right: 160px;
+  gap: 20px;
   align-items: center;
 
   @include mobile {
@@ -26,32 +25,43 @@
 /* Left - Description */
 .descriptionContainer {
   flex: 1;
-  padding: 20px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  // background: rgba($darkerBlue, 0.8);
 
-  h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    color: $orange;
-  }
+  .descriptionText {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+    height: 100%;
 
-  p {
-    font-size: 18px;
-    line-height: 1.3;
-  }
+    p {
+      font-size: 18px;
+      line-height: 1.3;
+      font-weight: 400;
+      font-family: $textFont;
 
-  ul {
-    margin: 10px 0;
-    padding-left: 20px;
+      strong {
+        // color: $darkerOrange;
+        font-weight: 800;
+        font-size: 20px;
+      }
+    }
 
-    li {
+    .highlightedText {
+      background: rgba($darkerBlue, 0.1);
+      border-left: 4px solid $darkerBlue;
+      padding: 10px 18px;
       font-size: 20px;
-      margin: 5px 0;
-      color: $deactive;
+      color: $darkerBlue;
+      margin: 15px 0;
+      font-family: $textFont;
+      letter-spacing: 0.8px;
+      line-height: 1.5;
+
+      strong {
+        color: $darkerBlue;
+        font-weight: 800;
+        font-size: 22px;
+      }
     }
   }
 }
@@ -61,7 +71,6 @@
   flex: 1;
   padding: 20px;
   border-radius: 10px;
-  // background: rgba($darkerOrange, 0.9);
   text-align: center;
 
   .skillsTitle {
@@ -96,6 +105,7 @@
     span {
       margin-top: 5px;
       font-size: 14px;
+      font-weight: bold;
       color: $deactive;
     }
   }

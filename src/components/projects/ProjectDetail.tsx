@@ -2,12 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ProjectsData } from '@data/projects-data';
 import styles from './ProjectDetail.module.scss';
-import {
-  Language,
-  ProjectType,
-  ProjectFunctions,
-  ProjectTechnologies,
-} from '@/typings/generalTypes';
+import { Language } from '@/typings/generalTypes';
 import { useAppContext } from '@/context/AppContext';
 
 const ProjectDetail: React.FC = () => {
@@ -95,7 +90,7 @@ const ProjectDetail: React.FC = () => {
             <strong>
               {language === Language.EN ? 'Technologies' : 'Tecnologias'}:
             </strong>{' '}
-            {project.technologies.join(', ')}
+            {project.technologiesUsed.join(', ')}
           </p>
         </div>
         {project.url && (

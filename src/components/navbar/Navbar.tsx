@@ -18,11 +18,6 @@ export const Navbar: React.FC = memo(() => {
         <div className={styles.middle}>
           <ul>
             <li>
-              <a href="#home">
-                {language === Language.EN ? 'home' : 'introdução'}
-              </a>
-            </li>
-            <li>
               <a href="#about">
                 {language === Language.EN ? 'about' : 'sobre'}
               </a>

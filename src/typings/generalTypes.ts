@@ -1,24 +1,24 @@
+//---------------------------------
+//-----------GENERAL---------------
+//---------------------------------
+
+export type AppContextType = {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  isMenuOpen: boolean;
+  toggleMenu: () => void;
+};
+
 export enum Language {
   EN = 'en',
   PT = 'pt',
 }
 
-export enum ProjectType {
-  ACADEMICAL = 'academical',
-  PERSONAL = 'personal',
-  PROFESSIONAL = 'professional',
-}
+//---------------------------------
+//--------TECHNOLOGIES-------------
+//---------------------------------
 
-export enum ProjectFunctions {
-  PLANNED = 'PLANNED',
-  DESIGNED = 'DESIGNED',
-  DEVELOPED = 'DEVELOPED',
-  IMPLEMENTED = 'IMPLEMENTED',
-  OPTIMIZED = 'OPTIMIZED',
-  DEPLOYED = 'DEPLOYED',
-}
-
-export enum ProjectTechnologies {
+export enum ProjectTechnology {
   HTML = 'HTML',
   CSS = 'CSS',
   JAVASCRIPT = 'JavaScript',
@@ -29,11 +29,59 @@ export enum ProjectTechnologies {
   VITE = 'Vite',
   EXPO = 'Expo',
   NEXT_JS = 'Next.js',
+}
+
+export type TechnologyItem = {
+  name: ProjectTechnology;
+  icon: string;
+  logo: string;
+};
+
+//---------------------------------
+//------------TOOLS----------------
+//---------------------------------
+
+export enum ProjectTool {
   GIT = 'Git',
   JIRA = 'Jira',
   CONFLUENCE = 'Confluence',
   PHOTOSHOP = 'Photoshop',
   FIGMA = 'Figma',
+}
+
+export type ToolItem = {
+  name: ProjectTool;
+  icon: string;
+  logo: string;
+};
+
+//---------------------------------
+//----------FUNCTIONS--------------
+//---------------------------------
+
+export enum ProjectFunction {
+  PLANNED = 'PLANNED',
+  DESIGNED = 'DESIGNED',
+  DEVELOPED = 'DEVELOPED',
+  IMPLEMENTED = 'IMPLEMENTED',
+  OPTIMIZED = 'OPTIMIZED',
+  DEPLOYED = 'DEPLOYED',
+}
+
+export type FunctionItem = {
+  name: ProjectFunction;
+  icon: string;
+  desc: string;
+};
+
+//---------------------------------
+//-----------PROJECTS--------------
+//---------------------------------
+
+export enum ProjectType {
+  ACADEMICAL = 'academical',
+  PERSONAL = 'personal',
+  PROFESSIONAL = 'professional',
 }
 
 export type ProjectItem = {
@@ -48,25 +96,12 @@ export type ProjectItem = {
   font?: string;
   url?: string | null | undefined;
   type: ProjectType;
-  functions: ProjectFunctions[];
-  technologies: ProjectTechnologies[];
+  year: number;
+  technologies: [TechnologyItem, ...TechnologyItem[]];
+  tools: [ToolItem, ...ToolItem[]];
+  functions: [FunctionItem, ...FunctionItem[]];
 };
 
-export type AppContextType = {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  isMenuOpen: boolean;
-  toggleMenu: () => void;
-};
-
-export type TechnologyItem = {
-  name: string;
-  icon: string;
-  logo: string;
-};
-
-export type FunctionItem = {
-  name: string;
-  icon: string;
-  desc: string;
-};
+//---------------------------------
+//---------------------------------
+//---------------------------------
