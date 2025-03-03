@@ -1,17 +1,17 @@
 // ✅ Global Styles
 
 // 🎨 Color Palette Family
-$deactive: rgba(114, 114, 114, 1);
-$gray: rgba(70, 70, 70, 1);
+$deactive: rgba(114, 114, 114, 1); // #727272
+$gray: rgba(70, 70, 70, 1); // #464646
 
-$blue: rgba(1, 168, 231, 1);
-$darkerBlue: rgba(1, 122, 167, 1);
+$blue: rgba(1, 168, 231, 1); // #01A8E7
+$darkerBlue: rgba(1, 122, 167, 1); // #017AA7
 
-$orange: rgba(239, 117, 42, 1);
-$darkerOrange: rgba(194, 94, 33, 1);
+$orange: rgba(239, 117, 42, 1); // #EF752A
+$darkerOrange: rgba(194, 94, 33, 1); // #C25E21
 
-$black: rgba(26, 26, 26, 1);
-$white: rgb(254, 254, 254);
+$black: rgba(26, 26, 26, 1); // #1A1A1A
+$white: rgba(254, 254, 254), 1; // #FEFEFE
 
 // 📏 Dimension Vars
 $sectionHeight: calc(100vh - 70px);
