@@ -52,7 +52,7 @@ const About: React.FC = () => {
           <div className={styles.skillsGrid}>
             {Object.values(TechnologiesData).map((tech) => (
               <div key={tech.name} className={styles.skill}>
-                <img src={tech.logo} alt={tech.name} />
+                <img src={tech.icon} alt={tech.name} />
                 <span>{tech.name}</span>
               </div>
             ))}
