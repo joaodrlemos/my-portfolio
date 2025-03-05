@@ -1,7 +1,7 @@
 export function getImage(imageName: string): string {
   console.log(`🔍 Looking for image: ${imageName}`);
 
-  const images = import.meta.glob<{ default: string }>(
+  const images: Record<string, { default: string }> = import.meta.glob(
     '/src/assets/pictures/**/*.{webp,png,jpg,jpeg}',
     { eager: true },
   );
@@ -12,7 +12,7 @@ export function getImage(imageName: string): string {
 export function getLogo(logoName: string): string {
   console.log(`🔍 Looking for logo: ${logoName}`);
 
-  const logos = import.meta.glob<{ default: string }>(
+  const logos: Record<string, { default: string }> = import.meta.glob(
     '/src/assets/logos/**/*.{webp,png,jpg,jpeg}',
     { eager: true },
   );
@@ -23,7 +23,7 @@ export function getLogo(logoName: string): string {
 export function getIcon(iconName: string): string {
   console.log(`🔍 Looking for icon: ${iconName}`);
 
-  const icons = import.meta.glob<{ default: string }>(
+  const icons: Record<string, { default: string }> = import.meta.glob(
     '/src/assets/icons/**/*.{svg,png,webp,jpg}',
     { eager: true },
   );

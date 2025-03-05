@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState, useCallback } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { ProjectsData } from '@data/projects-data';
 import { Language } from '@/types/projectTypes';
 import { useAppContext } from '@/context/AppContext';
@@ -7,8 +7,24 @@ import styles from './ProjectDetail.module.scss';
 
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { language } = useAppContext();
   const project = ProjectsData.find((p) => p.id.toString() === id);
+  const navigate = useNavigate();
+  const { language } = useAppContext();
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const handleNavigation = useCallback(
+    (targetId: string) => {
+      if (!isTransitioning) {
+        setIsTransitioning(true);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          navigate(targetId);
+          setIsTransitioning(false);
+        }, 400);
+      }
+    },
+    [navigate, isTransitioning],
+  );
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -25,7 +41,10 @@ const ProjectDetail: React.FC = () => {
   }
 
   return (
-    <div className={styles.projectDetail}>
+    <div
+      className={`${styles.projectDetail} ${isTransitioning ? styles.transitioning : ''}`}
+    >
+      <div className={styles.transitionOverlay}></div>
       <div className={styles.mainImage}>
         <div className={styles.overlay}></div>
         <img src={project.img} alt={project.name} />
