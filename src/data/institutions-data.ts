@@ -1,4 +1,4 @@
-import { InstitutionItem, Institution } from '@/typings/generalTypes';
+import { InstitutionItem, Institution } from '@/types/projectTypes';
 
 export const institutionsData: Record<Institution, InstitutionItem> = {
   [Institution.NAU]: {

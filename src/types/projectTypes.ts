@@ -18,6 +18,12 @@ export enum Language {
   PT = 'pt',
 }
 
+export enum Platform {
+  WEB = 'web',
+  MOBILE = 'mobile',
+  DESKTOP = 'desktop',
+}
+
 export enum DocumentName {
   BACHELORS_COMPUTER_SCIENCE = 'Bachelors Computer Science Diploma',
   GDPR = 'Gdpr Certification',
@@ -87,6 +93,11 @@ export enum ProjectType {
 //------------TYPES----------------
 //---------------------------------
 
+export type PlatformItem = {
+  name: Platform;
+  icon: string;
+};
+
 export type DocumentItem = {
   name: DocumentName;
   link?: string;
@@ -130,8 +141,10 @@ export type ProjectItem = {
   name: string;
   descEn: string;
   descPt: string;
+  aboutEn: string;
+  aboutPt: string;
   client?: string;
-  platform: 'WEB' | 'MOBILE';
+  platforms: [PlatformItem, ...PlatformItem[]];
   img: string;
   logo?: string;
   startBackgroundColor?: boolean;

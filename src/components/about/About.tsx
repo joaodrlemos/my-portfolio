@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppContext } from '@/context/AppContext';
-import { Language } from '@/typings/generalTypes';
-import { TechnologiesData } from '@/data/technologies-tools-data';
+import { Language } from '@/types/projectTypes';
+import { TechnologiesData } from '@/data/technologies-data';
 import styles from './About.module.scss';
 
 const About: React.FC = () => {
@@ -63,4 +63,5 @@ const About: React.FC = () => {
   );
 };
 
+About.displayName = 'About';
 export default About;

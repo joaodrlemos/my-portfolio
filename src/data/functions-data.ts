@@ -1,4 +1,4 @@
-import { FunctionItem, ProjectFunction } from '@/typings/generalTypes';
+import { FunctionItem, ProjectFunction } from '@/types/projectTypes';
 
 export const FunctionsData: Record<ProjectFunction, FunctionItem> = {
   [ProjectFunction.PLANNED]: {

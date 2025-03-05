@@ -7,14 +7,15 @@ import pluginReact from 'eslint-plugin-react';
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
   {
-    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+    files: ['**/*.{js,mjs,cjs,ts,tsx,jsx}'],
     languageOptions: {
-      globals: Object.fromEntries(
-        Object.entries(globals.browser).map(([key, value]) => [
-          key.trim(),
-          value,
-        ]),
-      ),
+      globals: {
+        ...globals.browser,
+        window: true,
+        document: true,
+        setTimeout: true,
+        console: true,
+      },
       parser: tsParser,
     },
     plugins: {
@@ -28,9 +29,16 @@ export default [
       },
     },
     rules: {
-      ...pluginJs.configs.recommended.rules,
-      ...tseslint.configs.recommended.rules,
-      ...pluginReact.configs.recommended.rules,
+      '@typescript-eslint/no-unused-vars': ['error'],
+      '@typescript-eslint/no-unused-expressions': ['error'],
+      'no-empty': ['warn'],
+      'no-cond-assign': ['error'],
+      'valid-typeof': ['error'],
+      'getter-return': ['error'],
+      'no-prototype-builtins': ['warn'],
+      'no-control-regex': ['error'],
+      'react/jsx-boolean-value': ['error'],
+      'react/jsx-curly-spacing': ['error', { when: 'always' }],
     },
   },
 ];

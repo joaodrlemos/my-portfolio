@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { useAppContext } from '@/context/AppContext';
-import { Language } from '@/typings/generalTypes';
+import { Language } from '@/types/projectTypes';
 import styles from './Menu.module.scss';
 
-export const Menu: React.FC = memo(() => {
+const Menu: React.FC = memo(() => {
   const { language, isMenuOpen, toggleMenu } = useAppContext();
 
   return (
@@ -29,3 +29,6 @@ export const Menu: React.FC = memo(() => {
     </div>
   );
 });
+
+Menu.displayName = 'Menu';
+export default Menu;

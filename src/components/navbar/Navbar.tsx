@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import { useAppContext } from '@/context/AppContext';
-import { Language } from '@/typings/generalTypes';
+import { Language } from '@/types/projectTypes';
 import styles from './Navbar.module.scss';
 import logo from '/logos/J-cor-08.png';
 
-export const Navbar: React.FC = memo(() => {
+const Navbar: React.FC = memo(() => {
   const { language, setLanguage, isMenuOpen, toggleMenu } = useAppContext();
 
   return (
@@ -59,3 +59,6 @@ export const Navbar: React.FC = memo(() => {
     </div>
   );
 });
+
+Navbar.displayName = 'Navbar';
+export default Navbar;

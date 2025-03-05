@@ -4,8 +4,8 @@ import {
   DocumentName,
   Institution,
   ProjectTechnology,
-} from '@/typings/generalTypes';
-import { TechnologiesData } from './technologies-tools-data';
+} from '@/types/projectTypes';
+import { TechnologiesData } from './technologies-data';
 import { institutionsData } from './institutions-data';
 import { DocumentsData } from './documents-data';
 

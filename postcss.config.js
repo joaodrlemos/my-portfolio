@@ -1,16 +1,20 @@
 import autoprefixer from 'autoprefixer';
 import postcssPresetEnv from 'postcss-preset-env';
-import purgecssModule from '@fullhuman/postcss-purgecss';
-
-const purgecss = purgecssModule({
-  content: ['./index.html', './src/**/*.{ts,tsx}'],
-  defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
-});
+import purgecss from '@fullhuman/postcss-purgecss';
 
 export default {
   plugins: [
     autoprefixer(),
     postcssPresetEnv({ stage: 1 }),
-    ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
+    ...(process.env.NODE_ENV === 'production'
+      ? [
+          purgecss({
+            content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}'],
+            safelist: ['html', 'body'],
+            defaultExtractor: (content) =>
+              content.match(/[\w-/:]+(?<!:)/g) || [],
+          }),
+        ]
+      : []),
   ],
 };

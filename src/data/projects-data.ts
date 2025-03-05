@@ -4,20 +4,25 @@ import {
   ProjectTechnology,
   ProjectType,
   ProjectTool,
-} from '@/typings/generalTypes';
+  Platform,
+} from '@/types/projectTypes';
 import { getImage, getLogo } from '@/utils/imageUtils';
 import { FunctionsData } from './functions-data';
-import { TechnologiesData, ToolsData } from './technologies-tools-data';
+import { TechnologiesData } from './technologies-data';
+import { ToolsData } from './tools-data';
+import { PlatformsData } from './platforms-data';
 
 export const ProjectsData: ProjectItem[] = [
   {
     id: 0,
     name: 'Keeper',
-    descEn: 'A notepad WebApp where you can create your own notes.',
-    descPt:
+    aboutEn: 'A notepad WebApp where you can create your own notes.',
+    aboutPt:
       'Uma aplicação Web bloco de notas onde podes criar as tuas próprias.',
+    descEn: 'Notepad Tool',
+    descPt: 'Ferramenta Bloco de Notas',
+    platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
     img: getImage('KeeperApp.webp'),
-    platform: 'WEB',
     backgroundColor: '245,186,19',
     font: 'Montserrat',
     url: 'https://note-keeper-project.netlify.app',
@@ -36,13 +41,15 @@ export const ProjectsData: ProjectItem[] = [
   {
     id: 1,
     name: 'Hydra',
-    descEn:
+    aboutEn:
       'A proof of concept WebApp for displaying, searching, and filtering users.',
-    descPt:
+    aboutPt:
       'Uma aplicação Web prova de conceito para listar, procurar e filtrar utilizadores',
+    descEn: 'User Database',
+    descPt: 'Base de Dados de Utilizadores',
+    platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
     img: getImage('Hydra-preview.webp'),
     client: 'HydraDev',
-    platform: 'WEB',
     backgroundColor: '233,180,180',
     font: 'Montserrat',
     url: 'https://hydrausers.netlify.app',
@@ -65,11 +72,13 @@ export const ProjectsData: ProjectItem[] = [
   {
     id: 2,
     name: 'Leminflix',
-    descEn: 'A Netflix clone WebApp with movie and TV show info.',
-    descPt:
+    aboutEn: 'A Netflix clone WebApp with movie and TV show info.',
+    aboutPt:
       'Uma aplicação Web clone da Netflix, com informação de filmes e séries.',
+    descEn: 'Streaming Service',
+    descPt: 'Serviço de Streaming',
+    platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
     img: getImage('leminflix.webp'),
-    platform: 'WEB',
     backgroundColor: '210,29,36',
     font: 'BebasNeue',
     url: 'https://leminflix.netlify.app',
@@ -91,13 +100,15 @@ export const ProjectsData: ProjectItem[] = [
   {
     id: 3,
     name: 'MEO BlueTicket',
-    descEn:
+    aboutEn:
       'The official MEO MobileApp to buy tickets for concerts, festivals, exhibitions, sports, and family events.',
-    descPt:
+    aboutPt:
       'A aplicação Móvel oficial da MEO, onde se compram bilhetes para Concertos, Festivais, Espetáculos, eventos desportivos, etc.',
+    descEn: 'Events E-Commerce',
+    descPt: 'E-Commerce de Eventos',
+    platforms: [PlatformsData[Platform.MOBILE]],
     img: getImage('meobg.webp'),
     client: 'MEO',
-    platform: 'MOBILE',
     logo: getLogo('MEO_Blueticket_Logo.png'),
     backgroundColor: '0,153,171',
     font: 'Montserrat',
@@ -128,13 +139,15 @@ export const ProjectsData: ProjectItem[] = [
   {
     id: 4,
     name: 'Chem',
-    descEn:
+    aboutEn:
       'A WebTool designed to simulate, visualize, and create graphs on chemical processes, primarily focusing on titration and distillation.',
-    descPt:
+    aboutPt:
       'Uma ferramenta Web desenvolvida para simular, visualizar e criar grafos de processos químicos, com foco principal em titulação e destilação.',
+    descEn: 'Quemical Calculator',
+    descPt: 'Calculadora Quimica',
+    platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
     img: getImage('chem_home.webp'),
     client: 'Cunha&Cunha Consulting',
-    platform: 'WEB',
     logo: getLogo('chem-logo2.png'),
     backgroundColor: '57,78,44',
     font: 'Arial',
@@ -164,12 +177,14 @@ export const ProjectsData: ProjectItem[] = [
   {
     id: 5,
     name: 'MovieDB',
-    descEn:
+    aboutEn:
       'A movie database app that allows users to search and save their favorite movies.',
-    descPt:
+    aboutPt:
       'Uma aplicação de base de dados de filmes onde os utilizadores podem pesquisar e guardar os seus filmes favoritos.',
+    descEn: 'Streaming Service',
+    descPt: 'Serviço de Streaming',
+    platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
     img: getImage('movieDB.webp'),
-    platform: 'WEB',
     backgroundColor: '100,100,255',
     font: 'Montserrat',
     url: 'https://moviedb-example.netlify.app',
@@ -186,13 +201,15 @@ export const ProjectsData: ProjectItem[] = [
   {
     id: 6,
     name: 'Procheck Productions',
-    descEn:
+    aboutEn:
       'The official website of Procheck Productions, the famous Portuguese Photo, Video and Sound production company.',
-    descPt:
+    aboutPt:
       'O Website oficial da Procheck Productions, a famosa Produtora Portuguesa de Foto, Video e Som.',
+    descEn: 'Multimedia Production Studio',
+    descPt: 'Estudio de Produção Multimédia',
+    platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
     img: '',
     client: 'Procheck Productions',
-    platform: 'WEB',
     logo: '',
     backgroundColor: '255,255,255',
     font: 'Montserrat',
@@ -226,9 +243,9 @@ export const ProjectsData: ProjectItem[] = [
   // {
   //   id: 6,
   //   name: 'TaskFlow',
-  //   descEn:
+  //   aboutEn:
   //     'A productivity app for managing daily tasks and schedules efficiently.',
-  //   descPt:
+  //   aboutPt:
   //     'Uma aplicação de produtividade para gerir tarefas diárias e horários de forma eficiente.',
   //   img: getImage('taskflow.webp'),
   //   backgroundColor: '45,156,219',
@@ -254,9 +271,9 @@ export const ProjectsData: ProjectItem[] = [
   // {
   //   id: 7,
   //   name: 'E-Commerce Dashboard',
-  //   descEn:
+  //   aboutEn:
   //     'A dashboard for tracking e-commerce sales, customer data, and product analytics.',
-  //   descPt:
+  //   aboutPt:
   //     'Um painel de controlo para monitorizar vendas, dados de clientes e análise de produtos em e-commerce.',
   //   img: getImage('ecommerce_dashboard.webp'),
   //   backgroundColor: '78,132,201',

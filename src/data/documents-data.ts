@@ -1,6 +1,6 @@
-import { DocumentItem, DocumentName } from '@/typings/generalTypes';
+import { DocumentItem, DocumentName } from '@/types/projectTypes';
 
-export const DocumentsData: Record<string, DocumentItem> = {
+export const DocumentsData: Record<DocumentName, DocumentItem> = {
   [DocumentName.BACHELORS_COMPUTER_SCIENCE]: {
     name: DocumentName.BACHELORS_COMPUTER_SCIENCE,
     img: '/src/assets/docs/bachelors_degree_diploma.png',

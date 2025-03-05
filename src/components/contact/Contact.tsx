@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Instagram, GitHub, LinkedIn } from '@mui/icons-material';
 import styles from '../contact/Contact.module.scss';
 import { useAppContext } from '@/context/AppContext';
-import { Language } from '@/typings/generalTypes';
+import { Language } from '@/types/projectTypes';
 
 const Contact: React.FC = memo(() => {
   const { language } = useAppContext();
@@ -52,4 +52,5 @@ const Contact: React.FC = memo(() => {
   );
 });
 
+Contact.displayName = 'Contact';
 export default Contact;

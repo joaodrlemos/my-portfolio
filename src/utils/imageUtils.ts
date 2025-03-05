@@ -1,43 +1,32 @@
 export function getImage(imageName: string): string {
   console.log(`🔍 Looking for image: ${imageName}`);
 
-  const images: Record<string, { default: string } | undefined> =
-    import.meta.glob('/src/assets/pictures/**/*.{webp,png,jpg,jpeg}', {
-      eager: true,
-    });
+  const images = import.meta.glob<{ default: string }>(
+    '/src/assets/pictures/**/*.{webp,png,jpg,jpeg}',
+    { eager: true },
+  );
 
-  for (const path in images) {
-    if (path.endsWith(`/${imageName}`)) {
-      const image = images[path];
-      if (image && image.default) {
-        console.log(`✅ Found image: ${path} -> ${image.default}`);
-        return image.default;
-      }
-    }
-  }
-
-  console.warn(`⚠️ Image not found: ${imageName}`);
-  return '';
+  return images[`/src/assets/pictures/${imageName}`]?.default || '';
 }
 
 export function getLogo(logoName: string): string {
   console.log(`🔍 Looking for logo: ${logoName}`);
 
-  const logos: Record<string, { default: string } | undefined> =
-    import.meta.glob('/src/assets/logos/**/*.{webp,png,jpg,jpeg}', {
-      eager: true,
-    });
+  const logos = import.meta.glob<{ default: string }>(
+    '/src/assets/logos/**/*.{webp,png,jpg,jpeg}',
+    { eager: true },
+  );
 
-  for (const path in logos) {
-    if (path.endsWith(`/${logoName}`)) {
-      const logo = logos[path];
-      if (logo && logo.default) {
-        console.log(`✅ Found logo: ${path} -> ${logo.default}`);
-        return logo.default;
-      }
-    }
-  }
+  return logos[`/src/assets/logos/${logoName}`]?.default || '';
+}
 
-  console.warn(`⚠️ Logo not found: ${logoName}`);
-  return '';
+export function getIcon(iconName: string): string {
+  console.log(`🔍 Looking for icon: ${iconName}`);
+
+  const icons = import.meta.glob<{ default: string }>(
+    '/src/assets/icons/**/*.{svg,png,webp,jpg}',
+    { eager: true },
+  );
+
+  return icons[`/src/assets/icons/${iconName}`]?.default || '';
 }
