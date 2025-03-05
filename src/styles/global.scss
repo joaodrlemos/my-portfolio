@@ -30,15 +30,20 @@ $netflixFont: 'BebasNeue', 'Montserrat';
   -ms-overflow-style: none; /* IE */
 }
 
-::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
-}
-
 // ✅ Default Body Styles
+html,
 body {
   font-family: $textFont;
+  font-weight: 300;
   background-color: $black;
   color: white;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
 }
 
 // ✅ Utility Classes
@@ -52,6 +57,9 @@ body {
   align-items: center;
 }
 
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
 // 📱 Responsive Method Classes
 @mixin mobile {
   @media screen and (max-width: 800px) {

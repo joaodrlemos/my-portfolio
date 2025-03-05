@@ -1,44 +1,45 @@
 import { ProjectTechnology, TechnologyItem } from '@/types/projectTypes';
+import { getIcon } from '@/utils/imageUtils';
 
 export const TechnologiesData: Record<ProjectTechnology, TechnologyItem> = {
   [ProjectTechnology.HTML]: {
     name: ProjectTechnology.HTML,
-    icon: '/src/assets/icons/technologies/html/html_ico-color.svg',
+    icon: getIcon('html_ico-color.svg', 'technologies', 'html'),
   },
   [ProjectTechnology.CSS]: {
     name: ProjectTechnology.CSS,
-    icon: '/src/assets/icons/technologies/css/css_ico-color.svg',
+    icon: getIcon('css_ico-color.svg', 'technologies', 'css'),
   },
   [ProjectTechnology.JAVASCRIPT]: {
     name: ProjectTechnology.JAVASCRIPT,
-    icon: '/src/assets/icons/technologies/javascript/javascript_ico-color.svg',
+    icon: getIcon('javascript_ico-color.svg', 'technologies', 'javascript'),
   },
   [ProjectTechnology.TYPESCRIPT]: {
     name: ProjectTechnology.TYPESCRIPT,
-    icon: '/src/assets/icons/technologies/typescript/typescript_ico-color.svg',
+    icon: getIcon('typescript_ico-color.svg', 'technologies', 'typescript'),
   },
   [ProjectTechnology.REACT]: {
     name: ProjectTechnology.REACT,
-    icon: '/src/assets/icons/technologies/react/react_ico-color.svg',
+    icon: getIcon('react_ico-color.svg', 'technologies', 'react'),
   },
   [ProjectTechnology.REACT_NATIVE]: {
     name: ProjectTechnology.REACT_NATIVE,
-    icon: '/src/assets/icons/technologies/reactNative/reactnative_ico-color.svg',
+    icon: getIcon('reactnative_ico-color.svg', 'technologies', 'reactNative'),
   },
   [ProjectTechnology.SCSS]: {
     name: ProjectTechnology.SCSS,
-    icon: '/src/assets/icons/technologies/scss/scss_ico-color.svg',
+    icon: getIcon('scss_ico-color.svg', 'technologies', 'scss'),
   },
   [ProjectTechnology.VITE]: {
     name: ProjectTechnology.VITE,
-    icon: '/src/assets/icons/technologies/vite/vite_ico-color.svg',
+    icon: getIcon('vite_ico-color.svg', 'technologies', 'vite'),
   },
   [ProjectTechnology.EXPO]: {
     name: ProjectTechnology.EXPO,
-    icon: '/src/assets/icons/technologies/expo/expo_ico-white.svg',
+    icon: getIcon('expo_ico-white.svg', 'technologies', 'expo'),
   },
   [ProjectTechnology.NEXT_JS]: {
     name: ProjectTechnology.NEXT_JS,
-    icon: '/src/assets/icons/technologies/nextJs/nextjs_ico-black.svg',
+    icon: getIcon('nextjs_ico-black.svg', 'technologies', 'nextJs'),
   },
 };

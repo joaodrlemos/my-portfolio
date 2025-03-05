@@ -1,8 +1,9 @@
 import React, { memo } from 'react';
-import { Instagram, GitHub, LinkedIn } from '@mui/icons-material';
-import styles from '../contact/Contact.module.scss';
 import { useAppContext } from '@/context/AppContext';
-import { Language } from '@/types/projectTypes';
+import { Language, SocialItem } from '@/types/projectTypes';
+import { SocialsData } from '@/data/socials-data';
+import styles from './Contact.module.scss';
+import ImageComponent from '../common/image/Image';
 
 const Contact: React.FC = memo(() => {
   const { language } = useAppContext();
@@ -24,27 +25,17 @@ const Contact: React.FC = memo(() => {
           </p>
           <p className={styles.email}>joaodrlemos@gmail.com</p>
           <div className={styles.socialIcons}>
-            <a
-              href="https://www.instagram.com/johny_lemings/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Instagram />
-            </a>
-            <a
-              href="https://github.com/joaodrlemos"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GitHub />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/joaodrlemos/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedIn />
-            </a>
+            {Object.values(SocialsData).map((social: SocialItem) => {
+              return (
+                <a href={social.link} target="_blank" rel="noopener noreferrer">
+                  <ImageComponent
+                    name={social.name}
+                    img={social.icon}
+                    desc={social.name}
+                  />
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>

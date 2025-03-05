@@ -3,6 +3,7 @@ import { TiArrowDownThick } from 'react-icons/ti';
 import { useAppContext } from '@/context/AppContext';
 import { Language } from '@/types/projectTypes';
 import styles from './Home.module.scss';
+import fotoBw from '@assets/images/pictures/foto_bw.png';
 
 const Home: React.FC = memo(() => {
   const { language } = useAppContext();
@@ -16,7 +17,10 @@ const Home: React.FC = memo(() => {
 
   return (
     <div className={styles.home} id="home">
-      <div className={styles.container}>
+      <div
+        className={styles.container}
+        style={{ '--bg-image': `url(${fotoBw})` } as React.CSSProperties}
+      >
         <div className={styles.left} />
         <div className={styles.greeting}>
           <div

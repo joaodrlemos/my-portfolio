@@ -1,30 +1,15 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { ProjectsData } from '@data/projects-data';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { ProjectsData } from '@/data/projects-data';
 import { Language } from '@/types/projectTypes';
 import { useAppContext } from '@/context/AppContext';
 import styles from './ProjectDetail.module.scss';
+import ImageComponent from '../common/image/Image';
 
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const project = ProjectsData.find((p) => p.id.toString() === id);
-  const navigate = useNavigate();
   const { language } = useAppContext();
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  const handleNavigation = useCallback(
-    (targetId: string) => {
-      if (!isTransitioning) {
-        setIsTransitioning(true);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          navigate(targetId);
-          setIsTransitioning(false);
-        }, 400);
-      }
-    },
-    [navigate, isTransitioning],
-  );
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -41,13 +26,15 @@ const ProjectDetail: React.FC = () => {
   }
 
   return (
-    <div
-      className={`${styles.projectDetail} ${isTransitioning ? styles.transitioning : ''}`}
-    >
+    <div className={styles.projectDetail}>
       <div className={styles.transitionOverlay}></div>
       <div className={styles.mainImage}>
         <div className={styles.overlay}></div>
-        <img src={project.img} alt={project.name} />
+        <ImageComponent
+          name={project.name}
+          img={project.img}
+          desc={project.name}
+        />
         <div className={styles.titleContainer}>
           <h1 className={styles.title}>{project.name}</h1>
         </div>
@@ -68,13 +55,13 @@ const ProjectDetail: React.FC = () => {
             <strong>
               {language === Language.EN ? 'Functions' : 'Funções'}:
             </strong>{' '}
-            {project.functions.join(', ')}
+            {project.functions.map((f) => f.name).join(', ')}
           </p>
           <p>
             <strong>
               {language === Language.EN ? 'Technologies' : 'Tecnologias'}:
             </strong>{' '}
-            {project.technologies.join(', ')}
+            {project.technologies.map((t) => t.name).join(', ')}
           </p>
         </div>
       </div>

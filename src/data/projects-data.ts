@@ -6,7 +6,7 @@ import {
   ProjectTool,
   Platform,
 } from '@/types/projectTypes';
-import { getImage, getLogo } from '@/utils/imageUtils';
+import { getProjectImage, getProjectLogo } from '@/utils/imageUtils';
 import { FunctionsData } from './functions-data';
 import { TechnologiesData } from './technologies-data';
 import { ToolsData } from './tools-data';
@@ -15,14 +15,14 @@ import { PlatformsData } from './platforms-data';
 export const ProjectsData: ProjectItem[] = [
   {
     id: 0,
-    name: 'Keeper',
+    name: 'noteKeeper',
     aboutEn: 'A notepad WebApp where you can create your own notes.',
     aboutPt:
       'Uma aplicação Web bloco de notas onde podes criar as tuas próprias.',
     descEn: 'Notepad Tool',
     descPt: 'Ferramenta Bloco de Notas',
     platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
-    img: getImage('KeeperApp.webp'),
+    img: getProjectImage('KeeperApp.webp', 'notekeeper'),
     backgroundColor: '245,186,19',
     font: 'Montserrat',
     url: 'https://note-keeper-project.netlify.app',
@@ -48,7 +48,7 @@ export const ProjectsData: ProjectItem[] = [
     descEn: 'User Database',
     descPt: 'Base de Dados de Utilizadores',
     platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
-    img: getImage('Hydra-preview.webp'),
+    img: getProjectImage('Hydra-preview.webp', 'hydra'),
     client: 'HydraDev',
     backgroundColor: '233,180,180',
     font: 'Montserrat',
@@ -78,7 +78,7 @@ export const ProjectsData: ProjectItem[] = [
     descEn: 'Streaming Service',
     descPt: 'Serviço de Streaming',
     platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
-    img: getImage('leminflix.webp'),
+    img: getProjectImage('leminflix.webp', 'leminflix'),
     backgroundColor: '210,29,36',
     font: 'BebasNeue',
     url: 'https://leminflix.netlify.app',
@@ -107,9 +107,9 @@ export const ProjectsData: ProjectItem[] = [
     descEn: 'Events E-Commerce',
     descPt: 'E-Commerce de Eventos',
     platforms: [PlatformsData[Platform.MOBILE]],
-    img: getImage('meobg.webp'),
+    img: getProjectImage('meobg.webp', 'meoblueticket'),
     client: 'MEO',
-    logo: getLogo('MEO_Blueticket_Logo.png'),
+    logo: getProjectLogo('MEO_Blueticket_Logo.png', 'meoblueticket'),
     backgroundColor: '0,153,171',
     font: 'Montserrat',
     startBackgroundColor: false,
@@ -146,9 +146,9 @@ export const ProjectsData: ProjectItem[] = [
     descEn: 'Quemical Calculator',
     descPt: 'Calculadora Quimica',
     platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
-    img: getImage('chem_home.webp'),
+    img: getProjectImage('chem_home.webp', 'chem'),
     client: 'Cunha&Cunha Consulting',
-    logo: getLogo('chem-logo2.png'),
+    logo: getProjectLogo('chem-logo2.png', 'chem'),
     backgroundColor: '57,78,44',
     font: 'Arial',
     type: ProjectType.FREELANCE,
@@ -184,7 +184,7 @@ export const ProjectsData: ProjectItem[] = [
     descEn: 'Streaming Service',
     descPt: 'Serviço de Streaming',
     platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
-    img: getImage('movieDB.webp'),
+    img: getProjectImage('movieDB.webp', 'moviedb'),
     backgroundColor: '100,100,255',
     font: 'Montserrat',
     url: 'https://moviedb-example.netlify.app',
@@ -209,8 +209,8 @@ export const ProjectsData: ProjectItem[] = [
     descPt: 'Estudio de Produção Multimédia',
     platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
     img: '',
+    logo: getProjectLogo('procheck_ico-color.svg', 'procheck'),
     client: 'Procheck Productions',
-    logo: '',
     backgroundColor: '255,255,255',
     font: 'Montserrat',
     startBackgroundColor: false,
@@ -240,60 +240,4 @@ export const ProjectsData: ProjectItem[] = [
       FunctionsData[ProjectFunction.DEPLOYED],
     ],
   },
-  // {
-  //   id: 6,
-  //   name: 'TaskFlow',
-  //   aboutEn:
-  //     'A productivity app for managing daily tasks and schedules efficiently.',
-  //   aboutPt:
-  //     'Uma aplicação de produtividade para gerir tarefas diárias e horários de forma eficiente.',
-  //   img: getImage('taskflow.webp'),
-  //   backgroundColor: '45,156,219',
-  //   font: 'Montserrat',
-  //   url: 'https://taskflow-app.netlify.app',
-  //   type: ProjectType.PERSONAL,
-  //   year: 2023,
-  //   technologies: [
-  //     TechnologiesData[ProjectTechnology.HTML],
-  //     TechnologiesData[ProjectTechnology.CSS],
-  //     TechnologiesData[ProjectTechnology.REACT],
-  //   ],
-  //   tools: [
-  //     ToolsData[ProjectTool.GIT],
-  //     ToolsData[ProjectTool.JIRA],
-  //     ToolsData[ProjectTool.CONFLUENCE],
-  //   ],
-  //   functions: [
-  //     FunctionsData[ProjectFunction.DESIGNED],
-  //     FunctionsData[ProjectFunction.DEVELOPED],
-  //   ],
-  // },
-  // {
-  //   id: 7,
-  //   name: 'E-Commerce Dashboard',
-  //   aboutEn:
-  //     'A dashboard for tracking e-commerce sales, customer data, and product analytics.',
-  //   aboutPt:
-  //     'Um painel de controlo para monitorizar vendas, dados de clientes e análise de produtos em e-commerce.',
-  //   img: getImage('ecommerce_dashboard.webp'),
-  //   backgroundColor: '78,132,201',
-  //   font: 'Montserrat',
-  //   url: 'https://ecommerce-dashboard.netlify.app',
-  //   type: ProjectType.ACADEMICAL,
-  //   year: 2023,
-  //   technologies: [
-  //     TechnologiesData[ProjectTechnology.HTML],
-  //     TechnologiesData[ProjectTechnology.CSS],
-  //     TechnologiesData[ProjectTechnology.REACT],
-  //   ],
-  //   tools: [
-  //     ToolsData[ProjectTool.GIT],
-  //     ToolsData[ProjectTool.JIRA],
-  //     ToolsData[ProjectTool.CONFLUENCE],
-  //   ],
-  //   functions: [
-  //     FunctionsData[ProjectFunction.DESIGNED],
-  //     FunctionsData[ProjectFunction.DEVELOPED],
-  //   ],
-  // },
 ];

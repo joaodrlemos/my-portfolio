@@ -3,3 +3,7 @@
 /.vscode
 /.vite_cache
 /dist
+/.env
+/.DS_Store
+/npm-debug.log*
+/yarn-error.log

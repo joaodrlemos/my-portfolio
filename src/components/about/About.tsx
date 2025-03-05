@@ -3,6 +3,7 @@ import { useAppContext } from '@/context/AppContext';
 import { Language } from '@/types/projectTypes';
 import { TechnologiesData } from '@/data/technologies-data';
 import styles from './About.module.scss';
+import ImageComponent from '../common/image/Image';
 
 const About: React.FC = () => {
   const { language } = useAppContext();
@@ -52,7 +53,11 @@ const About: React.FC = () => {
           <div className={styles.skillsGrid}>
             {Object.values(TechnologiesData).map((tech) => (
               <div key={tech.name} className={styles.skill}>
-                <img src={tech.icon} alt={tech.name} />
+                <ImageComponent
+                  name={tech.name}
+                  img={tech.icon}
+                  desc={tech.name}
+                />
                 <span>{tech.name}</span>
               </div>
             ))}

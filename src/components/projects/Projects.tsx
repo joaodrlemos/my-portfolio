@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ProjectsData } from '@data/projects-data';
+import { ProjectsData } from '@/data/projects-data';
 import { Language } from '@/types/projectTypes';
 import { useAppContext } from '@/context/AppContext';
 import styles from './Projects.module.scss';
+import ImageComponent from '../common/image/Image';
 
 const getItemsPerRow = () => (window.innerWidth <= 800 ? 2 : 3);
 const getRowHeight = () => (window.innerWidth <= 800 ? 160 : 220);
@@ -12,12 +12,7 @@ const Projects: React.FC = memo(() => {
   const { language } = useAppContext();
   const [visibleProjects, setVisibleProjects] = useState(6);
   const [visibleRows, setVisibleRows] = useState<number[]>([]);
-  const navigate = useNavigate();
   const projectGridRef = useRef<HTMLDivElement>(null);
-
-  const handleLoadMore = () => {
-    setVisibleProjects((prev) => prev + 6);
-  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,6 +50,10 @@ const Projects: React.FC = memo(() => {
     return () => observer.disconnect();
   }, [visibleProjects]);
 
+  const handleLoadMore = () => {
+    setVisibleProjects((prev) => Math.min(prev + 6, ProjectsData.length));
+  };
+
   return (
     <div className={styles.projects} id="projects">
       <div className={styles.header}>
@@ -69,14 +68,31 @@ const Projects: React.FC = memo(() => {
           }}
         >
           {ProjectsData.slice(0, visibleProjects).map((item, index) => (
-            <div
+            <a
               key={item.id}
+              href={`/project/${item.id}`}
               className={`${styles.projectItem} ${visibleRows.includes(Math.floor(index / getItemsPerRow())) ? styles.visible : ''}`}
             >
-              <h2>{item.name}</h2>
-            </div>
+              <div className={styles.projectTitle}>
+                <ImageComponent
+                  name={item.name}
+                  img={item.img}
+                  desc={item.name}
+                />
+              </div>
+              <div className={styles.overlay}>
+                <h2 className={styles.itemTitle}>{item.name}</h2>
+              </div>
+            </a>
           ))}
         </div>
+        {visibleProjects < ProjectsData.length && (
+          <div className={styles.loadMoreContainer}>
+            <button className={styles.loadMoreButton} onClick={handleLoadMore}>
+              {language === Language.EN ? 'Load More' : 'Carregar Mais'}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

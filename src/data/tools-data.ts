@@ -1,24 +1,25 @@
 import { ProjectTool, ToolItem } from '@/types/projectTypes';
+import { getIcon } from '@/utils/imageUtils';
 
 export const ToolsData: Record<ProjectTool, ToolItem> = {
   [ProjectTool.GIT]: {
     name: ProjectTool.GIT,
-    icon: '/src/assets/icons/tools/git/git_ico-color.svg',
+    icon: getIcon('git_ico-color.svg', 'tools', 'git'),
   },
   [ProjectTool.JIRA]: {
     name: ProjectTool.JIRA,
-    icon: '/src/assets/icons/tools/jira/jira_ico-color.svg',
+    icon: getIcon('jira_ico-color.svg', 'tools', 'jira'),
   },
   [ProjectTool.CONFLUENCE]: {
     name: ProjectTool.CONFLUENCE,
-    icon: '/src/assets/icons/tools/confluence/confluence_ico-color.svg',
+    icon: getIcon('confluence_ico-color.svg', 'tools', 'confluence'),
   },
   [ProjectTool.PHOTOSHOP]: {
     name: ProjectTool.PHOTOSHOP,
-    icon: '/src/assets/icons/tools/photoshop/photoshop_ico-color.svg',
+    icon: getIcon('photoshop_ico-color.svg', 'tools', 'photoshop'),
   },
   [ProjectTool.FIGMA]: {
     name: ProjectTool.FIGMA,
-    icon: '/src/assets/icons/tools/figma/figma_ico-color.svg',
+    icon: getIcon('figma_ico-color.svg', 'tools', 'figma'),
   },
 };

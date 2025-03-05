@@ -24,6 +24,14 @@ export enum Platform {
   DESKTOP = 'desktop',
 }
 
+export enum Social {
+  FACEBOOK = 'Facebook',
+  GITHUB = 'GitHub',
+  INSTAGRAM = 'Instagram',
+  LINKEDIN = 'LinkedIn',
+  YOUTUBE = 'Youtube',
+}
+
 export enum DocumentName {
   BACHELORS_COMPUTER_SCIENCE = 'Bachelors Computer Science Diploma',
   GDPR = 'Gdpr Certification',
@@ -93,36 +101,45 @@ export enum ProjectType {
 //------------TYPES----------------
 //---------------------------------
 
-export type PlatformItem = {
-  name: Platform;
-  icon: string;
-};
-
-export type DocumentItem = {
-  name: DocumentName;
+export type ItemElement = {
+  name: Object;
+  icon?: string;
   link?: string;
   img?: string;
+  desc?: string;
 };
 
-export type TechnologyItem = {
+export type ImageElement = ItemElement & {
+  width?: number;
+  height?: number;
+};
+
+export type PlatformItem = ItemElement & {
+  name: Platform;
+};
+
+export type SocialItem = ItemElement & {
+  name: Social;
+};
+
+export type DocumentItem = ItemElement & {
+  name: DocumentName;
+};
+
+export type TechnologyItem = ItemElement & {
   name: ProjectTechnology;
-  icon: string;
 };
 
-export type ToolItem = {
+export type ToolItem = ItemElement & {
   name: ProjectTool;
-  icon: string;
 };
 
-export type FunctionItem = {
+export type FunctionItem = ItemElement & {
   name: ProjectFunction;
-  icon: string;
-  desc: string;
 };
 
-export type InstitutionItem = {
+export type InstitutionItem = ItemElement & {
   name: Institution;
-  icon: string;
 };
 
 export type CredentialItem = {

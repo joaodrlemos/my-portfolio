@@ -14,12 +14,10 @@
       flex: 0.5;
       background-image:
         linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.6)),
-        url('@assets/pictures/me/foto_bw.png');
-
+        var(--bg-image);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: bottom;
-      // background-position-y: 10px;
 
       @include mobile {
         flex: 0.7;

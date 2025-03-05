@@ -2,7 +2,8 @@ import React, { memo } from 'react';
 import { useAppContext } from '@/context/AppContext';
 import { Language } from '@/types/projectTypes';
 import styles from './Navbar.module.scss';
-import logo from '/logos/J-cor-08.png';
+import logo from '@/assets/images/logos/general/J-main-logo-color.png';
+import ImageComponent from '../common/image/Image';
 
 const Navbar: React.FC = memo(() => {
   const { language, setLanguage, isMenuOpen, toggleMenu } = useAppContext();
@@ -12,7 +13,7 @@ const Navbar: React.FC = memo(() => {
       <div className={styles.wrapper}>
         <div className={styles.left}>
           <a href="#home">
-            <img src={logo} alt="Logo" />
+            <ImageComponent name="JLogo" img={logo} desc="JLogo" />
           </a>
         </div>
         <div className={styles.middle}>

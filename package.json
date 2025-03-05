@@ -4,30 +4,21 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "6.4.6",
-    "@mui/material": "6.4.6",
-    "@svgr/plugin-svgo": "8.1.0",
     "@vitejs/plugin-react": "^4.3.4",
-    "cross-spawn": "7.0.6",
-    "glob": "11.0.1",
-    "lru-cache": "^11.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-icons": "5.5.0",
-    "react-modal": "3.16.3",
-    "react-router-dom": "^7.2.0",
-    "sass": "1.85.1",
-    "uuid": "11.1.0"
+    "react-icons": "^5.3.0",
+    "react-router-dom": "^6.26.2",
+    "sass": "^1.79.5"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "format": "npx prettier --write ."
+    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "npx prettier --write .",
+    "clean-install": "rm -rf node_modules package-lock.json dist && npm cache clean --force && npm install",
+    "start": "vite preview"
   },
   "browserslist": {
     "production": [
@@ -42,28 +33,21 @@
     ]
   },
   "devDependencies": {
-    "@eslint/js": "^9.21.0",
-    "@fullhuman/postcss-purgecss": "^7.0.2",
-    "@types/node": "^22.13.9",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "@typescript-eslint/eslint-plugin": "^8.26.0",
-    "@typescript-eslint/parser": "^8.26.0",
+    "@fullhuman/postcss-purgecss": "^6.0.0",
+    "@types/node": "^22.7.5",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.21.0",
-    "eslint-config-prettier": "^10.0.2",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "globals": "^15.15.0",
-    "postcss": "^8.5.3",
-    "postcss-import": "^16.1.0",
-    "postcss-loader": "^8.1.1",
-    "postcss-preset-env": "^10.1.5",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.2",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
     "vite": "^6.2.0",
-    "vite-plugin-compression": "^0.5.1"
+    "vite-tsconfig-paths": "^5.0.1"
   }
 }

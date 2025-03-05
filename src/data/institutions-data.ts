@@ -1,32 +1,33 @@
 import { InstitutionItem, Institution } from '@/types/projectTypes';
+import { getIcon } from '@/utils/imageUtils';
 
 export const institutionsData: Record<Institution, InstitutionItem> = {
   [Institution.NAU]: {
     name: Institution.NAU,
-    icon: '/src/assets/icons/institutions/nau/nau_ico-color.svg',
+    icon: getIcon('nau_ico-color.svg', 'institutions', 'nau'),
   },
   [Institution.ATLASSIAN]: {
     name: Institution.ATLASSIAN,
-    icon: '/src/assets/icons/institutions/atlassian/atlassian_ico-color.svg',
+    icon: getIcon('atlassian_ico-color.svg', 'institutions', 'atlassian'),
   },
   [Institution.FREECODECAMP]: {
     name: Institution.FREECODECAMP,
-    icon: '/src/assets/icons/institutions/freecodecamp/freecodecamp_ico-color.svg',
+    icon: getIcon('freecodecamp_ico-color.svg', 'institutions', 'freecodecamp'),
   },
   [Institution.HACKERRANK]: {
     name: Institution.HACKERRANK,
-    icon: '/src/assets/icons/institutions/hackerrank/hackerrank_ico-color.svg',
+    icon: getIcon('hackerrank_ico-color.svg', 'institutions', 'hackerrank'),
   },
   [Institution.LINKEDIN]: {
     name: Institution.LINKEDIN,
-    icon: '/src/assets/icons/institutions/linkedin/linkedin_ico-color.svg',
+    icon: getIcon('linkedin_ico-color.svg', 'institutions', 'linkedin'),
   },
   [Institution.UDEMY]: {
     name: Institution.UDEMY,
-    icon: '/src/assets/icons/institutions/udemy/udemy_ico-color.svg',
+    icon: getIcon('udemy_ico-color.svg', 'institutions', 'udemy'),
   },
   [Institution.FCT]: {
     name: Institution.FCT,
-    icon: '/src/assets/icons/institutions/fct/fct_ico-color.svg',
+    icon: getIcon('fct_ico-color.svg', 'institutions', 'fct'),
   },
 };
