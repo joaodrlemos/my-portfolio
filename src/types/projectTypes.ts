@@ -18,6 +18,18 @@ export enum Language {
   PT = 'pt',
 }
 
+export enum IconType {
+  DEFAULT = '',
+  OUTLINE = '-outline',
+}
+
+export enum IconColor {
+  GRAY = 'gray',
+  BLACK = 'black',
+  WHITE = 'white',
+  COLOR = 'color',
+}
+
 export enum Platform {
   WEB = 'web',
   MOBILE = 'mobile',
@@ -25,11 +37,11 @@ export enum Platform {
 }
 
 export enum Social {
-  FACEBOOK = 'Facebook',
-  GITHUB = 'GitHub',
-  INSTAGRAM = 'Instagram',
-  LINKEDIN = 'LinkedIn',
-  YOUTUBE = 'Youtube',
+  FACEBOOK = 'facebook',
+  GITHUB = 'github',
+  INSTAGRAM = 'instagram',
+  LINKEDIN = 'linkedin',
+  YOUTUBE = 'youtube',
 }
 
 export enum DocumentName {
@@ -46,49 +58,49 @@ export enum DocumentName {
 }
 
 export enum ProjectTechnology {
-  HTML = 'Html',
-  CSS = 'Css',
-  JAVASCRIPT = 'JavaScript',
-  TYPESCRIPT = 'TypeScript',
-  REACT = 'React',
-  REACT_NATIVE = 'ReactNative',
-  SCSS = 'Scss',
-  VITE = 'Vite',
-  EXPO = 'Expo',
-  NEXT_JS = 'NextJs',
+  HTML = 'html',
+  CSS = 'css',
+  JAVASCRIPT = 'javascript',
+  TYPESCRIPT = 'typescript',
+  REACT = 'react',
+  REACT_NATIVE = 'reactnative',
+  SCSS = 'scss',
+  VITE = 'vite',
+  EXPO = 'expo',
+  NEXT_JS = 'nextjs',
 }
 
 export enum ProjectTool {
-  GIT = 'Git',
-  JIRA = 'Jira',
-  CONFLUENCE = 'Confluence',
-  PHOTOSHOP = 'Photoshop',
-  FIGMA = 'Figma',
+  GIT = 'git',
+  JIRA = 'jira',
+  CONFLUENCE = 'confluence',
+  PHOTOSHOP = 'photoshop',
+  FIGMA = 'figma',
 }
 
 export enum ProjectFunction {
-  PLANNED = 'Planned',
-  DESIGNED = 'Designed',
-  DEVELOPED = 'Developed',
-  IMPLEMENTED = 'Implemented',
-  OPTIMIZED = 'Optimized',
-  DEPLOYED = 'Deployed',
+  PLANNED = 'planned',
+  DESIGNED = 'designed',
+  DEVELOPED = 'developed',
+  IMPLEMENTED = 'implemented',
+  OPTIMIZED = 'optimized',
+  DEPLOYED = 'deployed',
 }
 
 export enum Institution {
-  ATLASSIAN = 'Atlassian',
-  NAU = 'NAU',
-  FREECODECAMP = 'FreeCodeCamp',
-  UDEMY = 'Udemy',
-  LINKEDIN = 'LinkedIn',
-  HACKERRANK = 'HackerRank',
-  FCT = 'FCT',
+  ATLASSIAN = 'atlassian',
+  NAU = 'nau',
+  FREECODECAMP = 'freecodecamp',
+  UDEMY = 'udemy',
+  LINKEDIN = 'linkedin',
+  HACKERRANK = 'hackerrank',
+  FCT = 'fct',
 }
 
 export enum CredentialType {
-  DEGREE = 'Degree',
-  CERTIFICATION = 'Certification',
-  LICENSE = 'License',
+  DEGREE = 'degree',
+  CERTIFICATION = 'certification',
+  LICENSE = 'license',
 }
 
 export enum ProjectType {

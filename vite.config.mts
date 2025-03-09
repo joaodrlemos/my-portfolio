@@ -46,6 +46,7 @@ export default defineConfig({
       '@logos': path.resolve(__dirname, 'src/assets/images/logos'),
       '@pictures': path.resolve(__dirname, 'src/assets/images/pictures'),
       '@projects': path.resolve(__dirname, 'src/assets/images/projects'),
+      '@context': path.resolve(__dirname, 'src/context'),
     },
   },
   optimizeDeps: {

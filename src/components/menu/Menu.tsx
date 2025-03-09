@@ -3,7 +3,7 @@ import { useAppContext } from '@/context/AppContext';
 import { Language } from '@/types/projectTypes';
 import styles from './Menu.module.scss';
 
-const Menu: React.FC = memo(() => {
+const Menu: React.FC = () => {
   const { language, isMenuOpen, toggleMenu } = useAppContext();
 
   return (
@@ -28,7 +28,7 @@ const Menu: React.FC = memo(() => {
       </ul>
     </div>
   );
-});
+};
 
 Menu.displayName = 'Menu';
-export default Menu;
+export default memo(Menu);

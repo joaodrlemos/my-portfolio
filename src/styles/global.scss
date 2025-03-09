@@ -1,6 +1,6 @@
-// ✅ Global Styles
+// Global Styles
 
-// 🎨 Color Palette Family
+// Color Palette Family
 $deactive: rgba(114, 114, 114, 1); // #727272
 $gray: rgba(70, 70, 70, 1); // #464646
 
@@ -13,40 +13,47 @@ $darkerOrange: rgba(194, 94, 33, 1); // #C25E21
 $black: rgba(26, 26, 26, 1); // #1A1A1A
 $white: rgba(254, 254, 254), 1; // #FEFEFE
 
-// 📏 Dimension Vars
+// Dimension Vars
 $sectionHeight: calc(100vh - 70px);
 
-// 🖋️ Font Families
-$menuFont: 'Inconsolata', monospace;
-$textFont: 'Montserrat', sans-serif;
+// Font Families
+$firstFont: 'Inconsolata', monospace;
+$secondFont: 'Montserrat', sans-serif;
 $netflixFont: 'BebasNeue', 'Montserrat';
 
-// ✅ Global Reset
+// Global Reset
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE */
+
+  font-family: $firstFont;
+  font-weight: 300;
 }
 
-// ✅ Default Body Styles
+// Default Body Styles
 html,
 body {
-  font-family: $textFont;
-  font-weight: 300;
   background-color: $black;
   color: white;
   overflow-x: hidden;
 }
 
-img,
-svg {
-  max-width: 100%;
-  height: auto;
+// img,
+// svg {
+//   max-width: 100%;
+//   height: auto;
+// }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-// ✅ Utility Classes
+// Utility Classes
 .hidden {
   display: none;
 }
@@ -57,17 +64,21 @@ svg {
   align-items: center;
 }
 
+:target {
+  scroll-margin-top: 80px;
+}
+
 ::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
-// 📱 Responsive Method Classes
+// Responsive Method Classes
 @mixin mobile {
   @media screen and (max-width: 800px) {
     @content;
   }
 }
 
-// ✅ Font Face (Ensuring Proper Import)
+// Font Face
 @font-face {
   font-family: 'BebasNeue';
   src: url('@/assets/fonts/BebasNeue.otf') format('opentype');

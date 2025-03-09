@@ -1,6 +1,6 @@
 {
   "name": "my-portfolio",
-  "version": "0.5.0",
+  "version": "0.7.0",
   "private": true,
   "type": "module",
   "dependencies": {
@@ -13,12 +13,13 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
     "preview": "vite preview",
     "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "format": "npx prettier --write .",
-    "clean-install": "rm -rf node_modules package-lock.json dist && npm cache clean --force && npm install",
-    "start": "vite preview"
+    "build": "vite build",
+    "clean-install": "rm -rf node_modules package-lock.json dist .vite_cache && npm cache clean --force && npm install",
+    "lint-and-format": "npm run lint && npm run format",
+    "full-reset": "npm run clean-install && npm run lint-and-format && npm run build"
   },
   "browserslist": {
     "production": [
@@ -39,15 +40,15 @@
     "@types/react-dom": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^8.8.1",
     "@typescript-eslint/parser": "^8.8.1",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^9.21.0",
-    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.22.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.2.0",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
     "typescript": "^5.6.3",
     "vite": "^6.2.0",
-    "vite-tsconfig-paths": "^5.0.1"
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

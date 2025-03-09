@@ -1,45 +1,86 @@
+import { ICON_COLOR } from '@/constants/icons';
 import { ProjectTechnology, TechnologyItem } from '@/types/projectTypes';
 import { getIcon } from '@/utils/imageUtils';
 
 export const TechnologiesData: Record<ProjectTechnology, TechnologyItem> = {
   [ProjectTechnology.HTML]: {
     name: ProjectTechnology.HTML,
-    icon: getIcon('html_ico-color.svg', 'technologies', 'html'),
+    icon: getIcon(
+      `${ProjectTechnology.HTML}_ico-${ICON_COLOR}.svg`,
+      'technologies',
+      ProjectTechnology.HTML,
+    ),
   },
   [ProjectTechnology.CSS]: {
     name: ProjectTechnology.CSS,
-    icon: getIcon('css_ico-color.svg', 'technologies', 'css'),
+    icon: getIcon(
+      `${ProjectTechnology.CSS}_ico-${ICON_COLOR}.svg`,
+      'technologies',
+      ProjectTechnology.CSS,
+    ),
   },
   [ProjectTechnology.JAVASCRIPT]: {
     name: ProjectTechnology.JAVASCRIPT,
-    icon: getIcon('javascript_ico-color.svg', 'technologies', 'javascript'),
+    icon: getIcon(
+      `${ProjectTechnology.JAVASCRIPT}_ico-${ICON_COLOR}.svg`,
+      'technologies',
+      ProjectTechnology.JAVASCRIPT,
+    ),
   },
   [ProjectTechnology.TYPESCRIPT]: {
     name: ProjectTechnology.TYPESCRIPT,
-    icon: getIcon('typescript_ico-color.svg', 'technologies', 'typescript'),
+    icon: getIcon(
+      `${ProjectTechnology.TYPESCRIPT}_ico-${ICON_COLOR}.svg`,
+      'technologies',
+      ProjectTechnology.TYPESCRIPT,
+    ),
   },
   [ProjectTechnology.REACT]: {
     name: ProjectTechnology.REACT,
-    icon: getIcon('react_ico-color.svg', 'technologies', 'react'),
+    icon: getIcon(
+      `${ProjectTechnology.REACT}_ico-${ICON_COLOR}.svg`,
+      'technologies',
+      ProjectTechnology.REACT,
+    ),
   },
   [ProjectTechnology.REACT_NATIVE]: {
     name: ProjectTechnology.REACT_NATIVE,
-    icon: getIcon('reactnative_ico-color.svg', 'technologies', 'reactNative'),
+    icon: getIcon(
+      `${ProjectTechnology.REACT_NATIVE}_ico-${ICON_COLOR}.svg`,
+      'technologies',
+      ProjectTechnology.REACT_NATIVE,
+    ),
   },
   [ProjectTechnology.SCSS]: {
     name: ProjectTechnology.SCSS,
-    icon: getIcon('scss_ico-color.svg', 'technologies', 'scss'),
+    icon: getIcon(
+      `${ProjectTechnology.SCSS}_ico-${ICON_COLOR}.svg`,
+      'technologies',
+      ProjectTechnology.SCSS,
+    ),
   },
   [ProjectTechnology.VITE]: {
     name: ProjectTechnology.VITE,
-    icon: getIcon('vite_ico-color.svg', 'technologies', 'vite'),
+    icon: getIcon(
+      `${ProjectTechnology.VITE}_ico-${ICON_COLOR}.svg`,
+      'technologies',
+      ProjectTechnology.VITE,
+    ),
   },
   [ProjectTechnology.EXPO]: {
     name: ProjectTechnology.EXPO,
-    icon: getIcon('expo_ico-white.svg', 'technologies', 'expo'),
+    icon: getIcon(
+      `${ProjectTechnology.EXPO}_ico-${ICON_COLOR}.svg`,
+      'technologies',
+      ProjectTechnology.EXPO,
+    ),
   },
   [ProjectTechnology.NEXT_JS]: {
     name: ProjectTechnology.NEXT_JS,
-    icon: getIcon('nextjs_ico-black.svg', 'technologies', 'nextJs'),
+    icon: getIcon(
+      `${ProjectTechnology.NEXT_JS}_ico-${ICON_COLOR}.svg`,
+      'technologies',
+      ProjectTechnology.NEXT_JS,
+    ),
   },
 };

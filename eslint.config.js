@@ -7,7 +7,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 export default [
   {
     files: ['**/*.{js,mjs,cjs,ts,tsx,jsx}'],
-    ignores: ['node_modules/**', 'dist/**', '.vite_cache/**'],
+    ignores: ['node_modules/**', 'dist/**', '.vite_cache/**', '.eslintcache'],
     languageOptions: {
       globals: {
         window: 'readonly',
@@ -30,7 +30,7 @@ export default [
     },
     settings: {
       react: {
-        version: '18.3',
+        version: 'detect',
       },
     },
     rules: {

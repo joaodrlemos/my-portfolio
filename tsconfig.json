@@ -30,7 +30,8 @@
       "@icons/*": ["src/assets/images/icons/*"],
       "@logos/*": ["src/assets/images/logos/*"],
       "@pictures/*": ["src/assets/images/pictures/*"],
-      "@projects/*": ["src/assets/images/projects/*"]
+      "@projects/*": ["src/assets/images/projects/*"],
+      "@context/*": ["src/context/*"]
     },
     "esModuleInterop": true,
     "resolveJsonModule": true
