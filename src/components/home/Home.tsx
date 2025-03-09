@@ -17,10 +17,7 @@ const Home: React.FC = memo(() => {
 
   return (
     <div className={styles.home} id="home">
-      <div
-        className={styles.container}
-        style={{ '--bg-image': `url(${fotoBw})` } as React.CSSProperties}
-      >
+      <div className={styles.container}>
         <div className={styles.left} />
         <div className={styles.greeting}>
           <div

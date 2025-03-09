@@ -14,7 +14,13 @@
       flex: 0.5;
       background-image:
         linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.6)),
-        var(--bg-image);
+        url('@assets/images/pictures/foto_bw.png');
+        // background-image:
+        // linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.6)),
+        // url('@/assets/images/pictures/foto_bw.png');
+        // background-image:
+        // linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.6)),
+        // url('../../assets/images/pictures/foto_bw.png');
       background-size: contain;
       background-repeat: no-repeat;
       background-position: bottom;

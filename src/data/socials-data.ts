@@ -9,7 +9,7 @@ export const SocialsData: Record<Social, SocialItem> = {
   },
   [Social.INSTAGRAM]: {
     name: Social.INSTAGRAM,
-    icon: getIcon('instagram_ico-color.svg', 'socials', 'instagram'),
+    icon: getIcon('instagram_ico-color.png', 'socials', 'instagram'),
     link: 'https://www.instagram.com/johny_lemings/',
   },
   [Social.GITHUB]: {

@@ -3,7 +3,7 @@ import { useAppContext } from '@/context/AppContext';
 import { Language } from '@/types/projectTypes';
 import styles from './Navbar.module.scss';
 import logo from '@/assets/images/logos/general/J-main-logo-color.png';
-import ImageComponent from '../common/image/Image';
+import ImageComponent from '@/components/common/image/Image';
 
 const Navbar: React.FC = memo(() => {
   const { language, setLanguage, isMenuOpen, toggleMenu } = useAppContext();
