@@ -1,4 +1,4 @@
-import { AppContextType, Language } from '@/typings/generalTypes';
+import { AppContextType, Language } from '@/types/projectTypes';
 import React, { createContext, useState, useContext } from 'react';
 
 const AppContext = createContext<AppContextType | undefined>(undefined);

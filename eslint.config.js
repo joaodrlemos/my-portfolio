@@ -1,36 +1,60 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import tseslint from '@typescript-eslint/eslint-plugin';
+import tsEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import pluginReact from 'eslint-plugin-react';
+import a11y from 'eslint-plugin-jsx-a11y';
+import reactHooks from 'eslint-plugin-react-hooks';
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
   {
-    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+    files: ['**/*.{js,mjs,cjs,ts,tsx,jsx}'],
+    ignores: ['node_modules/**', 'dist/**', '.vite_cache/**', '.eslintcache'],
     languageOptions: {
-      globals: Object.fromEntries(
-        Object.entries(globals.browser).map(([key, value]) => [
-          key.trim(),
-          value,
-        ]),
-      ),
+      globals: {
+        window: 'readonly',
+        document: 'readonly',
+        setTimeout: 'readonly',
+        console: 'readonly',
+      },
       parser: tsParser,
+      sourceType: 'module',
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+      },
     },
     plugins: {
-      '@typescript-eslint': tseslint,
+      '@typescript-eslint': tsEslint,
       react: pluginReact,
+      'jsx-a11y': a11y,
+      'react-hooks': reactHooks,
     },
-    ignores: ['node_modules/', 'dist/', '.vite_cache/'],
     settings: {
       react: {
         version: 'detect',
       },
     },
     rules: {
-      ...pluginJs.configs.recommended.rules,
-      ...tseslint.configs.recommended.rules,
-      ...pluginReact.configs.recommended.rules,
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/no-unused-expressions': [
+        'error',
+        {
+          allowTernary: true,
+          allowShortCircuit: true,
+          allowTaggedTemplates: true,
+        },
+      ],
+      'no-cond-assign': ['error', 'always'],
+      'valid-typeof': ['error', { requireStringLiterals: true }],
+      'getter-return': 'error',
+      'no-prototype-builtins': 'off',
+      'react/jsx-boolean-value': 'error',
+      'react/jsx-curly-spacing': ['error', { when: 'never', children: true }],
+      'jsx-a11y/anchor-has-content': 'error',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
     },
   },
 ];

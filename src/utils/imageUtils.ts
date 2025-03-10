@@ -1,43 +1,68 @@
-export function getImage(imageName: string): string {
-  console.log(`🔍 Looking for image: ${imageName}`);
+export function getDocsImage(imageName: string): string {
+  const images: Record<string, { default: string }> = import.meta.glob(
+    '/src/assets/images/docs/*.{webp,png,jpg,jpeg}',
+    { eager: true },
+  );
 
-  const images: Record<string, { default: string } | undefined> =
-    import.meta.glob('/src/assets/pictures/**/*.{webp,png,jpg,jpeg}', {
-      eager: true,
-    });
-
-  for (const path in images) {
-    if (path.endsWith(`/${imageName}`)) {
-      const image = images[path];
-      if (image && image.default) {
-        console.log(`✅ Found image: ${path} -> ${image.default}`);
-        return image.default;
-      }
-    }
-  }
-
-  console.warn(`⚠️ Image not found: ${imageName}`);
-  return '';
+  return images[`/src/assets/images/docs/${imageName}`]?.default || '';
 }
 
-export function getLogo(logoName: string): string {
-  console.log(`🔍 Looking for logo: ${logoName}`);
+export function getProjectImage(
+  imageName: string,
+  projectName: string,
+): string {
+  const projectImages: Record<string, { default: string }> = import.meta.glob(
+    '/src/assets/images/projects/*/screens/*.{webp,png,jpg,jpeg}',
+    { eager: true },
+  );
 
-  const logos: Record<string, { default: string } | undefined> =
-    import.meta.glob('/src/assets/logos/**/*.{webp,png,jpg,jpeg}', {
-      eager: true,
-    });
+  return (
+    projectImages[
+      `/src/assets/images/projects/${projectName}/screens/${imageName}`
+    ]?.default || ''
+  );
+}
 
-  for (const path in logos) {
-    if (path.endsWith(`/${logoName}`)) {
-      const logo = logos[path];
-      if (logo && logo.default) {
-        console.log(`✅ Found logo: ${path} -> ${logo.default}`);
-        return logo.default;
-      }
-    }
-  }
+export function getProjectLogo(logoName: string, projectName: string): string {
+  const projectLogos: Record<string, { default: string }> = import.meta.glob(
+    '/src/assets/images/projects/*/logos/*.{webp,png,jpg,jpeg}',
+    { eager: true },
+  );
 
-  console.warn(`⚠️ Logo not found: ${logoName}`);
-  return '';
+  return (
+    projectLogos[`/src/assets/images/projects/${projectName}/logos/${logoName}`]
+      ?.default || ''
+  );
+}
+
+export function getIcon(
+  iconName: string,
+  iconCategory: string,
+  iconDesc: string,
+): string {
+  const icons: Record<string, { default: string }> = import.meta.glob(
+    '/src/assets/images/icons/*/*/*.{svg,png,webp,jpg}',
+    { eager: true },
+  );
+
+  return (
+    icons[`/src/assets/images/icons/${iconCategory}/${iconDesc}/${iconName}`]
+      ?.default || ''
+  );
+}
+
+export function getLogo(
+  logoName: string,
+  logoCategory: string,
+  logoDesc: string,
+): string {
+  const logos: Record<string, { default: string }> = import.meta.glob(
+    '/src/assets/images/logos/*/*/*.{svg,png,webp,jpg}',
+    { eager: true },
+  );
+
+  return (
+    logos[`/src/assets/images/logos/${logoCategory}/${logoDesc}/${logoName}`]
+      ?.default || ''
+  );
 }

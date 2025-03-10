@@ -1,32 +1,25 @@
 {
   "name": "my-portfolio",
-  "version": "0.5.0",
+  "version": "0.7.0",
   "private": true,
   "type": "module",
   "dependencies": {
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "@mui/icons-material": "6.4.5",
-    "@mui/material": "6.4.5",
-    "@svgr/plugin-svgo": "8.1.0",
-    "@vitejs/plugin-react": "^1.3.2",
-    "cross-spawn": "7.0.6",
-    "glob": "11.0.1",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-icons": "5.5.0",
-    "react-modal": "3.16.3",
-    "react-router-dom": "^7.2.0",
-    "sass": "1.85.0",
-    "uuid": "11.1.0"
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.3.0",
+    "react-router-dom": "^6.26.2",
+    "sass": "^1.79.5"
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "format": "prettier --write ."
+    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "npx prettier --write .",
+    "build": "vite build",
+    "clean-install": "rm -rf node_modules package-lock.json dist .vite_cache && npm cache clean --force && npm install",
+    "lint-and-format": "npm run lint && npm run format",
+    "full-reset": "npm run clean-install && npm run lint-and-format && npm run build"
   },
   "browserslist": {
     "production": [
@@ -41,26 +34,21 @@
     ]
   },
   "devDependencies": {
-    "@eslint/js": "^9.21.0",
-    "@fullhuman/postcss-purgecss": "^5.0.0",
-    "@types/node": "^22.13.7",
-    "@types/react-dom": "^19.0.4",
-    "@typescript-eslint/eslint-plugin": "^8.25.0",
-    "@typescript-eslint/parser": "^8.25.0",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^9.21.0",
-    "eslint-config-prettier": "^10.0.2",
-    "eslint-plugin-import": "^2.31.0",
+    "@fullhuman/postcss-purgecss": "^6.0.0",
+    "@types/node": "^22.7.5",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.22.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^5.1.0",
-    "postcss": "^8.5.3",
-    "postcss-import": "^16.1.0",
-    "postcss-preset-env": "^10.1.5",
-    "prettier": "^3.5.2",
-    "typescript": "5.7.3",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
     "vite": "^6.2.0",
-    "vite-plugin-compression": "^0.5.1"
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

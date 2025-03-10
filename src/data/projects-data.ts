@@ -4,89 +4,94 @@ import {
   ProjectTechnology,
   ProjectType,
   ProjectTool,
-} from '@/typings/generalTypes';
-import { getImage, getLogo } from '@/utils/imageUtils';
+  Platform,
+} from '@/types/projectTypes';
+import { getProjectImage, getProjectLogo } from '@/utils/imageUtils';
 import { FunctionsData } from './functions-data';
-import { TechnologiesData, ToolsData } from './technologies-tools-data';
+import { TechnologiesData } from './technologies-data';
+import { ToolsData } from './tools-data';
+import { PlatformsData } from './platforms-data';
 
 export const ProjectsData: ProjectItem[] = [
   {
     id: 0,
-    name: 'Keeper',
-    descEn: 'A notepad WebApp where you can create your own notes.',
-    descPt:
+    name: 'noteKeeper',
+    aboutEn: 'A notepad WebApp where you can create your own notes.',
+    aboutPt:
       'Uma aplicação Web bloco de notas onde podes criar as tuas próprias.',
-    img: getImage('KeeperApp.webp'),
+    descEn: 'Notepad Tool',
+    descPt: 'Ferramenta Bloco de Notas',
+    platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
+    img: getProjectImage('KeeperApp.webp', 'notekeeper'),
     backgroundColor: '245,186,19',
     font: 'Montserrat',
     url: 'https://note-keeper-project.netlify.app',
-    type: ProjectType.PERSONAL,
-    year: 2023,
+    type: ProjectType.ACADEMICAL,
+    year: 2021,
     technologies: [
       TechnologiesData[ProjectTechnology.HTML],
       TechnologiesData[ProjectTechnology.CSS],
+      TechnologiesData[ProjectTechnology.JAVASCRIPT],
       TechnologiesData[ProjectTechnology.REACT],
+      TechnologiesData[ProjectTechnology.SCSS],
     ],
-    tools: [
-      ToolsData[ProjectTool.GIT],
-      ToolsData[ProjectTool.JIRA],
-      ToolsData[ProjectTool.CONFLUENCE],
-    ],
-    functions: [
-      FunctionsData[ProjectFunction.DESIGNED],
-      FunctionsData[ProjectFunction.DEVELOPED],
-    ],
+    tools: [ToolsData[ProjectTool.GIT]],
+    functions: [FunctionsData[ProjectFunction.DEVELOPED]],
   },
   {
     id: 1,
     name: 'Hydra',
-    descEn:
+    aboutEn:
       'A proof of concept WebApp for displaying, searching, and filtering users.',
-    descPt:
+    aboutPt:
       'Uma aplicação Web prova de conceito para listar, procurar e filtrar utilizadores',
-    img: getImage('Hydra-preview.webp'),
+    descEn: 'User Database',
+    descPt: 'Base de Dados de Utilizadores',
+    platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
+    img: getProjectImage('Hydra-preview.webp', 'hydra'),
+    client: 'HydraDev',
     backgroundColor: '233,180,180',
     font: 'Montserrat',
     url: 'https://hydrausers.netlify.app',
-    type: ProjectType.PERSONAL,
-    year: 2023,
+    type: ProjectType.PROFESSIONAL,
+    year: 2022,
     technologies: [
       TechnologiesData[ProjectTechnology.HTML],
       TechnologiesData[ProjectTechnology.CSS],
+      TechnologiesData[ProjectTechnology.JAVASCRIPT],
       TechnologiesData[ProjectTechnology.REACT],
+      TechnologiesData[ProjectTechnology.SCSS],
     ],
-    tools: [
-      ToolsData[ProjectTool.GIT],
-      ToolsData[ProjectTool.JIRA],
-      ToolsData[ProjectTool.CONFLUENCE],
-    ],
+    tools: [ToolsData[ProjectTool.GIT]],
     functions: [
       FunctionsData[ProjectFunction.DESIGNED],
       FunctionsData[ProjectFunction.DEVELOPED],
+      FunctionsData[ProjectFunction.IMPLEMENTED],
     ],
   },
   {
     id: 2,
     name: 'Leminflix',
-    descEn: 'A Netflix clone WebApp with movie and TV show info.',
-    descPt:
+    aboutEn: 'A Netflix clone WebApp with movie and TV show info.',
+    aboutPt:
       'Uma aplicação Web clone da Netflix, com informação de filmes e séries.',
-    img: getImage('leminflix.webp'),
+    descEn: 'Streaming Service',
+    descPt: 'Serviço de Streaming',
+    platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
+    img: getProjectImage('leminflix.webp', 'leminflix'),
     backgroundColor: '210,29,36',
     font: 'BebasNeue',
     url: 'https://leminflix.netlify.app',
-    type: ProjectType.PERSONAL,
-    year: 2023,
+    type: ProjectType.ACADEMICAL,
+    year: 2022,
     technologies: [
       TechnologiesData[ProjectTechnology.HTML],
       TechnologiesData[ProjectTechnology.CSS],
+      TechnologiesData[ProjectTechnology.JAVASCRIPT],
       TechnologiesData[ProjectTechnology.REACT],
+      TechnologiesData[ProjectTechnology.SCSS],
     ],
-    tools: [
-      ToolsData[ProjectTool.GIT],
-      ToolsData[ProjectTool.JIRA],
-      ToolsData[ProjectTool.CONFLUENCE],
-    ],
+    tools: [ToolsData[ProjectTool.GIT], ToolsData[ProjectTool.PHOTOSHOP]],
     functions: [
       FunctionsData[ProjectFunction.DESIGNED],
       FunctionsData[ProjectFunction.DEVELOPED],
@@ -95,144 +100,144 @@ export const ProjectsData: ProjectItem[] = [
   {
     id: 3,
     name: 'MEO BlueTicket',
-    descEn:
+    aboutEn:
       'The official MEO MobileApp to buy tickets for concerts, festivals, exhibitions, sports, and family events.',
-    descPt:
+    aboutPt:
       'A aplicação Móvel oficial da MEO, onde se compram bilhetes para Concertos, Festivais, Espetáculos, eventos desportivos, etc.',
-    img: getImage('meobg.webp'),
-    logo: getLogo('MEO_Blueticket_Logo.png'),
+    descEn: 'Events E-Commerce',
+    descPt: 'E-Commerce de Eventos',
+    platforms: [PlatformsData[Platform.MOBILE]],
+    img: getProjectImage('meobg.webp', 'meoblueticket'),
+    client: 'MEO',
+    logo: getProjectLogo('MEO_Blueticket_Logo.png', 'meoblueticket'),
     backgroundColor: '0,153,171',
     font: 'Montserrat',
-    url: null,
     startBackgroundColor: false,
     type: ProjectType.PROFESSIONAL,
     year: 2023,
     technologies: [
       TechnologiesData[ProjectTechnology.HTML],
       TechnologiesData[ProjectTechnology.CSS],
-      TechnologiesData[ProjectTechnology.REACT],
+      TechnologiesData[ProjectTechnology.JAVASCRIPT],
+      TechnologiesData[ProjectTechnology.TYPESCRIPT],
+      TechnologiesData[ProjectTechnology.REACT_NATIVE],
+      TechnologiesData[ProjectTechnology.SCSS],
+      TechnologiesData[ProjectTechnology.EXPO],
     ],
     tools: [
       ToolsData[ProjectTool.GIT],
       ToolsData[ProjectTool.JIRA],
       ToolsData[ProjectTool.CONFLUENCE],
+      ToolsData[ProjectTool.FIGMA],
     ],
     functions: [
-      FunctionsData[ProjectFunction.DESIGNED],
       FunctionsData[ProjectFunction.DEVELOPED],
+      FunctionsData[ProjectFunction.IMPLEMENTED],
+      FunctionsData[ProjectFunction.OPTIMIZED],
     ],
   },
   {
     id: 4,
     name: 'Chem',
-    descEn:
+    aboutEn:
       'A WebTool designed to simulate, visualize, and create graphs on chemical processes, primarily focusing on titration and distillation.',
-    descPt:
+    aboutPt:
       'Uma ferramenta Web desenvolvida para simular, visualizar e criar grafos de processos químicos, com foco principal em titulação e destilação.',
-    img: getImage('chem_home.webp'),
-    logo: getLogo('chem-logo2.png'),
+    descEn: 'Quemical Calculator',
+    descPt: 'Calculadora Quimica',
+    platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
+    img: getProjectImage('chem_home.webp', 'chem'),
+    client: 'Cunha&Cunha Consulting',
+    logo: getProjectLogo('chem-logo2.png', 'chem'),
     backgroundColor: '57,78,44',
     font: 'Arial',
-    url: null,
-    type: ProjectType.PROFESSIONAL,
+    type: ProjectType.FREELANCE,
     year: 2023,
     technologies: [
       TechnologiesData[ProjectTechnology.HTML],
       TechnologiesData[ProjectTechnology.CSS],
+      TechnologiesData[ProjectTechnology.JAVASCRIPT],
+      TechnologiesData[ProjectTechnology.TYPESCRIPT],
       TechnologiesData[ProjectTechnology.REACT],
+      TechnologiesData[ProjectTechnology.SCSS],
     ],
     tools: [
       ToolsData[ProjectTool.GIT],
-      ToolsData[ProjectTool.JIRA],
-      ToolsData[ProjectTool.CONFLUENCE],
+      ToolsData[ProjectTool.PHOTOSHOP],
+      ToolsData[ProjectTool.FIGMA],
     ],
     functions: [
+      FunctionsData[ProjectFunction.PLANNED],
       FunctionsData[ProjectFunction.DESIGNED],
       FunctionsData[ProjectFunction.DEVELOPED],
+      FunctionsData[ProjectFunction.IMPLEMENTED],
+      FunctionsData[ProjectFunction.DEPLOYED],
     ],
   },
   {
     id: 5,
     name: 'MovieDB',
-    descEn:
+    aboutEn:
       'A movie database app that allows users to search and save their favorite movies.',
-    descPt:
+    aboutPt:
       'Uma aplicação de base de dados de filmes onde os utilizadores podem pesquisar e guardar os seus filmes favoritos.',
-    img: getImage('movieDB.webp'),
+    descEn: 'Streaming Service',
+    descPt: 'Serviço de Streaming',
+    platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
+    img: getProjectImage('movieDB.webp', 'moviedb'),
     backgroundColor: '100,100,255',
     font: 'Montserrat',
     url: 'https://moviedb-example.netlify.app',
-    type: ProjectType.PERSONAL,
-    year: 2023,
-    technologies: [
-      TechnologiesData[ProjectTechnology.HTML],
-      TechnologiesData[ProjectTechnology.CSS],
-      TechnologiesData[ProjectTechnology.REACT],
-    ],
-    tools: [
-      ToolsData[ProjectTool.GIT],
-      ToolsData[ProjectTool.JIRA],
-      ToolsData[ProjectTool.CONFLUENCE],
-    ],
-    functions: [
-      FunctionsData[ProjectFunction.DESIGNED],
-      FunctionsData[ProjectFunction.DEVELOPED],
-    ],
-  },
-  {
-    id: 6,
-    name: 'TaskFlow',
-    descEn:
-      'A productivity app for managing daily tasks and schedules efficiently.',
-    descPt:
-      'Uma aplicação de produtividade para gerir tarefas diárias e horários de forma eficiente.',
-    img: getImage('taskflow.webp'),
-    backgroundColor: '45,156,219',
-    font: 'Montserrat',
-    url: 'https://taskflow-app.netlify.app',
-    type: ProjectType.PERSONAL,
-    year: 2023,
-    technologies: [
-      TechnologiesData[ProjectTechnology.HTML],
-      TechnologiesData[ProjectTechnology.CSS],
-      TechnologiesData[ProjectTechnology.REACT],
-    ],
-    tools: [
-      ToolsData[ProjectTool.GIT],
-      ToolsData[ProjectTool.JIRA],
-      ToolsData[ProjectTool.CONFLUENCE],
-    ],
-    functions: [
-      FunctionsData[ProjectFunction.DESIGNED],
-      FunctionsData[ProjectFunction.DEVELOPED],
-    ],
-  },
-  {
-    id: 7,
-    name: 'E-Commerce Dashboard',
-    descEn:
-      'A dashboard for tracking e-commerce sales, customer data, and product analytics.',
-    descPt:
-      'Um painel de controlo para monitorizar vendas, dados de clientes e análise de produtos em e-commerce.',
-    img: getImage('ecommerce_dashboard.webp'),
-    backgroundColor: '78,132,201',
-    font: 'Montserrat',
-    url: 'https://ecommerce-dashboard.netlify.app',
     type: ProjectType.ACADEMICAL,
-    year: 2023,
+    year: 2021,
     technologies: [
       TechnologiesData[ProjectTechnology.HTML],
       TechnologiesData[ProjectTechnology.CSS],
-      TechnologiesData[ProjectTechnology.REACT],
+      TechnologiesData[ProjectTechnology.JAVASCRIPT],
     ],
-    tools: [
-      ToolsData[ProjectTool.GIT],
-      ToolsData[ProjectTool.JIRA],
-      ToolsData[ProjectTool.CONFLUENCE],
-    ],
-    functions: [
-      FunctionsData[ProjectFunction.DESIGNED],
-      FunctionsData[ProjectFunction.DEVELOPED],
-    ],
+    tools: [ToolsData[ProjectTool.GIT]],
+    functions: [FunctionsData[ProjectFunction.DEVELOPED]],
   },
+  // {
+  //   id: 6,
+  //   name: 'Procheck Productions',
+  //   aboutEn:
+  //     'The official website of Procheck Productions, the famous Portuguese Photo, Video and Sound production company.',
+  //   aboutPt:
+  //     'O Website oficial da Procheck Productions, a famosa Produtora Portuguesa de Foto, Video e Som.',
+  //   descEn: 'Multimedia Production Studio',
+  //   descPt: 'Estudio de Produção Multimédia',
+  //   platforms: [PlatformsData[Platform.WEB], PlatformsData[Platform.MOBILE]],
+  //   img: '',
+  //   logo: getProjectLogo('procheck_ico-color.svg', 'procheck'),
+  //   client: 'Procheck Productions',
+  //   backgroundColor: '255,255,255',
+  //   font: 'Montserrat',
+  //   startBackgroundColor: false,
+  //   type: ProjectType.FREELANCE,
+  //   year: 2024,
+  //   technologies: [
+  //     TechnologiesData[ProjectTechnology.HTML],
+  //     TechnologiesData[ProjectTechnology.CSS],
+  //     TechnologiesData[ProjectTechnology.JAVASCRIPT],
+  //     TechnologiesData[ProjectTechnology.TYPESCRIPT],
+  //     TechnologiesData[ProjectTechnology.REACT],
+  //     TechnologiesData[ProjectTechnology.SCSS],
+  //     TechnologiesData[ProjectTechnology.EXPO],
+  //     TechnologiesData[ProjectTechnology.VITE],
+  //   ],
+  //   tools: [
+  //     ToolsData[ProjectTool.GIT],
+  //     ToolsData[ProjectTool.PHOTOSHOP],
+  //     ToolsData[ProjectTool.FIGMA],
+  //   ],
+  //   functions: [
+  //     FunctionsData[ProjectFunction.PLANNED],
+  //     FunctionsData[ProjectFunction.DESIGNED],
+  //     FunctionsData[ProjectFunction.DEVELOPED],
+  //     FunctionsData[ProjectFunction.IMPLEMENTED],
+  //     FunctionsData[ProjectFunction.OPTIMIZED],
+  //     FunctionsData[ProjectFunction.DEPLOYED],
+  //   ],
+  // },
 ];

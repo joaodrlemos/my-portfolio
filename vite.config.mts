@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tsconfigPaths from 'vite-tsconfig-paths';
 import path from 'node:path';
-import compression from 'vite-plugin-compression';
 
 export default defineConfig({
   cacheDir: '.vite_cache',
-  plugins: [react(), compression()],
+  plugins: [react(), tsconfigPaths()],
   server: {
     port: 3000,
     open: true,
@@ -14,12 +14,11 @@ export default defineConfig({
   build: {
     target: 'esnext',
     outDir: 'dist',
-    sourcemap: false,
+    assetsDir: 'assets',
+    sourcemap: true,
     minify: 'esbuild',
     cssCodeSplit: true,
-    assetsInlineLimit: 8192,
     rollupOptions: {
-      external: ['react', 'react-dom'],
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
@@ -28,16 +27,7 @@ export default defineConfig({
           }
         },
       },
-      onwarn(warning, warn) {
-        if (warning.message.includes('"use client"')) {
-          return;
-        }
-        warn(warning);
-      },
     },
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom'],
   },
   resolve: {
     alias: {
@@ -46,11 +36,20 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, 'src/assets'),
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@redux': path.resolve(__dirname, 'src/redux'),
+      '@types': path.resolve(__dirname, 'src/types'),
       '@typings': path.resolve(__dirname, 'src/typings'),
       '@data': path.resolve(__dirname, 'src/data'),
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@utils': path.resolve(__dirname, 'src/utils'),
+      '@docs': path.resolve(__dirname, 'src/assets/images/docs'),
+      '@icons': path.resolve(__dirname, 'src/assets/images/icons'),
+      '@logos': path.resolve(__dirname, 'src/assets/images/logos'),
+      '@pictures': path.resolve(__dirname, 'src/assets/images/pictures'),
+      '@projects': path.resolve(__dirname, 'src/assets/images/projects'),
+      '@context': path.resolve(__dirname, 'src/context'),
     },
   },
-  logLevel: 'info',
+  optimizeDeps: {
+    include: ['react', 'react-dom'],
+  },
 });

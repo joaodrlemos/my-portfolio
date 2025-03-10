@@ -1,10 +1,12 @@
 import React, { memo } from 'react';
 import { useAppContext } from '@/context/AppContext';
-import { Language } from '@/typings/generalTypes';
-import styles from './Navbar.module.scss';
-import logo from '/logos/J-cor-08.png';
+import { Language } from '@/types/projectTypes';
 
-export const Navbar: React.FC = memo(() => {
+import styles from './Navbar.module.scss';
+import logo from '@logos/general/J-main-logo-color.png';
+import ImageComponent from '@/components/imageComponent/ImageComponent';
+
+const Navbar: React.FC = () => {
   const { language, setLanguage, isMenuOpen, toggleMenu } = useAppContext();
 
   return (
@@ -12,7 +14,7 @@ export const Navbar: React.FC = memo(() => {
       <div className={styles.wrapper}>
         <div className={styles.left}>
           <a href="#home">
-            <img src={logo} alt="Logo" />
+            <ImageComponent name="JLogo" img={logo} desc="JLogo" />
           </a>
         </div>
         <div className={styles.middle}>
@@ -58,4 +60,7 @@ export const Navbar: React.FC = memo(() => {
       </div>
     </div>
   );
-});
+};
+
+Navbar.displayName = 'Navbar';
+export default memo(Navbar);
